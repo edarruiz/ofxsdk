@@ -2,7 +2,7 @@
 OFX Core is a .NET Core Implementation for OFX (Open Financial Exchange) file management, such as read, write, parse, import and export to other serializable formats.
 
 # Objective
-The goal of the OFX Core is to create a level of abstraction to deal with OFX files, offering some tools to hide some of the complexity needed by standard.
+The goal of the OFX Core is to create a level of abstraction to deal with OFX files, offering some tools to hide some of the complexity needed by the defined standard.
 
 
 ## What is OFX - Open Financial Exchange?
@@ -15,7 +15,7 @@ From [OFX.net](https://www.ofx.net/):
 
 OFX Core implements the responses defined in the open standard specifications, so the main focus of this context is the file handling and parsing for the received <code>.ofx</code> files from the financial institutions, as well the transformation from the source format to Xml and Json. There are abstractions that can be used to create custom output formats.
 
-The complete mapping to the open standard communication requests and responses specifications are out of scope of this implementation.
+The complete mapping to the open standard communication requests and responses specifications are out of scope of this implementation, since the implementation won't do any task related to communication between clients and servers.
 
 This <code>.ofx</code> files are used in bank reconciliation processes. A bank reconciliation is the process of matching the balances in an entity's accounting records for a cash account to the corresponding information on a bank statement. The goal of this process is to ascertain the differences between the two, and to book changes to the accounting records as appropriate. The information on the bank statement is the bank's record of all transactions impacting the entity's bank account during the past month.
 
@@ -34,6 +34,7 @@ The following list shows the supported specification versions and its current im
 
 # Contributions
 **Author**: Eric Roberto Darruiz - on GitHub [@edarruiz](https://github.com/edarruiz)
+
 There are no dedicated developers for this project, so development is entirely based on voluntary effort. I am working on this project in my spare time, whenever my work schedule and business projects allow me to do so.
 
 If you are interested on this project, you can contribute as well. 
@@ -47,9 +48,12 @@ Here are some guidelines concerning contributions:
 
 
 # Development Environment
-This project is using Visual Studio 2022 and .NET 6.0 for development.
+This project has the following requirements:
+- Visual Studio 2022 
+- .NET 6.0
+- C# 10.0 ([What is new in C# 10?](https://docs.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-10))
 
-The following versions of Visual Studio are supported and required to build the solution:
+The following versions of Visual Studio are supported to build the solution:
 - Visual Studio 2022 17.0.4 or later (stable)
 - Visual Studio 2002 Preview 17.1.0 Preview 2.0 or later (unstable)
 
