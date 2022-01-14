@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32104.313
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SDK", "SDK", "{436322DA-864B-46B3-BC4D-336BD2E34429}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{C8932B55-E3B4-4480-AF9B-D6309298F800}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OFX.SDK", "OFX.SDK\OFX.SDK.csproj", "{E0BD3391-FE5E-46F8-A0D0-A9DAE27FCAE8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{BACD69CE-67B5-4BCD-9D89-87123B3C16A0}"
+	ProjectSection(SolutionItems) = preProject
+		..\LICENSE = ..\LICENSE
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E0BD3391-FE5E-46F8-A0D0-A9DAE27FCAE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0BD3391-FE5E-46F8-A0D0-A9DAE27FCAE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0BD3391-FE5E-46F8-A0D0-A9DAE27FCAE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0BD3391-FE5E-46F8-A0D0-A9DAE27FCAE8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E0BD3391-FE5E-46F8-A0D0-A9DAE27FCAE8} = {436322DA-864B-46B3-BC4D-336BD2E34429}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B1B7C17C-DE78-4DCD-873C-8D5F3392601D}
+	EndGlobalSection
+EndGlobal

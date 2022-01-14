@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<PackageLicenseExpression>BSD-3-Clause</PackageLicenseExpression>
+		<PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<Authors>Eric Roberto Darruiz</Authors>
+		<Description>.NET 6 Implementation for OFX - Open Financial Exchange File Management</Description>
+		<Copyright>Copyright (c) 2022, Eric Roberto Darruiz, All rights reserved.</Copyright>
+		<PackageProjectUrl>https://github.com/edarruiz/ofxsdk</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/edarruiz/ofxsdk</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<PackageTags>ofx;csharp;net6</PackageTags>
+		<GenerateDocumentationFile>True</GenerateDocumentationFile>
+		<EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
+	</PropertyGroup>
+
+</Project>
