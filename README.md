@@ -59,7 +59,7 @@ The following versions of Visual Studio are supported to build the solution:
 
 
 # Documentation
-[Here](.\docs\documentation.md) you can find the OFX SDK Documentation.
+[Here](/docs/documentation.md) you can find the OFX SDK Documentation.
 
 # Roadmap
-[Here](.\docs\roadmap.md) you can find the OFX SDK development roadmap
+[Here](/docs/roadmap.md) you can find the OFX SDK development roadmap
