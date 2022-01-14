@@ -1,8 +1,8 @@
-# OFX Core
-OFX Core is a .NET Core Implementation for OFX (Open Financial Exchange) file management, such as read, write, parse, import and export to other serializable formats.
+# OFX SDK
+OFX SDK is a .NET Core Implementation for OFX (Open Financial Exchange) file management, such as read, write, parse, import and export to other serializable formats.
 
 # Objective
-The goal of the OFX Core is to create a level of abstraction to deal with OFX files, offering some tools to hide some of the complexity needed by the defined standard.
+The goal of the OFX SDK is to create a level of abstraction to deal with OFX files, offering some tools to hide some of the complexity needed by the defined standard.
 
 
 ## What is OFX - Open Financial Exchange?
@@ -13,7 +13,7 @@ From [OFX.net](https://www.ofx.net/):
 > 
 > OFX has been the dominant direct API for banks to provide data to financial applications since 1997. It is actively deployed at over 7,000 financial institutions, and the remaining institutions have easy access to certified OFX servers via all major technology providers and systems integrators. More information can be found at: http://ofx.org.
 
-OFX Core implements the responses defined in the open standard specifications, so the main focus of this context is the file handling and parsing for the received <code>.ofx</code> files from the financial institutions, as well the transformation from the source format to Xml and Json. There are abstractions that can be used to create custom output formats.
+OFX SDK implements the responses defined in the open standard specifications, so the main focus of this context is the file handling and parsing for the received <code>.ofx</code> files from the financial institutions, as well the transformation from the source format to Xml and Json. There are abstractions that can be used to create custom output formats.
 
 The complete mapping to the open standard communication requests and responses specifications are out of scope of this implementation, since the implementation won't do any task related to communication between clients and servers.
 
@@ -59,7 +59,7 @@ The following versions of Visual Studio are supported to build the solution:
 
 
 # Documentation
-- TODO - Link to documentation
+[Here](.\docs\documentation.md) you can find the OFX SDK Documentation.
 
 # Roadmap
-- TODO - Link to roadmap and versions
+[Here](.\docs\roadmap.md) you can find the OFX SDK development roadmap
