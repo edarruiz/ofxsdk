@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!--
+
+	Open Financial Exchange Specification (c)1996-2003 ("Specification") by all of its publishers: 
+	CheckFree Corp., Intuit Inc., and Microsoft Corporation. All rights reserved. 
+
+	Revision History:
+
+	Version	Date    	Editor Email Addr    		    Short Description
+    Tax2.0  2019-09-30  clyde.e.cutting@wellsfargo.com  Introduction of TAXPDF for exchange of PDF tax documents for TY19.
+-->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ofx="http://ofx.net/types/2003/04" targetNamespace="http://ofx.net/types/2003/04" elementFormDefault="unqualified">
+	<xsd:include schemaLocation="OFX_TaxPDF.xsd"/>
+	<xsd:complexType name="TaxPDFRequest">
+		<xsd:annotation>
+			<xsd:documentation>The OFX element "TAXPDFRQ" is of type "TaxPDFRequest"</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="ACCTNUM" type="ofx:AccountIdType" minOccurs="0"/>
+			<xsd:element name="SSN" type="ofx:GenericNameType" minOccurs="0"/>
+			<xsd:element name="TAXYEAR" type="ofx:YearType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="PDFCATEGORY" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Category of the PDF attachment. For use in specifying tax software documents, send one of: 
+Form8288-A or Form1120-F-FIRPTACredit
+Form8805 or Form1120-F-FIRPTACredit
+Form1128
+Form2439
+Form2553
+Form3115
+Form4466
+Form461
+Form4684 or RevProc2009-20
+Form5471ScheduleE
+Form5471ScheduleH
+Form5471ScheduleI-1
+Form5471ScheduleP
+Form5884A
+Form8082 or 8082SignatureDocument
+Form8283 or 8283SignatureDocument
+Form8283 or HistoricPropertyAppraisal
+Form8283 or Photograph
+Form8283 or DevelopmentRestrictionDescription
+Form8283 or DoneeOrganizationContemporaneousWrittenAcknowledgement
+Form8283 or ArtAppraisal
+Form8283 or Form1098C or 1098-CContributions
+Form8283 or QualifiedAppraisal
+Form8716
+Form8830
+Form8832
+Form8838
+Form8865ScheduleG
+Form8865ScheduleH
+Form8904
+Form8949 or Form8949ExceptionReportingStatement
+Form8990
+Form8991
+Form8992
+Form8993
+Form8994
+Form8996
+Form8848 or AdditionalInfo-Form1120-F
+Form2553 or Form1120S-SElectionForm2553
+Form1120S or Form1120SScheduleB-1
+Pre-computedPenaltyAndInterest
+</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="1"/>
+						<xsd:maxLength value="96"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="TaxPDFResponse">
+		<xsd:annotation>
+			<xsd:documentation>The OFX element "TAXPDFRS" is of type "TaxPDFResponse"</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="ACCTNUM" type="ofx:AccountIdType" minOccurs="0"/>
+			<xsd:element name="SSN" type="ofx:GenericNameType" minOccurs="0"/>
+			<xsd:choice maxOccurs="unbounded">
+				<xsd:element name="TAXPDF_V100" type="ofx:TaxDocumentAsPDF_V100"/>
+			</xsd:choice>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

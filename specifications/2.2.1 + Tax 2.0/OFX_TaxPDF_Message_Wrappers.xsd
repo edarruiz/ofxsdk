@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!--
+
+	Open Financial Exchange Specification (c)1996-2003 ("Specification") by all of its publishers: 
+	CheckFree Corp., Intuit Inc., and Microsoft Corporation. All rights reserved. 
+
+	Revision History:
+
+	Version	Date    	Editor Email Addr    		    Short Description
+    Tax2.0  2019-09-30  clyde.e.cutting@wellsfargo.com  Introduction of TAXPDF for exchange of PDF tax documents for TY19.
+-->
+<xsd:schema xmlns:ofx="http://ofx.net/types/2003/04" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://ofx.net/types/2003/04" elementFormDefault="unqualified">
+	<xsd:include schemaLocation="./OFX_Common.xsd"/>
+	<xsd:include schemaLocation="OFX_TaxPDF_Messages.xsd"/>
+	<xsd:complexType name="TaxPDFTransactionRequest">
+		<xsd:annotation>
+			<xsd:documentation>The OFX element "TAXPDFTRNRQ" is of type "TaxPDFTransactionRequest"</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="TRNUID" type="ofx:GloballyUniqueUserIdType"/>
+			<xsd:element name="CLTCOOKIE" type="ofx:IdType" minOccurs="0"/>
+			<xsd:element name="TAN" type="ofx:TransactionAuthorizationNumberType" minOccurs="0"/>
+			<xsd:element name="OFXEXTENSION" type="ofx:OFXExtensionType" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="TAXPDFRQ" type="ofx:TaxPDFRequest"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="TaxPDFTransactionResponse">
+		<xsd:annotation>
+			<xsd:documentation>The OFX element "TAXPDFTRNRS" is of type "TaxPDFTransactionResponse"</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="TRNUID" type="ofx:GloballyUniqueUserIdType"/>
+			<xsd:element name="STATUS" type="ofx:Status"/>
+			<xsd:element name="CLTCOOKIE" type="ofx:IdType" minOccurs="0"/>
+			<xsd:element name="OFXEXTENSION" type="ofx:OFXExtensionType" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="TAXPDFRS" type="ofx:TaxPDFResponse" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

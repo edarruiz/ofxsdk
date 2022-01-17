@@ -1,0 +1,551 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Kathy Eusepi (Intuit) -->
+<!-- edited with XMLSpy v2008 rel. 2 sp2 (http://www.altova.com) by Jessica Wakefield (Intuit, Inc.) -->
+<!--
+	Open Financial Exchange Specification (c)1996-2003 ("Specification") by all of its publishers: 
+	CheckFree Corp., Intuit Inc., and Microsoft Corporation. All rights reserved. 
+
+	Revision History:
+
+	Version	Date    	Editor Email Addr    		Short Description
+ DEc 2015 - initial draft
+ Jan8 2015 - request to have only one tag for NAME. Added element EmployeeInfo to replace the EMPLOYEE used in W-2.
+        Changed RecipientInfoType to have one tag for name - RECIPIENTNAME. ANd one tag for SPOUSENAME
+        CHanged CoverageHouseholdType to have ONE tag for Name. COVEREDINDIVNAME.
+ Apr21 2015 - updated for 2015
+Apr27 2015 - changed 1095-B and 1095-C  required tags to optional
+  Sep 28 2015: added to 1095-C new optional tag <PLANSTARTMONTH>;
+     
+-->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ofx="http://ofx.net/types/2003/04" targetNamespace="http://ofx.net/types/2003/04" elementFormDefault="unqualified">
+	<xsd:include schemaLocation="OFX_Common.xsd"/>
+	<xsd:include schemaLocation="OFX_TaxW2.xsd"/>
+	<xsd:simpleType name="MonthCdType">
+		<xsd:annotation>
+			<xsd:documentation>the OFX element MONTH is of type MonthCdType</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="JAN"/>
+			<xsd:enumeration value="FEB"/>
+			<xsd:enumeration value="MAR"/>
+			<xsd:enumeration value="APR"/>
+			<xsd:enumeration value="MAY"/>
+			<xsd:enumeration value="JUN"/>
+			<xsd:enumeration value="JUL"/>
+			<xsd:enumeration value="AUG"/>
+			<xsd:enumeration value="SEP"/>
+			<xsd:enumeration value="OCT"/>
+			<xsd:enumeration value="NOV"/>
+			<xsd:enumeration value="DEC"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="AbstractTaxForm1095" abstract="true">
+		<xsd:sequence>
+			<xsd:element name="SRVRTID" type="ofx:ServerIdType"/>
+			<xsd:element name="TAXYEAR" type="ofx:YearType"/>
+			<xsd:element name="VOID" type="ofx:BooleanType" minOccurs="0"/>
+			<xsd:element name="CORRECTED" type="ofx:BooleanType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="RecipientInfo">
+		<xsd:annotation>
+			<xsd:documentation>The OFX element "RECIPIENTINFO" is of type "RecipientInfo"</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="RECIPIENTNAME" type="ofx:GenericNameType">
+				<xsd:annotation>
+					<xsd:documentation>Recipient name</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:choice>
+				<xsd:annotation>
+					<xsd:documentation>CHoice of either SSN or DOB. One must be present</xsd:documentation>
+				</xsd:annotation>
+				<xsd:element name="SSN" type="ofx:GenericNameType"/>
+				<xsd:element name="DOB" type="ofx:DateTimeType">
+					<xsd:annotation>
+						<xsd:documentation>IF the SSN is unknown you must provide the Date of Birth</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:choice>
+			<xsd:element name="SPOUSENAME" type="ofx:GenericNameType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Spouse name</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:choice>
+				<xsd:annotation>
+					<xsd:documentation>CHoice of either SPOUSESSN or SPOUSEDOB. One must be present</xsd:documentation>
+				</xsd:annotation>
+				<xsd:element name="SPOUSESSN" type="ofx:GenericNameType" minOccurs="0"/>
+				<xsd:element name="SPOUSEDOB" type="ofx:DateTimeType" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>If SpouseSSN unknown, you must proide the spouse DOB</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:choice>
+			<xsd:element name="ADDR1" type="ofx:AddressType"/>
+			<xsd:element name="ADDR2" type="ofx:AddressType" minOccurs="0"/>
+			<xsd:element name="CITY" type="ofx:AddressType"/>
+			<xsd:element name="STATE" type="ofx:StateType"/>
+			<xsd:element name="POSTALCODE" type="ofx:ZipType" minOccurs="0"/>
+			<xsd:element name="COUNTRYSTRING" type="ofx:CountryStringType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CoveredIndivGrpType">
+		<xsd:annotation>
+			<xsd:documentation>OFX element "COVEREDINDIVIDUAL" is of type "CoveredIndivGrpTpye</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="PERSONNM" type="ofx:GenericNameType">
+				<xsd:annotation>
+					<xsd:documentation>The name of the covered individual on the health plan
+                        </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:choice>
+				<xsd:element name="SSN" type="ofx:GenericNameType">
+					<xsd:annotation>
+						<xsd:documentation>The SSN of the covered individual on the health plan
+                        </xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="PERSONBIRTHDT" type="ofx:DateTimeType">
+					<xsd:annotation>
+						<xsd:documentation>The date of birth of the covered individual on the health plan when SSN is not present
+                        </xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:choice>
+			<xsd:element name="ALLYEARIND" type="ofx:BooleanType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation> Indicates that person was covered by an insurance plan for the entire year.
+                        </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="JANUARYIND" type="ofx:BooleanType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation> Indicates that person was covered by an insurance plan in January.
+                        </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FEBRUARYIND" type="ofx:BooleanType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Indicates that person was covered by an insurance plan in February.
+                        </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MARCHIND" type="ofx:BooleanType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Indicates that person was covered by an insurance plan in March.
+                        </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="APRILIND" type="ofx:BooleanType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Indicates that person was covered by an insurance plan in April.
+                        </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MAYIND" type="ofx:BooleanType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Indicates that person was covered by an insurance plan in May.
+                        </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="JUNEIND" type="ofx:BooleanType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation> Indicates that person was covered by an insurance plan in June.
+                       </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="JULYIND" type="ofx:BooleanType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation> Indicates that person was covered by an insurance plan in July.
+                        </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="AUGUSTIND" type="ofx:BooleanType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation> Indicates that person was covered by an insurance plan in August.
+                        </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SEPTEMBERIND" type="ofx:BooleanType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation> Indicates that person was covered by an insurance plan in September.
+                        </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OCTOBERIND" type="ofx:BooleanType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Indicates that person was covered by an insurance plan in October.
+                       </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="NOVEMBERIND" type="ofx:BooleanType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Indicates that person was covered by an insurance plan in November.
+                        </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="DECEMBERIND" type="ofx:BooleanType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Indicates that person was covered by an insurance plan in December.
+                       </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PartIIGrpType">
+		<xsd:annotation>
+			<xsd:documentation>the OFx element "PARTIIGRP" is of type "PartIIGrpType"</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="MONTHNAME" type="ofx:MonthCdType"/>
+			<xsd:element name="COVERAGEOFFERCD">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="2"/>
+						<xsd:minLength value="2"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MONTHLYPREMIUMAMT" type="ofx:AmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Present if COVERAGEOFFERCD is 1B,1C,1D,1E</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SEC4980HCODE" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="2"/>
+						<xsd:minLength value="2"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="HouseholdInformationType">
+		<xsd:annotation>
+			<xsd:documentation>The OFX element "HOUSEHOLDINFO" is of type "HouseholdInformationType"</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<!--Month Code -->
+			<xsd:element name="MONTHCD" type="ofx:MonthCdType">
+				<xsd:annotation>
+					<xsd:documentation>Month Code</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!--Monthly Premium Amount -->
+			<xsd:element name="MONTHLYPLANPREMIUMAMT" type="ofx:AmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Monthly Premium Amount</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!--Monthly Premium SLCSP Amount -->
+			<xsd:element name="MONTHLYPREMIUMSLCSPAMT" type="ofx:AmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Monthly Premium SLCSP Amount</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!--Monthly Advanced PTC Amount -->
+			<xsd:element name="MONTHLYADVANCEPTCAMT" type="ofx:AmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Monthly Advanced PTC Amount</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CoverageHouseholdType">
+		<xsd:annotation>
+			<xsd:documentation>The OFX element "COVERAGEHOUSEHOLD" is of type "CoverageHouseholdType"</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="COVEREDINDIVNAME" type="ofx:GenericNameType">
+				<xsd:annotation>
+					<xsd:documentation>Covered individual name</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:choice>
+				<xsd:element name="COVEREDINDIVSSN" type="ofx:GenericNameType">
+					<xsd:annotation>
+						<xsd:documentation>Covered individual social security number	</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="COVEREDINDIVBIRTHDT" type="ofx:DateTimeType">
+					<xsd:annotation>
+						<xsd:documentation>Covered individual date of birth USED when SSN is not known
+					</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:choice>
+			<xsd:element name="COVEREDINDIVSTARTDT" type="ofx:DateTimeType">
+				<xsd:annotation>
+					<xsd:documentation> Month coverage began for covered individual</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="COVEREDINDIVENDDT" type="ofx:DateTimeType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Month coverage ended for covered individual
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Tax1095A_V100">
+		<xsd:annotation>
+			<xsd:documentation>The OFX element "TAX1095A_v100" is of type "Tax1095A_V100"</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="ofx:AbstractTaxForm1095">
+				<xsd:sequence>
+					<xsd:element name="MARKETPLACEIDENTIFIER" type="ofx:GenericNameType">
+						<xsd:annotation>
+							<xsd:documentation>Marketplace identifier</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="MARKETASSIGNEDPOLICYNUM" type="ofx:GenericNameType">
+						<xsd:annotation>
+							<xsd:documentation>Marketplace assigned policy number</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="POLICYISSUERNAME" type="ofx:GenericNameType">
+						<xsd:annotation>
+							<xsd:documentation>Name of the exchange providing the 1095-A</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="RECIPIENTINFO" type="ofx:RecipientInfo">
+						<xsd:annotation>
+							<xsd:documentation>Recipient and Recipient Spouse(if applicable) info</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="POLICYSTARTDATE" type="ofx:DateTimeType">
+						<xsd:annotation>
+							<xsd:documentation>Date policy coverage began	</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="POLICYTERMINATIONDATE" type="ofx:DateTimeType" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Date policy coverage ended	</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="COVERAGEHOUSEHOLD" type="ofx:CoverageHouseholdType" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>Covered Individual Information Group</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="HOUSEHOLDINFO" type="ofx:HouseholdInformationType" maxOccurs="12">
+						<xsd:annotation>
+							<xsd:documentation>Monthly premium anounts. </xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="TOTALPLANPREMIUMAMT" type="ofx:AmountType">
+						<xsd:annotation>
+							<xsd:documentation>Total Monthly Premium Amount</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="TOTALPREMIUMSLCSPAMT" type="ofx:AmountType">
+						<xsd:annotation>
+							<xsd:documentation>Total monthly SLCSP Amount</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="TOTALADVANCEPTCAMT" type="ofx:AmountType">
+						<xsd:annotation>
+							<xsd:documentation>Total Monthly Advanced PTC Amount</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="Tax1095B_V100">
+		<xsd:annotation>
+			<xsd:documentation>The OFX element "TAX1095B_V100" is of type "Tax1095B_V100"</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="ofx:AbstractTaxForm1095">
+				<xsd:sequence>
+					<xsd:element name="RESPONSIBLEINDIV" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>The name of the responsible individual on the health plan
+</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice>
+									<xsd:element name="SSN" type="ofx:GenericNameType"/>
+									<xsd:element name="BIRTHDATE" type="ofx:DateTimeType">
+										<xsd:annotation>
+											<xsd:documentation>The date of birth of the responsible individual IF no SSN was provided
+</xsd:documentation>
+										</xsd:annotation>
+									</xsd:element>
+								</xsd:choice>
+								<xsd:element name="NAME" type="ofx:GenericNameType">
+									<xsd:annotation>
+										<xsd:documentation>First, Middle Intitial, Last name</xsd:documentation>
+									</xsd:annotation>
+								</xsd:element>
+								<xsd:element name="ADDR1" type="ofx:AddressType"/>
+								<xsd:element name="ADDR2" type="ofx:AddressType" minOccurs="0"/>
+								<xsd:element name="CITY" type="ofx:AddressType"/>
+								<xsd:element name="STATE" type="ofx:StateType"/>
+								<xsd:element name="POSTALCODE" type="ofx:ZipType"/>
+								<xsd:element name="COUNTRYSTRING" type="ofx:CountryStringType" minOccurs="0"/>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="ORIGINOFPOLICYCD" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Origin of Policy code from instructions
+. One of the following: A,B,C,D,E,F</xsd:documentation>
+						</xsd:annotation>
+						<xsd:simpleType>
+							<xsd:restriction base="xsd:string">
+								<xsd:length value="1"/>
+								<xsd:enumeration value="A"/>
+								<xsd:enumeration value="B"/>
+								<xsd:enumeration value="C"/>
+								<xsd:enumeration value="D"/>
+								<xsd:enumeration value="E"/>
+								<xsd:enumeration value="F"/>
+							</xsd:restriction>
+						</xsd:simpleType>
+					</xsd:element>
+					<xsd:element name="SHOPIDENTIFIER" type="ofx:GenericNameType" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>The ID of the Small Business Health Options Program (SHOP). If applicable.  
+                        </xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="EMPLOYERSPONSORED" type="ofx:Employer" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Present if Insurance company provides employer-sponsored health coverage. Will be blank if NOT insured employer covereage. </xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="ISSUERORPROVIDER" type="ofx:Employer" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Provider Information </xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="CONTACTPERSONPHONE" type="ofx:PhoneType" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Contact phone number for the Coverage Provider who can answer questions regarding the form.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="COVEREDINDIVIDUAL" type="ofx:CoveredIndivGrpType" minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>Covered individual info</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="Tax1095C_V100">
+		<xsd:annotation>
+			<xsd:documentation>The OFX element "TAX1095C_V100" is of type "Tax1095C_V100"</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="ofx:AbstractTaxForm1095">
+				<xsd:sequence>
+					<xsd:element name="ALECONTACTPHONE" type="ofx:PhoneType" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Contact telphone number</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="EMPLOYER" type="ofx:Employer" minOccurs="0"/>
+					<xsd:element name="EMPLOYEEINFO" type="ofx:EmployeeInfo" minOccurs="0"/>
+					<xsd:element name="PLANSTARTMONTH" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Optional for TY15. Enter the 2 digit month 01-12</xsd:documentation>
+						</xsd:annotation>
+						<xsd:simpleType>
+							<xsd:restriction base="xsd:string">
+								<xsd:enumeration value="01"/>
+								<xsd:enumeration value="02"/>
+								<xsd:enumeration value="03"/>
+								<xsd:enumeration value="04"/>
+								<xsd:enumeration value="05"/>
+								<xsd:enumeration value="06"/>
+								<xsd:enumeration value="07"/>
+								<xsd:enumeration value="08"/>
+								<xsd:enumeration value="09"/>
+								<xsd:enumeration value="10"/>
+								<xsd:enumeration value="11"/>
+								<xsd:enumeration value="12"/>
+							</xsd:restriction>
+						</xsd:simpleType>
+					</xsd:element>
+					<xsd:choice>
+						<xsd:element name="ANNUALCOVERAGE" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>Use if Covered for ALL 12 Months</xsd:documentation>
+							</xsd:annotation>
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="COVERAGEOFFERCD">
+										<xsd:simpleType>
+											<xsd:restriction base="xsd:string">
+												<xsd:maxLength value="2"/>
+												<xsd:minLength value="2"/>
+											</xsd:restriction>
+										</xsd:simpleType>
+									</xsd:element>
+									<xsd:element name="MONTHLYPREMIUMAMT" type="ofx:AmountType" minOccurs="0">
+										<xsd:annotation>
+											<xsd:documentation>If COVERAGEOFFERCD is 1B,1C,1D, 1E</xsd:documentation>
+										</xsd:annotation>
+									</xsd:element>
+									<xsd:element name="SEC4980HCODE" minOccurs="0">
+										<xsd:simpleType>
+											<xsd:restriction base="xsd:string">
+												<xsd:maxLength value="2"/>
+											</xsd:restriction>
+										</xsd:simpleType>
+									</xsd:element>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+						<xsd:element name="MONTHLYCOVERAGE" minOccurs="0" maxOccurs="unbounded">
+							<xsd:annotation>
+								<xsd:documentation>Use if NOT covered for ALL 12 months</xsd:documentation>
+							</xsd:annotation>
+							<xsd:complexType>
+								<xsd:complexContent>
+									<xsd:extension base="ofx:PartIIGrpType"/>
+								</xsd:complexContent>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:choice>
+					<xsd:element name="SELFINSURED" type="ofx:BooleanType" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Checked if employer proviided self-insured coverage</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="COVEREDINDIVIDUAL" type="ofx:CoveredIndivGrpType" minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="EmployeeInfo">
+		<xsd:annotation>
+			<xsd:documentation>The OFX element "EMPLOYEEINFO" is of type "EmployeeInfo"; </xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="SSN" type="ofx:GenericNameType"/>
+			<xsd:element name="NAME" type="ofx:GenericNameType">
+				<xsd:annotation>
+					<xsd:documentation>First name, middle initial, last name)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ADDR1" type="ofx:AddressType" minOccurs="0"/>
+			<xsd:element name="ADDR2" type="ofx:AddressType" minOccurs="0"/>
+			<xsd:element name="CITY" type="ofx:AddressType" minOccurs="0"/>
+			<xsd:element name="STATE" type="ofx:StateType" minOccurs="0"/>
+			<xsd:element name="POSTALCODE" type="ofx:ZipType" minOccurs="0"/>
+			<xsd:element name="COUNTRYSTRING" type="ofx:CountryStringType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

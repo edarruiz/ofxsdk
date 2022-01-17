@@ -1,0 +1,82 @@
+<!--#version 103 -->
+
+<!--
+    $Revision:   1.0  $
+    $Date:   1 May 2006 11:05:00  $
+    
+ Open Financial Exchange DTD - signon module
+ Copyright 1997 - 2006 CheckFree Corp., Intuit Inc., Microsoft Corp.
+ All rights reserved
+
+-->
+
+<!-- Message set -->
+<!-- Different from most: only one sonrq and at most one
+     pin change allowed -->
+<!ELEMENT SIGNONMSGSRQV1    - - (SONRQ , PINCHTRNRQ?, CHALLENGETRNRQ?, MFACHALLENGETRNRQ?)>
+<!ELEMENT SIGNONMSGSRSV1    - - (SONRS , PINCHTRNRS?, CHALLENGETRNRS?, MFACHALLENGETRNRS?)>
+
+<!-- Signon message set profile entry -->
+<!ELEMENT SIGNONMSGSET      - - (SIGNONMSGSETV1)>
+<!ELEMENT SIGNONMSGSETV1    - - (MSGSETCORE )>
+
+
+<!-- Transactions -->
+<!ELEMENT PINCHTRNRQ    - - (%TRNRQMACRO , PINCHRQ)>
+<!ELEMENT CHALLENGETRNRQ    - - (%TRNRQMACRO , CHALLENGERQ)>
+<!ELEMENT MFACHALLENGETRNRQ    - - (%TRNRQMACRO , MFACHALLENGERQ)>
+<!ELEMENT PINCHTRNRS    - - (%TRNRSMACRO , PINCHRS?)>
+<!ELEMENT CHALLENGETRNRS    - - (%TRNRSMACRO , CHALLENGERS?)>
+<!ELEMENT MFACHALLENGETRNRS    - - (%TRNRSMACRO , MFACHALLENGERS?)>
+
+
+<!-- Signon Request and Response -->
+
+<!ELEMENT SONRQ 	- - (DTCLIENT , 
+                         ((USERID , USERPASS) | USERKEY),
+                         GENUSERKEY? , LANGUAGE , 
+                        FI? , SESSCOOKIE? , APPID , APPVER, CLIENTUID?,
+                        USERCRED1?, USERCRED2?, AUTHTOKEN?, ACCESSKEY?,
+                        MFACHALLENGEANSWER? )>
+
+<!ELEMENT FI            - - (ORG , FID?)>
+<!ELEMENT ORG           - o %STRTYPE>
+<!ELEMENT FID           - o %STRTYPE>
+
+<!ELEMENT SESSCOOKIE    - o %STRTYPE>
+
+<!ELEMENT MFACHALLENGEANSWER - - (MFAPHRASEID , MFAPHRASEA)>
+<!ELEMENT MFAPHRASEID   - o %STRTYPE>
+<!ELEMENT MFAPHRASEA    - o %STRTYPE>
+
+<!ELEMENT SONRS		- - (STATUS , DTSERVER , USERKEY? , 
+                         TSKEYEXPIRE? , LANGUAGE ,
+                        DTPROFUP? , DTACCTUP? , FI?, SESSCOOKIE?, ACCESSKEY? )>
+
+<!-- Pin Change request and response -->
+
+<!ELEMENT PINCHRQ   - - (USERID , NEWUSERPASS)>
+
+<!ELEMENT PINCHRS   - - (USERID , DTCHANGED?)>
+
+<!ELEMENT NEWUSERPASS	- o %STRTYPE>
+<!ELEMENT DTCHANGED     - o %DTTMTYPE>
+
+<!-- Challenge request and response -->
+
+<!ELEMENT CHALLENGERQ   - - (USERID, FICERTID?)>
+
+<!ELEMENT CHALLENGERS   - - (USERID , NONCE, FICERTID)>
+
+<!ELEMENT NONCE 	- o %STRTYPE>
+<!ELEMENT FICERTID 	- o %STRTYPE>
+
+
+<!-- MFACHALLENGE request and response -->
+
+<!ELEMENT MFACHALLENGERQ   - - (DTCLIENT)>
+
+<!ELEMENT MFACHALLENGERS   - - (MFACHALLENGE+)>
+
+<!ELEMENT MFACHALLENGE     - - (MFAPHRASEID , MFAPHRASELABEL?)>
+<!ELEMENT MFAPHRASELABEL   - o %STRTYPE>
