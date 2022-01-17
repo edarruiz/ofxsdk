@@ -24,13 +24,13 @@ The following list shows the supported specification versions and its current im
 | Specification | Availability | Stage |
 | --- | --- | --- |
 | ![ver102](https://img.shields.io/badge/version-1.0.2-sucess) | ![state102](https://img.shields.io/badge/state-supported-sucess) | ![impl102](https://img.shields.io/badge/development-in%20progress-sucess) |
-| ![ver103](https://img.shields.io/badge/version-1.0.3-inactive) | ![state103](https://img.shields.io/badge/state-not%20supported-inactive) | ![impl103](https://img.shields.io/badge/development-not%20implemented-inactive) |
-| ![ver16](https://img.shields.io/badge/version-1.6-inactive) | ![state16](https://img.shields.io/badge/state-not%20supported-inactive) | ![impl16](https://img.shields.io/badge/development-not%20implemented-inactive) |
-| ![ver203](https://img.shields.io/badge/version-2.0.3-inactive) | ![state203](https://img.shields.io/badge/state-not%20supported-inactive) | ![impl203](https://img.shields.io/badge/development-not%20implemented-inactive) |
-| ![ver211](https://img.shields.io/badge/version-2.1.1-inactive) | ![state211](https://img.shields.io/badge/state-not%20supported-inactive) | ![impl211](https://img.shields.io/badge/development-not%20implemented-inactive) |
-| ![ver22](https://img.shields.io/badge/version-2.2-inactive) | ![state22](https://img.shields.io/badge/state-not%20supported-inactive) | ![impl22](https://img.shields.io/badge/development-not%20implemented-inactive) |
-| ![ver221](https://img.shields.io/badge/version-2.2.1-inactive) | ![state221](https://img.shields.io/badge/state-not%20supported-inactive) | ![impl221](https://img.shields.io/badge/development-not%20implemented-inactive) |
-| ![ver23](https://img.shields.io/badge/version-2.3-inactive) | ![state23](https://img.shields.io/badge/state-not%20supported-inactive) | ![impl23](https://img.shields.io/badge/development-not%20implemented-inactive) |
+| ![ver103](https://img.shields.io/badge/version-1.0.3-inactive) | ![state103](https://img.shields.io/badge/state-not%20yet%20supported-inactive) | ![impl103](https://img.shields.io/badge/development-not%20yet%20implemented-inactive) |
+| ![ver16](https://img.shields.io/badge/version-1.6-inactive) | ![state16](https://img.shields.io/badge/state-not%20yet%20supported-inactive) | ![impl16](https://img.shields.io/badge/development-not%20yet%20implemented-inactive) |
+| ![ver203](https://img.shields.io/badge/version-2.0.3-inactive) | ![state203](https://img.shields.io/badge/state-not%20yet%20supported-inactive) | ![impl203](https://img.shields.io/badge/development-not%20yet%20implemented-inactive) |
+| ![ver211](https://img.shields.io/badge/version-2.1.1-inactive) | ![state211](https://img.shields.io/badge/state-not%20yet%20supported-inactive) | ![impl211](https://img.shields.io/badge/development-not%20yet%20implemented-inactive) |
+| ![ver22](https://img.shields.io/badge/version-2.2-inactive) | ![state22](https://img.shields.io/badge/state-not%20yet%20supported-inactive) | ![impl22](https://img.shields.io/badge/development-not%20yet%20implemented-inactive) |
+| ![ver221](https://img.shields.io/badge/version-2.2.1-inactive) | ![state221](https://img.shields.io/badge/state-not%20yet%20supported-inactive) | ![impl221](https://img.shields.io/badge/development-not%20yet%20implemented-inactive) |
+| ![ver23](https://img.shields.io/badge/version-2.3-inactive) | ![state23](https://img.shields.io/badge/state-not%20yet%20supported-inactive) | ![impl23](https://img.shields.io/badge/development-not%20yet%20implemented-inactive) |
 
 # Contributions
 **Author**: Eric Roberto Darruiz <code>(GitHub [@edarruiz](https://github.com/edarruiz))</code>
