@@ -51,6 +51,15 @@ public sealed class OFXTagAttribute : Attribute {
         Specification = specification;
         Name = name ?? throw new ArgumentNullException(nameof(name));
         IsHeaderTag = isHeaderTag;
+
+        if (!IsHeaderTag) {
+            if (!Name.StartsWith('<')) {
+                Name = $"<{Name}";
+            }
+            if (!Name.EndsWith('>')) {
+                Name = $"{Name}>";
+            }
+        }
     }
     #endregion
 
