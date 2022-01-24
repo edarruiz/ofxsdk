@@ -35,7 +35,19 @@ namespace OFX.SDK.Specifications;
 #endregion
 
 /// <summary>
-/// Represents an abstract Response message used by any OFX Request structure inheritance.
+/// Represents an abstract message set used by any OFX message aggregate structure inheritance.
 /// </summary>
 [OFXVersion(OFXSpecification.Version102)]
-public abstract record class AbstractResponseMessage { }
+public abstract record class AbstractMessageSet {
+    #region Properties
+    /// <summary>
+    /// Gets or sets the Request message of the message aggregate.
+    /// </summary>
+    public abstract AbstractRequestMessage Request { get; protected set; }
+    
+    /// <summary>
+    /// Gets or sets the Response message of the message aggregate.
+    /// </summary>
+    public abstract AbstractResponseMessage Response { get; protected set; }
+    #endregion
+}
