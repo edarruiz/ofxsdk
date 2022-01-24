@@ -44,10 +44,10 @@ public sealed class OFXTagAttribute : Attribute {
     /// <summary>
     /// Initializes a new instace of the <see cref="OFXTagAttribute"/> class.
     /// </summary>
-    /// <param name="spec">The <see cref="OFXSpec"/> representing the specification version for the tag.</param>
+    /// <param name="spec">The <see cref="OFXSpecification"/> representing the specification version for the tag.</param>
     /// <param name="name">The tag name.</param>
-    public OFXTagAttribute(OFXSpec spec, string name) {
-        Spec = spec;
+    public OFXTagAttribute(OFXSpecification spec, string name) {
+        Specification = spec;
         Name = name ?? throw new ArgumentNullException(nameof(name));
     }
     #endregion
@@ -56,7 +56,7 @@ public sealed class OFXTagAttribute : Attribute {
     /// <summary>
     /// Gets the specification version for the tag.
     /// </summary>
-    public OFXSpec Spec { get; private set; }
+    public OFXSpecification Specification { get; private set; }
 
     /// <summary>
     /// Gets the tag name.
