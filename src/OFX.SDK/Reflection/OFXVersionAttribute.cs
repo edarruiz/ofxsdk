@@ -1,6 +1,6 @@
-﻿using OFX.SDK.Reflection;
+﻿using OFX.SDK.Specifications;
 
-namespace OFX.SDK.Specifications.Version102;
+namespace OFX.SDK.Reflection;
 
 #region BSD-3 Copyright Information
 /*
@@ -35,19 +35,24 @@ namespace OFX.SDK.Specifications.Version102;
 #endregion
 
 /// <summary>
-/// Represents the text encoding used for character data.
+/// Represents an OFX specification version for any OFX structure declarations.
 /// </summary>
-/// <remarks>For more information about <c>ENCODING</c> and <c>CHARSET</c>, refer to Chapter 5, 
-/// "International Support." of documentation for the version 1.0.2.</remarks>
-[OFXVersion(OFXSpecification.Version102)]
-public enum OFXHeaderEncoding {
+[AttributeUsage(AttributeTargets.All, Inherited = false, AllowMultiple = true)]
+public sealed class OFXVersionAttribute : Attribute {
+    #region Ctor
     /// <summary>
-    /// Unicode text enconding.
+    /// Initializes a new instance of the <see cref="OFXVersionAttribute"/> class.
     /// </summary>
-    UNICODE = 0,
+    /// <param name="specification">The <see cref="OFXSpecification"/> representing the specification version.</param>
+    public OFXVersionAttribute(OFXSpecification specification) {
+        Specification = specification;
+    }
+    #endregion
 
+    #region Properties
     /// <summary>
-    /// US ASCII text encoding.
+    /// Gets or sets the OFX specification of the version
     /// </summary>
-    USASCII = 1
+    public OFXSpecification Specification { get; private set; }
+    #endregion
 }

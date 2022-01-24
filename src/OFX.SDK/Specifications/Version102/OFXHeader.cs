@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using OFX.SDK.Reflection;
 
 namespace OFX.SDK.Specifications.Version102;
 
@@ -60,6 +61,7 @@ namespace OFX.SDK.Specifications.Version102;
 /// </code>
 /// <para>A blank line follows the last header. Then (for type OFXSGML), the SGML-readable data begins with the <c>&lt;OFX&gt;</c> tag.</para>
 /// </remarks>
+[OFXVersion(OFXSpecification.Version102)]
 public record struct OFXHeader {
     #region Properties
     /// <summary>

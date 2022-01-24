@@ -1,4 +1,6 @@
-﻿namespace OFX.SDK.Specifications.Version102;
+﻿using OFX.SDK.Reflection;
+
+namespace OFX.SDK.Specifications.Version102;
 
 #region BSD-3 Copyright Information
 /*
@@ -36,6 +38,7 @@
 /// Represents the application-level security, if any, that is used for the <c>&lt;OFX&gt;</c> block.
 /// </summary>
 /// <remarks>For more information about security, refer to Chapter 4, "Security." of documentation for the version 1.0.2.</remarks>
+[OFXVersion(OFXSpecification.Version102)]
 public enum OFXHeaderSecurity {
     /// <summary>
     /// Do not use any application-level security.
