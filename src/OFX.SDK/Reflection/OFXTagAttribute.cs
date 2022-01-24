@@ -46,9 +46,11 @@ public sealed class OFXTagAttribute : Attribute {
     /// </summary>
     /// <param name="specification">The <see cref="OFXSpecification"/> representing the specification version for the tag.</param>
     /// <param name="name">The tag name.</param>
-    public OFXTagAttribute(OFXSpecification specification, string name) {
+    /// <param name="isHeaderTag">Define if the tag is a header tag. Defaults to <c>false</c>.</param>
+    public OFXTagAttribute(OFXSpecification specification, string name, bool isHeaderTag = false) {
         Specification = specification;
         Name = name ?? throw new ArgumentNullException(nameof(name));
+        IsHeaderTag = isHeaderTag;
     }
     #endregion
 
@@ -62,5 +64,10 @@ public sealed class OFXTagAttribute : Attribute {
     /// Gets the tag name.
     /// </summary>
     public string Name { get; private set; }
+    
+    /// <summary>
+    /// Gets or sets if the tag is a header tag.
+    /// </summary>
+    public bool IsHeaderTag { get; private set; }
     #endregion
 }
