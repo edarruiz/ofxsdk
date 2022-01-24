@@ -1,6 +1,6 @@
 ﻿using OFX.SDK.Reflection;
 
-namespace OFX.SDK.Specifications;
+namespace OFX.SDK.Specifications.Version102;
 
 #region BSD-3 Copyright Information
 /*
@@ -35,7 +35,8 @@ namespace OFX.SDK.Specifications;
 #endregion
 
 /// <summary>
-/// Represents an abstract Request message used by any OFX Request structure inheritance.
+/// Represents an Response message aggregate.
 /// </summary>
 [OFXVersion(OFXSpecification.Version102)]
-public abstract record class AbstractRequestMessage { }
+public interface IMessageResponse {
+}

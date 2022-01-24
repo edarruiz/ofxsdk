@@ -18,8 +18,4 @@
 		<EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
 	</PropertyGroup>
 
-	<ItemGroup>
-	  <Folder Include="Specifications\Version102\Response\" />
-	</ItemGroup>
-
 </Project>

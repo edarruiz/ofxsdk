@@ -1,6 +1,6 @@
 ﻿using OFX.SDK.Reflection;
 
-namespace OFX.SDK.Specifications;
+namespace OFX.SDK.Specifications.Version102;
 
 #region BSD-3 Copyright Information
 /*
@@ -35,19 +35,7 @@ namespace OFX.SDK.Specifications;
 #endregion
 
 /// <summary>
-/// Represents an abstract message set used by any OFX message aggregate structure inheritance.
+/// Represents an Request message aggregate.
 /// </summary>
 [OFXVersion(OFXSpecification.Version102)]
-public abstract record class AbstractMessageSet {
-    #region Properties
-    /// <summary>
-    /// Gets or sets the Request message of the message aggregate.
-    /// </summary>
-    public abstract AbstractRequestMessage Request { get; protected set; }
-    
-    /// <summary>
-    /// Gets or sets the Response message of the message aggregate.
-    /// </summary>
-    public abstract AbstractResponseMessage Response { get; protected set; }
-    #endregion
-}
+public interface IMessageRequest { }
