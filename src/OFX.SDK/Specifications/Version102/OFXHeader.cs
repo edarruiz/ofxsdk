@@ -60,8 +60,8 @@ namespace OFX.SDK.Specifications.Version102;
 /// </code>
 /// <para>A blank line follows the last header. Then (for type OFXSGML), the SGML-readable data begins with the <c>&lt;OFX&gt;</c> tag.</para>
 /// </remarks>
-public sealed record class OFXHeader {
-    #region Specification 1.0.2
+public record struct OFXHeader {
+    #region Properties
     /// <summary>
     /// Gets the version number of the OFX headers.
     /// </summary>
