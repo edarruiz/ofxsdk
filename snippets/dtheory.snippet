@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>xUnit Theory Test Method with Display Name</Title>
+			<Shortcut>dtheory</Shortcut>
+			<Description>Code snippet for a xUnit theory test method with a display name</Description>
+			<Author>Eric Roberto Darruiz</Author>
+			<SnippetTypes>
+				<SnippetType>Expansion</SnippetType>
+			</SnippetTypes>
+		</Header>
+		<Snippet>
+			<Imports>
+				<Import>
+					<Namespace>System</Namespace>
+				</Import>
+				<Import>
+					<Namespace>Xunit</Namespace>
+				</Import>
+			</Imports>
+			<Declarations>
+				<Literal>
+					<ID>DisplayName</ID>
+					<ToolTip>Replace with the display name of the fact method.</ToolTip>
+					<Default>Fact Display Name</Default>
+				</Literal>
+				<Literal>
+					<ID>Name</ID>
+					<ToolTip>Replace with the name of the theory test method.</ToolTip>
+					<Default>MyTestMethod</Default>
+				</Literal>
+				<Literal Editable="false">
+					<ID>Theory</ID>
+					<Function>SimpleTypeName(global::Xunit.Theory)</Function>
+				</Literal>
+			</Declarations>
+			<Code Language="csharp">
+				<![CDATA[[$Theory$(DisplayName = "$DisplayName$")]
+      public void $Name$()
+      {
+        // Arrange
+        $end$
+        // Act
+        
+        // Assert
+        throw new NotImplementedException();
+      }]]>
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>

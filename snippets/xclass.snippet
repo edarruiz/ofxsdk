@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>xUnit Test Class</Title>
+			<Shortcut>xclass</Shortcut>
+			<Description>Code snippet for a xUnit test class</Description>
+			<Author>Eric Roberto Darruiz</Author>
+			<SnippetTypes>
+				<SnippetType>Expansion</SnippetType>
+			</SnippetTypes>
+		</Header>
+		<Snippet>
+			<Imports>
+				<Import>
+					<Namespace>System</Namespace>
+				</Import>
+				<Import>
+					<Namespace>Xunit</Namespace>
+				</Import>
+			</Imports>
+			<Declarations>
+				<Literal>
+					<ID>Name</ID>
+					<ToolTip>Replace with the name of the test class.</ToolTip>
+					<Default>MyTestClass</Default>
+				</Literal>
+			</Declarations>
+			<Code Language="csharp">
+				<![CDATA[public class $Name$ : IDisposable {
+        #region Ctor and Dtor
+        public $Name$() {
+            // Startup
+        }
+
+        public void Dispose() {
+            // Cleanup
+        }
+        #endregion
+
+        #region Tests
+		$end$
+        #endregion
+    }]]>
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>
