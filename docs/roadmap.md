@@ -3,9 +3,11 @@
 This roadmap describes all work done since the start of the project.
 The project development was started at 14/jan/2022.
 
-![ver001](https://img.shields.io/badge/version-0.0.1-sucess) ![dt001](https://img.shields.io/badge/date-jan/2022-informational) 
+![ver001](https://img.shields.io/badge/version-0.0.1-sucess) 
 - Repository created
 - Development started
 - Added initial contents do README.md
 - Added specification documentation on <code>specifications</code> folder
-- Added OFX Headers structure, OFX version 1.0.2
+- <code>OFX specification, Version 1.0.2</code>
+  - Added OFX Headers structure
+  - Added OFX SIGNON message set and message aggregates
