@@ -1,5 +1,5 @@
 ﻿using OFX.SDK.Reflection;
-using static OFX.SDK.Specifications.Version102.Version102Constants;
+using static OFX.SDK.Specifications.Version102.Constants;
 
 namespace OFX.SDK.Specifications.Version102;
 

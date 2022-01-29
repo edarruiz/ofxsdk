@@ -35,7 +35,7 @@
 /// <summary>
 /// Represents the specification version 1.0.2 constants.
 /// </summary>
-public static class Version102Constants {
+public static class Constants {
     #region OFX Header
     /// <summary>
     /// The OFX header <c>HEADER</c> tag.
