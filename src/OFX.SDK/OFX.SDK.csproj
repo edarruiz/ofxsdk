@@ -18,4 +18,9 @@
 		<EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
 	</PropertyGroup>
 
+	<ItemGroup>
+	  <Folder Include="Reflection\ValidationAttributes\" />
+	  <Folder Include="Specifications\Version102\Interfaces\TransactionResponses\" />
+	</ItemGroup>
+
 </Project>

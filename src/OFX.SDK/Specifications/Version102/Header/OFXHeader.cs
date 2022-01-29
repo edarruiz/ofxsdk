@@ -1,5 +1,5 @@
-﻿using System.Diagnostics;
-using OFX.SDK.Reflection;
+﻿using OFX.SDK.Reflection;
+using static OFX.SDK.Specifications.Version102.Version102Constants;
 
 namespace OFX.SDK.Specifications.Version102;
 
@@ -75,8 +75,8 @@ public record struct OFXHeader {
     /// function without understanding them.</para>
     /// <para>The current version of the Open Financial Exchange headers is version 1.0 (OFHEADER:100).</para>
     /// </remarks>
-    [OFXTag(OFXSpecification.Version102, "OFXHEADER:", true)]
-    public static string OFXHEADER => "100";
+    [OFXTag(OFXSpecification.Version102, OFX_HEADER_TAG, true)]
+    public static string OFXHEADER => OFX_HEADER_TAG_VALUE;
 
     /// <summary>
     /// Gets the content type of the OFX file.
@@ -88,8 +88,8 @@ public record struct OFXHeader {
     /// possible that there will be more than one syntax in use at the same time to meet different needs.</para>
     /// <para>For this version, only the value <c>OFXSGML</c> is valid.</para>
     /// </remarks>
-    [OFXTag(OFXSpecification.Version102, "DATA:", true)]
-    public static string DATA => "OFXSGML";
+    [OFXTag(OFXSpecification.Version102, OFX_DATA_TAG, true)]
+    public static string DATA => OFX_DATA_TAG_VALUE;
 
     /// <summary>
     /// Gets the version of the DTD used to parse the OFX file contents.
@@ -102,8 +102,8 @@ public record struct OFXHeader {
     /// introduce an incompatible change so that an older DTD can not parse the file, the major number should
     /// change.</para>
     /// </remarks>
-    [OFXTag(OFXSpecification.Version102, "VERSION:", true)]
-    public static string VERSION => "102";
+    [OFXTag(OFXSpecification.Version102, OFX_VERSION_TAG, true)]
+    public static string VERSION => OFX_VERSION_TAG_VALUE;
 
     /// <summary>
     /// Gets or sets the application-level security, if any, that is used for the <c>&lt;OFX&gt;</c> block.
@@ -113,7 +113,7 @@ public record struct OFXHeader {
     /// The values for SECURITY can be <c>NONE</c> or <c>TYPE1</c>.
     /// <para>Both values can be set with the values provided by the <see cref="OFXHeaderSecurity"/> enum.</para>
     /// </remarks>
-    [OFXTag(OFXSpecification.Version102, "SECURITY:", true)]
+    [OFXTag(OFXSpecification.Version102, OFX_SECURITY_TAG, true)]
     public OFXHeaderSecurity SECURITY { get; set; }
 
     /// <summary>
@@ -132,21 +132,21 @@ public record struct OFXHeader {
     /// the language requested by the client, it must return an error and not process the rest of the transactions.</para>
     /// <para>Boths values can be set with the valies provided by the <see cref="OFXHeaderEncoding"/> enum.</para>
     /// </remarks>
-    [OFXTag(OFXSpecification.Version102, "ENCODING:", true)]
+    [OFXTag(OFXSpecification.Version102, OFX_ENCODING_TAG, true)]
     public OFXHeaderEncoding ENCODING { get; set; }
 
     /// <summary>
     /// Gets or sets the character set used for character data.
     /// </summary>
     /// <remarks>The default value of <c>CHARSET</c> header is 1252 (a.k.a ANSI).</remarks>
-    [OFXTag(OFXSpecification.Version102, "CHARSET:", true)]
-    public string CHARSET { get; set; } = "1252";
+    [OFXTag(OFXSpecification.Version102, OFX_CHARSET_TAG, true)]
+    public string CHARSET { get; set; } = OFX_CHARSET_TAG_VALUE;
 
     /// <summary>
     /// From documentation: "A future version of the specification will define compression.".
     /// </summary>
     /// <remarks>Unused attribute at this moment, for this version. This property will be used just for the OFX file header mapping.</remarks>
-    [OFXTag(OFXSpecification.Version102, "COMPRESSION:", true)]
+    [OFXTag(OFXSpecification.Version102, OFX_COMPRESSION_TAG, true)]
     public static string COMPRESSION => string.Empty;
 
     /// <summary>
@@ -178,8 +178,8 @@ public record struct OFXHeader {
     /// <para>For more information about data synchronization, refer to Chapter 6.10, "Synchronization Alternatives.", of  
     /// documentation for the version 1.0.2.</para>
     /// </remarks>
-    [OFXTag(OFXSpecification.Version102, "OLDFILEUID:", true)]
-    public string OLDFILEUID { get; set; } = "NONE";
+    [OFXTag(OFXSpecification.Version102, OFX_OLDFILEUID_TAG, true)]
+    public string OLDFILEUID { get; set; } = OFX_OLDFILEUID_TAG_VALUE;
 
     /// <summary>
     /// Gets or sets the UID of the current file.
@@ -210,7 +210,7 @@ public record struct OFXHeader {
     /// <para>For more information about data synchronization, refer to Chapter 6.10, "Synchronization Alternatives.", of  
     /// documentation for the version 1.0.2.</para>
     /// </remarks>
-    [OFXTag(OFXSpecification.Version102, "NEWFILEUID:", true)]
-    public string NEWFILEUID { get; set; } = "NONE";
+    [OFXTag(OFXSpecification.Version102, OFX_NEWFILEUID_TAG, true)]
+    public string NEWFILEUID { get; set; } = OFX_NEWFILEUID_TAG_VALUE;
     #endregion
 }

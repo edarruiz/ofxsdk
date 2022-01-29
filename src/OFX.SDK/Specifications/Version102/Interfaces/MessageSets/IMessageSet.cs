@@ -40,12 +40,12 @@ namespace OFX.SDK.Specifications.Version102;
 [OFXVersion(OFXSpecification.Version102)]
 public interface IMessageSet {
     /// <summary>
-    /// Gets or sets the Request message of the message aggregate.
+    /// Gets or sets the Request message aggregate.
     /// </summary>
     IMessageRequest Request { get; }
 
     /// <summary>
-    /// Gets or sets the Response message of the message aggregate.
+    /// Gets or sets the Response message aggregate.
     /// </summary>
     IMessageResponse Response { get; }
 }
