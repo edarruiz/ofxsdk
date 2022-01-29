@@ -1,4 +1,5 @@
-﻿using OFX.SDK.Reflection;
+﻿using System.ComponentModel;
+using OFX.SDK.Reflection;
 
 namespace OFX.SDK.Specifications.Version102;
 
@@ -44,10 +45,12 @@ public enum OFXHeaderEncoding {
     /// <summary>
     /// Unicode text enconding.
     /// </summary>
+    [DefaultValue(nameof(UNICODE))]
     UNICODE = 0,
 
     /// <summary>
     /// US ASCII text encoding.
     /// </summary>
+    [DefaultValue(nameof(USASCII))]
     USASCII = 1
 }
