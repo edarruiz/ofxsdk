@@ -38,9 +38,9 @@ namespace OFX.SDK.Tests.Specifications.Version102.Header;
 #endregion
 
 public class OFXHeaderEncodingTests {
-    #region Annotation Tests
-    [Fact(DisplayName = "Get OFXVersion Attribute")]
-    public void Get_OFXVersionAttribute_FromClass() {
+    #region OFX Attribute Version Tests
+    [Fact(DisplayName = "Get OFX version from Class")]
+    public void Get_OFXVersion_FromClass() {
         // Arrange
         var actual = new OFXHeaderEncoding();
         var expected = OFXSpecification.Version102;
@@ -51,9 +51,11 @@ public class OFXHeaderEncodingTests {
         // Assert
         Assert.Equal(expected, result);
     }
+    #endregion
 
-    [Fact(DisplayName = "Get OFXValue Attribute value from UNICODE field")]
-    public void Get_OFXValueAttribute_FromUNICODEField() {
+    #region OFXTag Value Tests
+    [Fact(DisplayName = "Get OFX value from UNICODE field")]
+    public void Get_OFXValue_FromUNICODEField() {
         // Arrange
         var actual = OFXHeaderEncoding.UNICODE;
         var expected = "UNICODE";
@@ -65,8 +67,8 @@ public class OFXHeaderEncodingTests {
         Assert.Equal(expected, result);
     }
 
-    [Fact(DisplayName = "Get OFXValue Attribute value from USASCII field")]
-    public void Get_OFXValueAttribute_FromUSASCIIField() {
+    [Fact(DisplayName = "Get OFX value from USASCII field")]
+    public void Get_OFXValue_FromUSASCIIField() {
         // Arrange
         var actual = OFXHeaderEncoding.USASCII;
         var expected = "USASCII";
