@@ -20,4 +20,12 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Specifications\Version102\Header\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\OFX.SDK\OFX.SDK.csproj" />
+  </ItemGroup>
+
 </Project>
