@@ -65,6 +65,17 @@ namespace OFX.SDK.Specifications.Version102;
 public record struct OFXHeader {
     #region Ctor
     /// <summary>
+    /// Initializes a new instance of the struct <see cref="OFXHeader"/> with the default values.
+    /// </summary>
+    public OFXHeader() {
+        SECURITY = OFXHeaderSecurity.None;
+        ENCODING = OFXHeaderEncoding.USASCII;
+        CHARSET = OFX_CHARSET_TAG_VALUE;
+        OLDFILEUID = OFX_OLDFILEUID_TAG_VALUE;
+        NEWFILEUID = OFX_NEWFILEUID_TAG_VALUE;
+    }
+
+    /// <summary>
     /// Initializes a new instance of the struct <see cref="OFXHEADER"/> with the specified values.
     /// </summary>
     /// <param name="security"><see cref="OFXHeaderSecurity"/> defined on header.</param>
@@ -160,7 +171,7 @@ public record struct OFXHeader {
     /// </summary>
     /// <remarks>The default value of <c>CHARSET</c> header is 1252 (a.k.a ANSI).</remarks>
     [OFXTag(OFXSpecification.Version102, OFX_CHARSET_TAG, true)]
-    public string CHARSET { get; set; } = OFX_CHARSET_TAG_VALUE;
+    public string CHARSET { get; set; }
 
     /// <summary>
     /// From documentation: "A future version of the specification will define compression.".
@@ -199,7 +210,7 @@ public record struct OFXHeader {
     /// documentation for the version 1.0.2.</para>
     /// </remarks>
     [OFXTag(OFXSpecification.Version102, OFX_OLDFILEUID_TAG, true)]
-    public string OLDFILEUID { get; set; } = OFX_OLDFILEUID_TAG_VALUE;
+    public string OLDFILEUID { get; set; }
 
     /// <summary>
     /// Gets or sets the UID of the current file.
@@ -231,6 +242,6 @@ public record struct OFXHeader {
     /// documentation for the version 1.0.2.</para>
     /// </remarks>
     [OFXTag(OFXSpecification.Version102, OFX_NEWFILEUID_TAG, true)]
-    public string NEWFILEUID { get; set; } = OFX_NEWFILEUID_TAG_VALUE;
+    public string NEWFILEUID { get; set; }
     #endregion
 }

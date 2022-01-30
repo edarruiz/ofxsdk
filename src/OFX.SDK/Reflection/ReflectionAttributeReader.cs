@@ -105,17 +105,29 @@ public static class ReflectionAttributeReader {
 
     #region OFXTagAttribute Reader
     /// <summary>
-    /// Gets the tag name from the <see cref="OFXTagAttribute"/> annotation applied to the object.
+    /// Gets the tag name from the <see cref="OFXTagAttribute"/> annotation applied to the object, field or property.
     /// </summary>
     /// <typeparam name="T">The generic type having the <see cref="OFXTagAttribute"/> annotation.</typeparam>
     /// <param name="source">Instance of the generic type having the <see cref="OFXTagAttribute"/> annotation.</param>
     /// <param name="propertyName">Name of the property annotated.</param>
-    /// <returns>Returns the tag name of the <see cref="OFXTagAttribute"/> assigned to the object annotation.</returns>
+    /// <returns>Returns the tag name of the <see cref="OFXTagAttribute"/> assigned to the object, field or property annotation.</returns>
     public static string? GetOFXTagName<T>(this T source, string? propertyName = null) {
-
         var result = GetAttributeInfo<T, OFXTagAttribute>(source, propertyName);
 
         return result?.Name;
+    }
+
+    /// <summary>
+    /// Gets the tag <see cref="OFXSpecification"/> from the <see cref="OFXTagAttribute"/> annotation applied to the object, object fields or properties.
+    /// </summary>
+    /// <typeparam name="T">The generic type having the <see cref="OFXTagAttribute"/> annotation.</typeparam>
+    /// <param name="source">Instance of the generic type having the <see cref="OFXTagAttribute"/> annotation.</param>
+    /// <param name="propertyName">Name of the property annotated.</param>
+    /// <returns>Returns the <see cref="OFXSpecification"/> from the <see cref="OFXTagAttribute"/> assigned to the object, field or property annotation.</returns>
+    public static OFXSpecification? GetOFXTagVersion<T>(this T source, string? propertyName = null) {
+        var result = GetAttributeInfo<T, OFXTagAttribute>(source, propertyName);
+
+        return result?.Specification;
     }
     #endregion
 }

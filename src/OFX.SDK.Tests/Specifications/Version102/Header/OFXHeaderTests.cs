@@ -52,6 +52,238 @@ public class OFXHeaderTests {
         // Assert
         Assert.Equal(expected, result);
     }
+
+    [Fact(DisplayName = "Get OFXTag Attribute from OFXHEADER property")]
+    public void Get_OFXTagAttribute_FromOFXHEADERProperty() {
+        // Arrange
+        var actual = new OFXHeader();
+        var expected = "OFXHEADER:";
+
+        // Act
+        var result = actual.GetOFXTagName(nameof(OFXHeader.OFXHEADER));
+
+        // Assert
+        Assert.Equal(expected, result);
+    }
+
+    [Fact(DisplayName = "Get OFXTag Attribute from DATA property")]
+    public void Get_OFXTagAttribute_FromDATAProperty() {
+        // Arrange
+        var actual = new OFXHeader();
+        var expected = "DATA:";
+
+        // Act
+        var result = actual.GetOFXTagName(nameof(OFXHeader.DATA));
+
+        // Assert
+        Assert.Equal(expected, result);
+    }
+
+    [Fact(DisplayName = "Get OFXTag Attribute from VERSION property")]
+    public void Get_OFXTagAttribute_FromVERSIONProperty() {
+        // Arrange
+        var actual = new OFXHeader();
+        var expected = "VERSION:";
+
+        // Act
+        var result = actual.GetOFXTagName(nameof(OFXHeader.VERSION));
+
+        // Assert
+        Assert.Equal(expected, result);
+    }
+
+    [Fact(DisplayName = "Get OFXTag Attribute from SECURITY property")]
+    public void Get_OFXTagAttribute_FromSECURITYProperty() {
+        // Arrange
+        var actual = new OFXHeader();
+        var expected = "SECURITY:";
+
+        // Act
+        var result = actual.GetOFXTagName(nameof(OFXHeader.SECURITY));
+
+        // Assert
+        Assert.Equal(expected, result);
+    }
+
+    [Fact(DisplayName = "Get OFXTag Attribute from ENCODING property")]
+    public void Get_OFXTagAttribute_FromENCODINGProperty() {
+        // Arrange
+        var actual = new OFXHeader();
+        var expected = "ENCODING:";
+
+        // Act
+        var result = actual.GetOFXTagName(nameof(OFXHeader.ENCODING));
+
+        // Assert
+        Assert.Equal(expected, result);
+    }
+
+    [Fact(DisplayName = "Get OFXTag Attribute from CHARSET property")]
+    public void Get_OFXTagAttribute_FromCHARSETProperty() {
+        // Arrange
+        var actual = new OFXHeader();
+        var expected = "CHARSET:";
+
+        // Act
+        var result = actual.GetOFXTagName(nameof(OFXHeader.CHARSET));
+
+        // Assert
+        Assert.Equal(expected, result);
+    }
+
+    [Fact(DisplayName = "Get OFXTag Attribute from COMPRESSION property")]
+    public void Get_OFXTagAttribute_FromCOMPRESSIONProperty() {
+        // Arrange
+        var actual = new OFXHeader();
+        var expected = "COMPRESSION:";
+
+        // Act
+        var result = actual.GetOFXTagName(nameof(OFXHeader.COMPRESSION));
+
+        // Assert
+        Assert.Equal(expected, result);
+    }
+
+    [Fact(DisplayName = "Get OFXTag Attribute from OLDFILEUID property")]
+    public void Get_OFXTagAttribute_FromOLDFILEUIDProperty() {
+        // Arrange
+        var actual = new OFXHeader();
+        var expected = "OLDFILEUID:";
+
+        // Act
+        var result = actual.GetOFXTagName(nameof(OFXHeader.OLDFILEUID));
+
+        // Assert
+        Assert.Equal(expected, result);
+    }
+
+    [Fact(DisplayName = "Get OFXTag Attribute from NEWFILEUID property")]
+    public void Get_OFXTagAttribute_FromNEWFILEUIDProperty() {
+        // Arrange
+        var actual = new OFXHeader();
+        var expected = "NEWFILEUID:";
+
+        // Act
+        var result = actual.GetOFXTagName(nameof(OFXHeader.NEWFILEUID));
+
+        // Assert
+        Assert.Equal(expected, result);
+    }
+    #endregion
+
+    #region Test Default Values
+    [Fact(DisplayName = "Test default value of property OFXHEADER")]
+    public void Test_DefaultValue_PropertyOFXHEADER() {
+        // Arrange
+        var actual = OFXHeader.OFXHEADER;
+        var expected = "100";
+
+        // Act
+
+        // Assert
+        Assert.Equal(actual, expected);
+    }
+
+    [Fact(DisplayName = "Test default value of property DATA")]
+    public void Test_DefaultValue_PropertyDATA() {
+        // Arrange
+        var actual = OFXHeader.DATA;
+        var expected = "OFXSGML";
+
+        // Act
+
+        // Assert
+        Assert.Equal(actual, expected);
+    }
+
+    [Fact(DisplayName = "Test default value of property VERSION")]
+    public void Test_DefaultValue_PropertyVERSION() {
+        // Arrange
+        var actual = OFXHeader.VERSION;
+        var expected = "102";
+
+        // Act
+
+        // Assert
+        Assert.Equal(actual, expected);
+    }
+
+    [Fact(DisplayName = "Test default value of property SECURITY")]
+    public void Test_DefaultValue_PropertySECURITY() {
+        // Arrange
+        var actual = new OFXHeader();
+        var expected = OFXHeaderSecurity.None;
+
+        // Act
+        var result = actual.SECURITY;
+
+        // Assert
+        Assert.Equal(expected, result);
+    }
+
+    [Fact(DisplayName = "Test default value of property ENCODING")]
+    public void Test_DefaultValue_PropertyENCODING() {
+        // Arrange
+        var actual = new OFXHeader();
+        var expected = OFXHeaderEncoding.USASCII;
+
+        // Act
+        var result = actual.ENCODING;
+
+        // Assert
+        Assert.Equal(expected, result);
+    }
+
+    [Fact(DisplayName = "Test default value of property CHARSET")]
+    public void Test_DefaultValue_PropertyCHARSET() {
+        // Arrange
+        var actual = new OFXHeader();
+        var expected = "1252";
+
+        // Act
+        var result = actual.CHARSET;
+
+        // Assert
+        Assert.Equal(expected, result);
+    }
+
+    [Fact(DisplayName = "Test default value of property COMPRESSION")]
+    public void Test_DefaultValue_PropertyCOMPRESSION() {
+        // Arrange
+        var actual = OFXHeader.COMPRESSION;
+        var expected = string.Empty;
+
+        // Act
+
+        // Assert
+        Assert.Equal(actual, expected);
+    }
+
+    [Fact(DisplayName = "Test default value of property OLDFILEUID")]
+    public void Test_DefaultValue_PropertyOLDFILEUID() {
+        // Arrange
+        var actual = new OFXHeader();
+        var expected = "NONE";
+
+        // Act
+        var result = actual.OLDFILEUID;
+
+        // Assert
+        Assert.Equal(expected, result);
+    }
+
+    [Fact(DisplayName = "Test default value of property NEWFILEUID")]
+    public void Test_DefaultValue_PropertyNEWFILEUID() {
+        // Arrange
+        var actual = new OFXHeader();
+        var expected = "NONE";
+
+        // Act
+        var result = actual.NEWFILEUID;
+
+        // Assert
+        Assert.Equal(expected, result);
+    }
     #endregion
 
     #region Ctor Tests

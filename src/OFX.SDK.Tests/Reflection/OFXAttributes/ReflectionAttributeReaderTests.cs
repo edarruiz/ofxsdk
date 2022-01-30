@@ -137,6 +137,46 @@ public class ReflectionAttributeReaderTests {
         Assert.Equal(expectedTag1, resultTag1);
         Assert.Equal(expectedTag2, resultTag2);
     }
+
+    [Fact(DisplayName = "Get OFXSpecification value from OFXTagAttribute of Enum field")]
+    public void Get_OFXSpecification_FromOFXTagAttributeOfEnumField() {
+        // Arrange
+        var firstValue = DummyEnum.FirstValue;
+        var secondValue = DummyEnum.SecondValue;
+        var thirdValue = DummyEnum.ThirdValue;
+        var expectedFirstValueVersion = OFXSpecification.Version102;
+        var expectedSecondValueVersion = OFXSpecification.Version102;
+        var expectedThirdValueVersion = OFXSpecification.Version102;
+
+        // Act
+        var resultFirstValueVersion = firstValue.GetOFXVersion();
+        var resultSecondValueVersion = secondValue.GetOFXVersion();
+        var resultThirdValueVersion = thirdValue.GetOFXVersion();
+
+        // Assert
+        Assert.Equal(expectedFirstValueVersion, resultFirstValueVersion);
+        Assert.Equal(expectedSecondValueVersion, resultSecondValueVersion);
+        Assert.Equal(expectedThirdValueVersion, resultThirdValueVersion);
+    }
+
+    [Fact(DisplayName = "Get OFXSpecification value from OFXTagAttribute of Class property")]
+    public void Get_OFXSpecification_FromOFXTagAttributeOfClassProperty() {
+        // Arrange
+        var actual = new DummyClassWithVersion();
+        var expectedPropertyWithHeaderTagVersion = OFXSpecification.Version102;
+        var expectedSomePropertyVersion = OFXSpecification.Version102;
+        var expectedOtherPropertyVersion = OFXSpecification.Version102;
+
+        // Act
+        var resultPropertyWithHeaderTagVersion = actual.GetOFXTagVersion(nameof(actual.PropertyWithHeaderTag));
+        var resultSomePropertyVersion = actual.GetOFXTagVersion(nameof(actual.SomeProperty));
+        var resultOtherPropertyVersion = actual.GetOFXTagVersion(nameof(actual.OtherProperty));
+
+        // Assert
+        Assert.Equal(expectedPropertyWithHeaderTagVersion, resultPropertyWithHeaderTagVersion);
+        Assert.Equal(expectedSomePropertyVersion, resultSomePropertyVersion);
+        Assert.Equal(expectedOtherPropertyVersion, resultOtherPropertyVersion);
+    }
     #endregion
 }
 
