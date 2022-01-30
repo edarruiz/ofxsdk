@@ -48,9 +48,9 @@ public class ReflectionAttributeReaderTests {
         var expected3 = "#3 Value";
 
         // Act
-        var result1 = actual1.GetOFXValueAttribute();
-        var result2 = actual2.GetOFXValueAttribute();
-        var result3 = actual3.GetOFXValueAttribute();
+        var result1 = actual1.GetOFXValue();
+        var result2 = actual2.GetOFXValue();
+        var result3 = actual3.GetOFXValue();
 
         // Assert
         Assert.Equal(expected1, result1);

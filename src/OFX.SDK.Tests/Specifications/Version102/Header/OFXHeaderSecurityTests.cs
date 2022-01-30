@@ -37,7 +37,7 @@ namespace OFX.SDK.Tests.Specifications.Version102.Header;
 #endregion
 
 public class OFXHeaderSecurityTests {
-    #region Tests
+    #region OFXValueAttribute Tests
     [Fact(DisplayName = "OFXHeaderSecurity.None OFXValueAttribute")]
     [Trait("OFXHeaderSecurity", "None")]
     public void GetNoneOFXValueAttribute() {
@@ -46,7 +46,7 @@ public class OFXHeaderSecurityTests {
         var expected = "NONE";
 
         // Act
-        var result = actual.GetOFXValueAttribute();
+        var result = actual.GetOFXValue();
 
         // Assert
         Assert.Equal(expected, result);
@@ -60,7 +60,7 @@ public class OFXHeaderSecurityTests {
         var expected = "TYPE1";
 
         // Act
-        var result = actual.GetOFXValueAttribute();
+        var result = actual.GetOFXValue();
 
         // Assert
         Assert.Equal(expected, result);

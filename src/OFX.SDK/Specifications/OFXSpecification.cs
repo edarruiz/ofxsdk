@@ -39,50 +39,55 @@ namespace OFX.SDK.Specifications;
 /// </summary>
 public enum OFXSpecification {
     /// <summary>
+    /// Unknown specification version.
+    /// </summary>
+    Unknown = 0,
+
+    /// <summary>
     /// Specification version 1.0.2, the initial version.
     /// </summary>
     [OFXValue("1.0.2")]
-    Version102 = 0, // Version 1.0.2 (1997)
+    Version102 = 1, // Version 1.0.2 (1997)
 
     /// <summary>
     /// Specification version 1.0.3, including MFA (multi-factor authentication)
     /// </summary>
     [OFXValue("1.0.3")]
-    Version103 = 1, // Version 1.0.3 (2005) + MFA
+    Version103 = 2, // Version 1.0.3 (2005) + MFA
 
     /// <summary>
     /// Specification version 1.6, last version using SGML format.
     /// </summary>
     [OFXValue("1.6")]
-    Version160 = 2, // Version 1.6 (1999)
+    Version160 = 3, // Version 1.6 (1999)
 
     /// <summary>
     /// Specification version 2.0.3, first version using XML.
     /// </summary>
     [OFXValue("2.0.3")]
-    Version203 = 3, // Version 2.0.3 (2006) = 2.0.2 + MFA
+    Version203 = 4, // Version 2.0.3 (2006) = 2.0.2 + MFA
 
     /// <summary>
     /// Specification version 2.1.1, equivalent to 2.1 including MFA (multi-factor authentication)
     /// </summary>
     [OFXValue("2.1.1")]
-    Version211 = 4, // Version 2.1.1 (2006) = 2.1 + MFA
+    Version211 = 5, // Version 2.1.1 (2006) = 2.1 + MFA
 
     /// <summary>
     /// Specification version 2.2, including OAuth.
     /// </summary>
     [OFXValue("2.2")]
-    Version220 = 5, // Version 2.2 (2017) + OAuth
+    Version220 = 6, // Version 2.2 (2017) + OAuth
 
     /// <summary>
     /// Specification version 2.2.1, including Tax information 2.0
     /// </summary>
     [OFXValue("2.2.1")]
-    Version221 = 6, // Version 2.2.1 (2019) + Tax 2.0
+    Version221 = 7, // Version 2.2.1 (2019) + Tax 2.0
 
     /// <summary>
     /// Specification version 2.3
     /// </summary>
     [OFXValue("2.3")]
-    Version230 = 7 // Version 2.3 (2020)
+    Version230 = 8 // Version 2.3 (2020)
 }

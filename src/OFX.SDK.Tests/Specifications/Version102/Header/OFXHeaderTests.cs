@@ -1,4 +1,4 @@
-﻿using OFX.SDK.Reflection;
+﻿using System;
 using OFX.SDK.Specifications.Version102;
 using Xunit;
 
@@ -36,34 +36,48 @@ namespace OFX.SDK.Tests.Specifications.Version102.Header;
 */
 #endregion
 
-public class OFXHeaderEncodingTests {
-    #region Tests
-    [Fact(DisplayName = "OFXHeaderEncoding.UNICODE OFXValueAttribute")]
-    [Trait("OFXHeaderEncoding", "UNICODE")]
-    public void Read_OFXValueAttribute_UNICODE() {
+public class OFXHeaderTests {
+    #region Ctor Tests
+    [Fact(DisplayName = "Ctor: throw exception when CHARSET is null")]
+    [Trait("OFXHeader Ctor", "CHARSET exception")]
+    public void Ctor_ThrowArgumentNullException_CHARSET() {
         // Arrange
-        var actual = OFXHeaderEncoding.UNICODE;
-        var expected = "UNICODE";
+        Action action = () => _ = new OFXHeader(OFXHeaderSecurity.None, OFXHeaderEncoding.UNICODE, null, string.Empty, string.Empty);
+        var expected = "Value cannot be null. (Parameter 'charset')";
 
         // Act
-        var result = actual.GetOFXValue();
+        var result = Assert.Throws<ArgumentNullException>(action);
 
         // Assert
-        Assert.Equal(expected, result);
+        Assert.Equal(expected, result.Message);
     }
 
-    [Fact(DisplayName = "OFXHeaderEncoding.USASCII OFXValueAttribute")]
-    [Trait("OFXHeaderEncoding", "USASCII")]
-    public void Read_OFXValueAttribute_USASCII() {
+    [Fact(DisplayName = "Ctor: throw exception when OLDFILEUID is null")]
+    [Trait("OFXHeader Ctor", "OLDFILEUID exception")]
+    public void Ctor_ThrowArgumentNullException_OLDFILEUID() {
         // Arrange
-        var actual = OFXHeaderEncoding.USASCII;
-        var expected = "USASCII";
+        Action action = () => _ = new OFXHeader(OFXHeaderSecurity.None, OFXHeaderEncoding.UNICODE, string.Empty, null, string.Empty);
+        var expected = "Value cannot be null. (Parameter 'oldfileuid')";
 
         // Act
-        var result = actual.GetOFXValue();
+        var result = Assert.Throws<ArgumentNullException>(action);
 
         // Assert
-        Assert.Equal(expected, result);
+        Assert.Equal(expected, result.Message);
+    }
+
+    [Fact(DisplayName = "Ctor: throw exception when NEWFILEUID is null")]
+    [Trait("OFXHeader Ctor", "NEWFILEUID exception")]
+    public void Ctor_ThrowArgumentNullException_NEWFILEUID() {
+        // Arrange
+        Action action = () => _ = new OFXHeader(OFXHeaderSecurity.None, OFXHeaderEncoding.UNICODE, string.Empty, String.Empty, null);
+        var expected = "Value cannot be null. (Parameter 'newfileuid')";
+
+        // Act
+        var result = Assert.Throws<ArgumentNullException>(action);
+
+        // Assert
+        Assert.Equal(expected, result.Message);
     }
     #endregion
 }

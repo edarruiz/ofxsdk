@@ -38,19 +38,18 @@ namespace OFX.SDK.Reflection;
 /// Represents the reflection attributes reader for any kinds of objects.
 /// </summary>
 public static class ReflectionAttributeReader {
-    #region Enum OFXValueAttribute Reader
+    #region OFXValueAttribute Reader
     /// <summary>
-    /// Gets the <see cref="OFXValueAttribute"/> value from any <see cref="Enum"/> field annotation.
+    /// Gets the <see cref="OFXValueAttribute"/> value from the annotation.
     /// </summary>
-    /// <typeparam name="TEnum"><see cref="Enum"/> reference.</typeparam>
-    /// <param name="source"><see cref="Enum"/> reference.</param>
+    /// <typeparam name="T">The type for the annotation reference.</typeparam>
+    /// <param name="source">Instance of the type for the annotation reference.</param>
     /// <returns>Returns the value assigned to <see cref="OFXValueAttribute"/> annotation.</returns>
-    public static string? GetOFXValueAttribute<TEnum>(this TEnum source) where TEnum : struct {
+    public static string? GetOFXValue<T>(this T source) {
         ArgumentNullException.ThrowIfNull(source, nameof(source));
 
-        var type = source.GetType();
 #pragma warning disable CS8604 // Possible null reference argument.
-        FieldInfo? fi = type.GetField(source.ToString());
+        FieldInfo? fi = source.GetType().GetField(source.ToString());
 #pragma warning restore CS8604 // Possible null reference argument.
         if (fi is null) {
             return null;
