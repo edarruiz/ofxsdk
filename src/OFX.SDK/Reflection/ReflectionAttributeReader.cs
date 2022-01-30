@@ -1,5 +1,4 @@
-﻿using System.ComponentModel;
-using System.Reflection;
+﻿using System.Reflection;
 
 namespace OFX.SDK.Reflection;
 
@@ -39,14 +38,14 @@ namespace OFX.SDK.Reflection;
 /// Represents the reflection attributes reader for any kinds of objects.
 /// </summary>
 public static class ReflectionAttributeReader {
-    #region Enum DefaultValueAttribute Reader
+    #region Enum OFXValueAttribute Reader
     /// <summary>
-    /// Gets the <see cref="DefaultValueAttribute"/> value from any <see cref="Enum"/> field annotation.
+    /// Gets the <see cref="OFXValueAttribute"/> value from any <see cref="Enum"/> field annotation.
     /// </summary>
     /// <typeparam name="TEnum"><see cref="Enum"/> reference.</typeparam>
     /// <param name="source"><see cref="Enum"/> reference.</param>
-    /// <returns>Returns the value assigned to <see cref="DefaultValueAttribute"/> annotation.</returns>
-    public static string? GetDefaultValueAttribute<TEnum>(this TEnum source) where TEnum : struct {
+    /// <returns>Returns the value assigned to <see cref="OFXValueAttribute"/> annotation.</returns>
+    public static string? GetOFXValueAttribute<TEnum>(this TEnum source) where TEnum : struct {
         ArgumentNullException.ThrowIfNull(source, nameof(source));
 
         var type = source.GetType();
@@ -56,7 +55,7 @@ public static class ReflectionAttributeReader {
         if (fi is null) {
             return null;
         }
-        var attribute = fi.GetCustomAttribute<DefaultValueAttribute>(false);
+        var attribute = fi.GetCustomAttribute<OFXValueAttribute>(false);
 
         return (attribute is null) ? null : attribute.Value as string;
     }

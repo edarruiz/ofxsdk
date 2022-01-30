@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using OFX.SDK.Reflection;
+﻿using OFX.SDK.Reflection;
 using OFX.SDK.Specifications.Version102;
 using Xunit;
 
@@ -43,29 +38,29 @@ namespace OFX.SDK.Tests.Specifications.Version102.Header;
 
 public class OFXHeaderEncodingTests {
     #region Tests
-    [Fact(DisplayName = "OFXHeaderEncoding.UNICODE DefaultValueAttribute")]
+    [Fact(DisplayName = "OFXHeaderEncoding.UNICODE OFXValueAttribute")]
     [Trait("OFXHeaderEncoding", "UNICODE")]
-    public void GetUNICODEDefaultValueAttribute() {
+    public void GetUNICODEOFXValueAttribute() {
         // Arrange
         var actual = OFXHeaderEncoding.UNICODE;
         var expected = "UNICODE";
 
         // Act
-        var result = actual.GetDefaultValueAttribute();
+        var result = actual.GetOFXValueAttribute();
 
         // Assert
         Assert.Equal(expected, result);
     }
 
-    [Fact(DisplayName = "OFXHeaderEncoding.USASCII DefaultValueAttribute")]
+    [Fact(DisplayName = "OFXHeaderEncoding.USASCII OFXValueAttribute")]
     [Trait("OFXHeaderEncoding", "USASCII")]
-    public void GetUSASCIIDefaultValueAttribute() {
+    public void GetUSASCIIOFXValueAttribute() {
         // Arrange
         var actual = OFXHeaderEncoding.USASCII;
         var expected = "USASCII";
 
         // Act
-        var result = actual.GetDefaultValueAttribute();
+        var result = actual.GetOFXValueAttribute();
 
         // Assert
         Assert.Equal(expected, result);

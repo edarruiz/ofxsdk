@@ -1,5 +1,4 @@
-﻿using System.ComponentModel;
-using OFX.SDK.Reflection;
+﻿using OFX.SDK.Reflection;
 using Xunit;
 
 namespace OFX.SDK.Tests.Reflection.OFXAttributes;
@@ -38,8 +37,8 @@ namespace OFX.SDK.Tests.Reflection.OFXAttributes;
 
 public class ReflectionAttributeReaderTests {
     #region Tests
-    [Fact(DisplayName = "Enum DefaultValueAttribute Reader")]
-    public void DefaultValueAttributeTest() {
+    [Fact(DisplayName = "Enum OFXValueAttribute Reader")]
+    public void OFXValueAttributeTest() {
         // Arrange
         var actual1 = DummyEnum.FirstValue;
         var actual2 = DummyEnum.SecondValue;
@@ -49,9 +48,9 @@ public class ReflectionAttributeReaderTests {
         var expected3 = "#3 Value";
 
         // Act
-        var result1 = actual1.GetDefaultValueAttribute();
-        var result2 = actual2.GetDefaultValueAttribute();
-        var result3 = actual3.GetDefaultValueAttribute();
+        var result1 = actual1.GetOFXValueAttribute();
+        var result2 = actual2.GetOFXValueAttribute();
+        var result3 = actual3.GetOFXValueAttribute();
 
         // Assert
         Assert.Equal(expected1, result1);
@@ -61,13 +60,13 @@ public class ReflectionAttributeReaderTests {
     #endregion
 }
 
-public enum DummyEnum{
-    [DefaultValue("#1 Value")]
+public enum DummyEnum {
+    [OFXValue("#1 Value")]
     FirstValue = 0,
 
-    [DefaultValue("#2 Value")]
+    [OFXValue("#2 Value")]
     SecondValue = 1,
 
-    [DefaultValue("#3 Value")]
+    [OFXValue("#3 Value")]
     ThirdValue = 2
 }
