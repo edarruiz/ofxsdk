@@ -1,4 +1,5 @@
 ﻿using System.Reflection;
+using OFX.SDK.Specifications;
 
 namespace OFX.SDK.Reflection;
 
@@ -40,10 +41,10 @@ namespace OFX.SDK.Reflection;
 public static class ReflectionAttributeReader {
     #region OFXValueAttribute Reader
     /// <summary>
-    /// Gets the <see cref="OFXValueAttribute"/> value from the annotation.
+    /// Gets the <see cref="OFXValueAttribute"/> value from the object annotation.
     /// </summary>
-    /// <typeparam name="T">The type for the annotation reference.</typeparam>
-    /// <param name="source">Instance of the type for the annotation reference.</param>
+    /// <typeparam name="T">The generic type having the <see cref="OFXValueAttribute"/> annotation.</typeparam>
+    /// <param name="source">Instance of the generic type having the <see cref="OFXValueAttribute"/> annotation.</param>
     /// <returns>Returns the value assigned to <see cref="OFXValueAttribute"/> annotation.</returns>
     public static string? GetOFXValue<T>(this T source) {
         ArgumentNullException.ThrowIfNull(source, nameof(source));
@@ -57,6 +58,22 @@ public static class ReflectionAttributeReader {
         var attribute = fi.GetCustomAttribute<OFXValueAttribute>(false);
 
         return (attribute is null) ? null : attribute.Value as string;
+    }
+    #endregion
+
+    #region OFXVersionAttribute Reader
+    /// <summary>
+    /// Gets the <see cref="OFXVersionAttribute"/> value from the object annotation.
+    /// </summary>
+    /// <typeparam name="T">The generic type  having the <see cref="OFXVersionAttribute"/> annotation.</typeparam>
+    /// <param name="source">Instance of the generic type having the <see cref="OFXVersionAttribute"/> annotation.</param>
+    /// <returns>Returns the value assigned to <see cref="OFXVersionAttribute"/> annotation.</returns>
+    public static OFXSpecification GetOFXVersion<T>(this T source) {
+        ArgumentNullException.ThrowIfNull(source, nameof(source));
+
+        var attribute = source.GetType().GetCustomAttribute<OFXVersionAttribute>(false);
+
+        return (attribute is null) ? OFXSpecification.Unknown : attribute.Specification;
     }
     #endregion
 }

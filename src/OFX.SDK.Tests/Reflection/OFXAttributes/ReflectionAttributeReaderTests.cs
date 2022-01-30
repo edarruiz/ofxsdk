@@ -1,4 +1,5 @@
 ﻿using OFX.SDK.Reflection;
+using OFX.SDK.Specifications;
 using Xunit;
 
 namespace OFX.SDK.Tests.Reflection.OFXAttributes;
@@ -37,8 +38,8 @@ namespace OFX.SDK.Tests.Reflection.OFXAttributes;
 
 public class ReflectionAttributeReaderTests {
     #region Tests
-    [Fact(DisplayName = "Enum OFXValueAttribute Reader")]
-    public void OFXValueAttributeTest() {
+    [Fact(DisplayName = "Get OFXValue Attribute value from Enum")]
+    public void Get_OFXValue_FromEnum() {
         // Arrange
         var actual1 = DummyEnum.FirstValue;
         var actual2 = DummyEnum.SecondValue;
@@ -57,9 +58,49 @@ public class ReflectionAttributeReaderTests {
         Assert.Equal(expected2, result2);
         Assert.Equal(expected3, result3);
     }
+
+    [Fact(DisplayName = "Get OFXVersion Attribute value from Enum")]
+    public void Get_OFXVersion_FromEnum() {
+        // Arrange
+        var actual = new DummyEnum();
+        var expected = OFXSpecification.Version102;
+
+        // Act
+        var result = actual.GetOFXVersion();
+
+        // Assert
+        Assert.Equal(expected, result);
+    }
+
+    [Fact(DisplayName = "Get OFXVersion Attribute value from Class")]
+    public void Get_OFXVersion_FromClass() {
+        // Arrange
+        var actual = new DummyClassWithVersion();
+        var expected = OFXSpecification.Version102;
+
+        // Act
+        var result = actual.GetOFXVersion();
+
+        // Assert
+        Assert.Equal(expected, result);
+    }
+
+    [Fact(DisplayName = "Get OFXVersion Attribute value from Unversioned Class")]
+    public void Get_UnknownOFXVersion_FromClass() {
+        // Arrange
+        var actual = new object();
+        var expected = OFXSpecification.Unknown;
+
+        // Act
+        var result = actual.GetOFXVersion();
+
+        // Assert
+        Assert.Equal(expected, result);
+    }
     #endregion
 }
 
+[OFXVersion(OFXSpecification.Version102)]
 public enum DummyEnum {
     [OFXValue("#1 Value")]
     FirstValue = 0,
@@ -70,3 +111,6 @@ public enum DummyEnum {
     [OFXValue("#3 Value")]
     ThirdValue = 2
 }
+
+[OFXVersion(OFXSpecification.Version102)]
+public class DummyClassWithVersion { }

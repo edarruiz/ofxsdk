@@ -1,4 +1,6 @@
 ﻿using System;
+using OFX.SDK.Reflection;
+using OFX.SDK.Specifications;
 using OFX.SDK.Specifications.Version102;
 using Xunit;
 
@@ -37,10 +39,25 @@ namespace OFX.SDK.Tests.Specifications.Version102.Header;
 #endregion
 
 public class OFXHeaderTests {
+    #region Annotation Tests
+    [Fact(DisplayName = "Get OFXVersion Attribute")]
+    public void Get_OFXVersionAttribute_FromClass() {
+        // Arrange
+        var actual = new OFXHeader();
+        var expected = OFXSpecification.Version102;
+
+        // Act
+        var result = actual.GetOFXVersion();
+
+        // Assert
+        Assert.Equal(expected, result);
+    }
+    #endregion
+
     #region Ctor Tests
     [Fact(DisplayName = "Ctor: throw exception when CHARSET is null")]
     [Trait("OFXHeader Ctor", "CHARSET exception")]
-    public void Ctor_ThrowArgumentNullException_CHARSET() {
+    public void Ctor_ThrowArgumentNullException_ParameterCHARSET() {
         // Arrange
         Action action = () => _ = new OFXHeader(OFXHeaderSecurity.None, OFXHeaderEncoding.UNICODE, null, string.Empty, string.Empty);
         var expected = "Value cannot be null. (Parameter 'charset')";
@@ -54,7 +71,7 @@ public class OFXHeaderTests {
 
     [Fact(DisplayName = "Ctor: throw exception when OLDFILEUID is null")]
     [Trait("OFXHeader Ctor", "OLDFILEUID exception")]
-    public void Ctor_ThrowArgumentNullException_OLDFILEUID() {
+    public void Ctor_ThrowArgumentNullException_ParameterOLDFILEUID() {
         // Arrange
         Action action = () => _ = new OFXHeader(OFXHeaderSecurity.None, OFXHeaderEncoding.UNICODE, string.Empty, null, string.Empty);
         var expected = "Value cannot be null. (Parameter 'oldfileuid')";
@@ -68,7 +85,7 @@ public class OFXHeaderTests {
 
     [Fact(DisplayName = "Ctor: throw exception when NEWFILEUID is null")]
     [Trait("OFXHeader Ctor", "NEWFILEUID exception")]
-    public void Ctor_ThrowArgumentNullException_NEWFILEUID() {
+    public void Ctor_ThrowArgumentNullException_ParameterNEWFILEUID() {
         // Arrange
         Action action = () => _ = new OFXHeader(OFXHeaderSecurity.None, OFXHeaderEncoding.UNICODE, string.Empty, String.Empty, null);
         var expected = "Value cannot be null. (Parameter 'newfileuid')";

@@ -48,8 +48,12 @@ public sealed class OFXTagAttribute : Attribute {
     /// <param name="name">The tag name.</param>
     /// <param name="isHeaderTag">Define if the tag is a header tag. Defaults to <c>false</c>.</param>
     public OFXTagAttribute(OFXSpecification specification, string name, bool isHeaderTag = false) {
+        if (string.IsNullOrWhiteSpace(name)) {
+            throw new ArgumentNullException(nameof(name));
+        }
+
         Specification = specification;
-        Name = name ?? throw new ArgumentNullException(nameof(name));
+        Name = name;
         IsHeaderTag = isHeaderTag;
 
         if (!IsHeaderTag) {
