@@ -78,7 +78,7 @@ public sealed record class SignonRequestMessage : IMessageRequest {
     /// Gets or sets the &lt;GENUSERKEY&gt; tag value, representing the request server to return a <c>USERKEY</c> for future use.
     /// </summary>
     [OFXTag(OFXSpecification.Version102, "GENUSERKEY")]
-    public bool GenerateUserKey { get;set; } = false;
+    public bool GenerateUserKey { get; set; } = false;
 
     /// <summary>
     /// Gets or sets the &lt;LANGUAGE&gt; tag value, representing the requested language for text responses.

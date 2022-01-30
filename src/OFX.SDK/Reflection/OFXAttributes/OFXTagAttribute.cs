@@ -37,7 +37,7 @@ namespace OFX.SDK.Reflection;
 /// <summary>
 /// Represents an OFX tag for any OFX structure declarations.
 /// </summary>
-[AttributeUsage(AttributeTargets.Class | AttributeTargets.Property | AttributeTargets.Struct | AttributeTargets.Enum | AttributeTargets.Field, 
+[AttributeUsage(AttributeTargets.Class | AttributeTargets.Property | AttributeTargets.Struct | AttributeTargets.Enum | AttributeTargets.Field,
     Inherited = false, AllowMultiple = true)]
 public sealed class OFXTagAttribute : Attribute {
     #region Ctor
@@ -73,7 +73,7 @@ public sealed class OFXTagAttribute : Attribute {
     /// Gets the tag name.
     /// </summary>
     public string Name { get; private set; }
-    
+
     /// <summary>
     /// Gets or sets if the tag is a header tag.
     /// </summary>
