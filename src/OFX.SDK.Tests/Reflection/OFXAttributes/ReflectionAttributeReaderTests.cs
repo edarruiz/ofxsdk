@@ -41,18 +41,17 @@ public class ReflectionAttributeReaderTests {
     [Fact(DisplayName = "Enum DefaultValueAttribute Reader")]
     public void DefaultValueAttributeTest() {
         // Arrange
-        var value1 = DummyEnum.FirstValue;
-        var value2 = DummyEnum.SecondValue;
-        var value3 = DummyEnum.ThirdValue;
-
-        // Act
+        var actual1 = DummyEnum.FirstValue;
+        var actual2 = DummyEnum.SecondValue;
+        var actual3 = DummyEnum.ThirdValue;
         var expected1 = "#1 Value";
         var expected2 = "#2 Value";
         var expected3 = "#3 Value";
 
-        var result1 = value1.GetDefaultValueAttribute();
-        var result2 = value2.GetDefaultValueAttribute();
-        var result3 = value3.GetDefaultValueAttribute();
+        // Act
+        var result1 = actual1.GetDefaultValueAttribute();
+        var result2 = actual2.GetDefaultValueAttribute();
+        var result3 = actual3.GetDefaultValueAttribute();
 
         // Assert
         Assert.Equal(expected1, result1);
