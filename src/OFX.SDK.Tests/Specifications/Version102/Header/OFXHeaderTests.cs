@@ -39,9 +39,9 @@ namespace OFX.SDK.Tests.Specifications.Version102.Header;
 #endregion
 
 public class OFXHeaderTests {
-    #region Annotation Tests
-    [Fact(DisplayName = "Get OFXVersion Attribute")]
-    public void Get_OFXVersionAttribute_FromClass() {
+    #region OFXVersion Attribute Tests
+    [Fact(DisplayName = "Get OFXVersion Attribute from Struct")]
+    public void Get_OFXVersionAttribute_FromStruct() {
         // Arrange
         var actual = new OFXHeader();
         var expected = OFXSpecification.Version102;
@@ -52,9 +52,11 @@ public class OFXHeaderTests {
         // Assert
         Assert.Equal(expected, result);
     }
+    #endregion
 
-    [Fact(DisplayName = "Get OFXTag Attribute from OFXHEADER property")]
-    public void Get_OFXTagAttribute_FromOFXHEADERProperty() {
+    #region OFXTag Attribute Tag Name Tests
+    [Fact(DisplayName = "Get OFXTag Attribute tag name from OFXHEADER property")]
+    public void Get_OFXTagAttribute_TagNameFromOFXHEADERProperty() {
         // Arrange
         var actual = new OFXHeader();
         var expected = "OFXHEADER:";
@@ -66,8 +68,8 @@ public class OFXHeaderTests {
         Assert.Equal(expected, result);
     }
 
-    [Fact(DisplayName = "Get OFXTag Attribute from DATA property")]
-    public void Get_OFXTagAttribute_FromDATAProperty() {
+    [Fact(DisplayName = "Get OFXTagAttribute tag name from DATA property")]
+    public void Get_OFXTagAttribute_TagNameFromDATAProperty() {
         // Arrange
         var actual = new OFXHeader();
         var expected = "DATA:";
@@ -79,8 +81,8 @@ public class OFXHeaderTests {
         Assert.Equal(expected, result);
     }
 
-    [Fact(DisplayName = "Get OFXTag Attribute from VERSION property")]
-    public void Get_OFXTagAttribute_FromVERSIONProperty() {
+    [Fact(DisplayName = "Get OFXTagAttribute tag name from VERSION property")]
+    public void Get_OFXTagAttribute_TagNameFromVERSIONProperty() {
         // Arrange
         var actual = new OFXHeader();
         var expected = "VERSION:";
@@ -92,8 +94,8 @@ public class OFXHeaderTests {
         Assert.Equal(expected, result);
     }
 
-    [Fact(DisplayName = "Get OFXTag Attribute from SECURITY property")]
-    public void Get_OFXTagAttribute_FromSECURITYProperty() {
+    [Fact(DisplayName = "Get OFXTagAttribute tag name from SECURITY property")]
+    public void Get_OFXTagAttribute_TagNameFromSECURITYProperty() {
         // Arrange
         var actual = new OFXHeader();
         var expected = "SECURITY:";
@@ -105,8 +107,8 @@ public class OFXHeaderTests {
         Assert.Equal(expected, result);
     }
 
-    [Fact(DisplayName = "Get OFXTag Attribute from ENCODING property")]
-    public void Get_OFXTagAttribute_FromENCODINGProperty() {
+    [Fact(DisplayName = "Get OFXTagAttribute tag name from ENCODING property")]
+    public void Get_OFXTagAttribute_TagNameFromENCODINGProperty() {
         // Arrange
         var actual = new OFXHeader();
         var expected = "ENCODING:";
@@ -118,8 +120,8 @@ public class OFXHeaderTests {
         Assert.Equal(expected, result);
     }
 
-    [Fact(DisplayName = "Get OFXTag Attribute from CHARSET property")]
-    public void Get_OFXTagAttribute_FromCHARSETProperty() {
+    [Fact(DisplayName = "Get OFXTagAttribute tag name from CHARSET property")]
+    public void Get_OFXTagAttribute_TagNameFromCHARSETProperty() {
         // Arrange
         var actual = new OFXHeader();
         var expected = "CHARSET:";
@@ -131,8 +133,8 @@ public class OFXHeaderTests {
         Assert.Equal(expected, result);
     }
 
-    [Fact(DisplayName = "Get OFXTag Attribute from COMPRESSION property")]
-    public void Get_OFXTagAttribute_FromCOMPRESSIONProperty() {
+    [Fact(DisplayName = "Get OFXTagAttribute tag name from COMPRESSION property")]
+    public void Get_OFXTagAttribute_TagNameFromCOMPRESSIONProperty() {
         // Arrange
         var actual = new OFXHeader();
         var expected = "COMPRESSION:";
@@ -144,8 +146,8 @@ public class OFXHeaderTests {
         Assert.Equal(expected, result);
     }
 
-    [Fact(DisplayName = "Get OFXTag Attribute from OLDFILEUID property")]
-    public void Get_OFXTagAttribute_FromOLDFILEUIDProperty() {
+    [Fact(DisplayName = "Get OFXTagAttribute tag name from OLDFILEUID property")]
+    public void Get_OFXTagAttribute_TagNameFromOLDFILEUIDProperty() {
         // Arrange
         var actual = new OFXHeader();
         var expected = "OLDFILEUID:";
@@ -157,14 +159,133 @@ public class OFXHeaderTests {
         Assert.Equal(expected, result);
     }
 
-    [Fact(DisplayName = "Get OFXTag Attribute from NEWFILEUID property")]
-    public void Get_OFXTagAttribute_FromNEWFILEUIDProperty() {
+    [Fact(DisplayName = "Get OFXTagAttribute tag name from NEWFILEUID property")]
+    public void Get_OFXTagAttribute_TagNameFromNEWFILEUIDProperty() {
         // Arrange
         var actual = new OFXHeader();
         var expected = "NEWFILEUID:";
 
         // Act
         var result = actual.GetOFXTagName(nameof(OFXHeader.NEWFILEUID));
+
+        // Assert
+        Assert.Equal(expected, result);
+    }
+    #endregion
+
+    #region OFXTag Attribute Tag Version Tests
+    [Fact(DisplayName = "Get OFXTag Attribute tag version from OFXHEADER property")]
+    public void Get_OFXTagAttribute_TagVersionFromOFXHEADERProperty() {
+        // Arrange
+        var actual = new OFXHeader();
+        var expected = OFXSpecification.Version102;
+
+        // Act
+        var result = actual.GetOFXTagVersion(nameof(OFXHeader.OFXHEADER));
+
+        // Assert
+        Assert.Equal(expected, result);
+    }
+
+    [Fact(DisplayName = "Get OFXTagAttribute tag version from DATA property")]
+    public void Get_OFXTagAttribute_TagVersionFromDATAProperty() {
+        // Arrange
+        var actual = new OFXHeader();
+        var expected = OFXSpecification.Version102;
+
+        // Act
+        var result = actual.GetOFXTagVersion(nameof(OFXHeader.DATA));
+
+        // Assert
+        Assert.Equal(expected, result);
+    }
+
+    [Fact(DisplayName = "Get OFXTagAttribute tag version from SECURITY property")]
+    public void Get_OFXTagAttribute_TagVersionFromSECURITYProperty() {
+        // Arrange
+        var actual = new OFXHeader();
+        var expected = OFXSpecification.Version102;
+
+        // Act
+        var result = actual.GetOFXTagVersion(nameof(OFXHeader.SECURITY));
+
+        // Assert
+        Assert.Equal(expected, result);
+    }
+
+    [Fact(DisplayName = "Get OFXTagAttribute tag version from VERSION property")]
+    public void Get_OFXTagAttribute_TagVersionFromVERSIONProperty() {
+        // Arrange
+        var actual = new OFXHeader();
+        var expected = OFXSpecification.Version102;
+
+        // Act
+        var result = actual.GetOFXTagVersion(nameof(OFXHeader.VERSION));
+
+        // Assert
+        Assert.Equal(expected, result);
+    }
+
+    [Fact(DisplayName = "Get OFXTagAttribute tag version from ENCODING property")]
+    public void Get_OFXTagAttribute_TagVersionFromENCODINGProperty() {
+        // Arrange
+        var actual = new OFXHeader();
+        var expected = OFXSpecification.Version102;
+
+        // Act
+        var result = actual.GetOFXTagVersion(nameof(OFXHeader.ENCODING));
+
+        // Assert
+        Assert.Equal(expected, result);
+    }
+
+    [Fact(DisplayName = "Get OFXTagAttribute tag version from CHARSET property")]
+    public void Get_OFXTagAttribute_TagVersionFromCHARSETProperty() {
+        // Arrange
+        var actual = new OFXHeader();
+        var expected = OFXSpecification.Version102;
+
+        // Act
+        var result = actual.GetOFXTagVersion(nameof(OFXHeader.CHARSET));
+
+        // Assert
+        Assert.Equal(expected, result);
+    }
+
+    [Fact(DisplayName = "Get OFXTagAttribute tag version from COMPRESSION property")]
+    public void Get_OFXTagAttribute_TagVersionFromCOMPRESSIONProperty() {
+        // Arrange
+        var actual = new OFXHeader();
+        var expected = OFXSpecification.Version102;
+
+        // Act
+        var result = actual.GetOFXTagVersion(nameof(OFXHeader.COMPRESSION));
+
+        // Assert
+        Assert.Equal(expected, result);
+    }
+
+    [Fact(DisplayName = "Get OFXTagAttribute tag version from OLDFILEUID property")]
+    public void Get_OFXTagAttribute_TagVersionFromOLDFILEUIDProperty() {
+        // Arrange
+        var actual = new OFXHeader();
+        var expected = OFXSpecification.Version102;
+
+        // Act
+        var result = actual.GetOFXTagVersion(nameof(OFXHeader.OLDFILEUID));
+
+        // Assert
+        Assert.Equal(expected, result);
+    }
+
+    [Fact(DisplayName = "Get OFXTagAttribute tag version from NEWFILEUID property")]
+    public void Get_OFXTagAttribute_TagVersionFromNEWFILEUIDProperty() {
+        // Arrange
+        var actual = new OFXHeader();
+        var expected = OFXSpecification.Version102;
+
+        // Act
+        var result = actual.GetOFXTagVersion(nameof(OFXHeader.NEWFILEUID));
 
         // Assert
         Assert.Equal(expected, result);
