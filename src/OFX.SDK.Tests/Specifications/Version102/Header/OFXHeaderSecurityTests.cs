@@ -38,9 +38,9 @@ namespace OFX.SDK.Tests.Specifications.Version102.Header;
 #endregion
 
 public class OFXHeaderSecurityTests {
-    #region Annotation Tests
-    [Fact(DisplayName = "Get OFXVersion Attribute")]
-    public void Get_OFXVersionAttribute_FromClass() {
+    #region OFX Attribute Version Tests
+    [Fact(DisplayName = "Get OFX version from Class")]
+    public void Get_OFXVersion_FromClass() {
         // Arrange
         var actual = new OFXHeaderSecurity();
         var expected = OFXSpecification.Version102;
@@ -51,9 +51,11 @@ public class OFXHeaderSecurityTests {
         // Assert
         Assert.Equal(expected, result);
     }
+    #endregion
 
-    [Fact(DisplayName = "Get OFXValue Attribute value from None field")]
-    public void Get_OFXValueAttribute_FromNoneField() {
+    #region OFXTag Value Tests
+    [Fact(DisplayName = "Get OFX value from None field")]
+    public void Get_OFXValue_FromNoneField() {
         // Arrange
         var actual = OFXHeaderSecurity.None;
         var expected = "NONE";
@@ -65,8 +67,8 @@ public class OFXHeaderSecurityTests {
         Assert.Equal(expected, result);
     }
 
-    [Fact(DisplayName = "Get OFXValue Attribute value from Type1 field")]
-    public void Get_OFXValueAttribute_FromType1Field() {
+    [Fact(DisplayName = "Get OFX value from Type1 field")]
+    public void Get_OFXValue_FromType1Field() {
         // Arrange
         var actual = OFXHeaderSecurity.Type1;
         var expected = "TYPE1";
