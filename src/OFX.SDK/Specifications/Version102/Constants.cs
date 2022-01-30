@@ -73,6 +73,16 @@ public static class Constants {
     public const string OFX_SECURITY_TAG = "SECURITY:";
 
     /// <summary>
+    /// The value to do not use any application-level security.
+    /// </summary>
+    public const string OFX_SECURITY_NONE = "NONE";
+
+    /// <summary>
+    /// The value to use Type 1 application-level security.
+    /// </summary>
+    public const string OFX_SECURITY_TYPE1 = "TYPE1";
+
+    /// <summary>
     /// The OFX header <c>ENCODING</c> tag.
     /// </summary>
     public const string OFX_ENCODING_TAG = "ENCODING:";

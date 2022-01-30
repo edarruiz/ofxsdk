@@ -1,6 +1,8 @@
 ﻿using OFX.SDK.Reflection;
+using OFX.SDK.Specifications.Version102;
+using Xunit;
 
-namespace OFX.SDK.Specifications.Version102;
+namespace OFX.SDK.Tests.Specifications.Version102.Header;
 
 #region BSD-3 Copyright Information
 /*
@@ -34,21 +36,34 @@ namespace OFX.SDK.Specifications.Version102;
 */
 #endregion
 
-/// <summary>
-/// Represents the application-level security, if any, that is used for the <c>&lt;OFX&gt;</c> block.
-/// </summary>
-/// <remarks>For more information about security, refer to Chapter 4, "Security." of documentation for the version 1.0.2.</remarks>
-[OFXVersion(OFXSpecification.Version102)]
-public enum OFXHeaderSecurity {
-    /// <summary>
-    /// Do not use any application-level security.
-    /// </summary>
-    [OFXValue(Constants.OFX_SECURITY_NONE)]
-    None = 0,
+public class OFXHeaderSecurityTests {
+    #region Tests
+    [Fact(DisplayName = "OFXHeaderSecurity.None OFXValueAttribute")]
+    [Trait("OFXHeaderSecurity", "None")]
+    public void GetNoneOFXValueAttribute() {
+        // Arrange
+        var actual = OFXHeaderSecurity.None;
+        var expected = "NONE";
 
-    /// <summary>
-    /// Use Type 1 application-level security.
-    /// </summary>
-    [OFXValue(Constants.OFX_SECURITY_TYPE1)]
-    Type1 = 1
+        // Act
+        var result = actual.GetOFXValueAttribute();
+
+        // Assert
+        Assert.Equal(expected, result);
+    }
+
+    [Fact(DisplayName = "OFXHeaderSecurity.Type1 OFXValueAttribute")]
+    [Trait("OFXHeaderSecurity", "Type1")]
+    public void GetType1OFXValueAttribute() {
+        // Arrange
+        var actual = OFXHeaderSecurity.Type1;
+        var expected = "TYPE1";
+
+        // Act
+        var result = actual.GetOFXValueAttribute();
+
+        // Assert
+        Assert.Equal(expected, result);
+    }
+    #endregion
 }
