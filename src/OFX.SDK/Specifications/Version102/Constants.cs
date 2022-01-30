@@ -88,6 +88,16 @@ public static class Constants {
     public const string OFX_ENCODING_TAG = "ENCODING:";
 
     /// <summary>
+    /// The value for Unicode text enconding.
+    /// </summary>
+    public const string OFX_ENCODING_UNICODE = "UNICODE";
+
+    /// <summary>
+    /// The value for US ASCII text encoding.
+    /// </summary>
+    public const string OFX_ENCODING_USASCII = "USASCII";
+
+    /// <summary>
     /// The OFX header <c>CHARSET</c> tag.
     /// </summary>
     public const string OFX_CHARSET_TAG = "CHARSET:";

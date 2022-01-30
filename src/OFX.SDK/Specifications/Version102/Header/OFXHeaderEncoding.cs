@@ -44,12 +44,12 @@ public enum OFXHeaderEncoding {
     /// <summary>
     /// Unicode text enconding.
     /// </summary>
-    [OFXValue(nameof(UNICODE))]
+    [OFXValue(Constants.OFX_ENCODING_UNICODE)]
     UNICODE = 0,
 
     /// <summary>
     /// US ASCII text encoding.
     /// </summary>    
-    [OFXValue(nameof(USASCII))]
+    [OFXValue(Constants.OFX_ENCODING_USASCII)]
     USASCII = 1
 }
