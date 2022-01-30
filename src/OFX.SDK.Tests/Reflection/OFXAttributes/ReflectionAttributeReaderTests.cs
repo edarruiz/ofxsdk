@@ -37,8 +37,8 @@ namespace OFX.SDK.Tests.Reflection.OFXAttributes;
 #endregion
 
 public class ReflectionAttributeReaderTests {
-    #region Tests
-    [Fact(DisplayName = "Get OFXValue Attribute value from Enum")]
+    #region OFX Value Tests
+    [Fact(DisplayName = "Get OFX value from Enum")]
     public void Get_OFXValue_FromEnum() {
         // Arrange
         var actual1 = DummyEnum.FirstValue;
@@ -59,7 +59,28 @@ public class ReflectionAttributeReaderTests {
         Assert.Equal(expected3, result3);
     }
 
-    [Fact(DisplayName = "Get OFXVersion Attribute value from Enum")]
+    [Fact(DisplayName = "Get OFX value from Class")]
+    public void Get_OFXValue_FromClass() {
+        // Arrange
+        var actual = new DummyClassWithVersion();
+        var expected1 = "HeaderValue";
+        var expected2 = "SomePropertyValue";
+        var expected3 = "OtherPropertyValue";
+
+        // Act
+        var result1 = actual.GetOFXValue(nameof(actual.PropertyWithHeaderTag));
+        var result2 = actual.GetOFXValue(nameof(actual.SomeProperty));
+        var result3 = actual.GetOFXValue(nameof(actual.OtherProperty));
+
+        // Assert
+        Assert.Equal(expected1, result1);
+        Assert.Equal(expected2, result2);
+        Assert.Equal(expected3, result3);
+    }
+    #endregion
+
+    #region OFX Version Tests
+    [Fact(DisplayName = "Get OFX version from Enum")]
     public void Get_OFXVersion_FromEnum() {
         // Arrange
         var actual = new DummyEnum();
@@ -72,7 +93,7 @@ public class ReflectionAttributeReaderTests {
         Assert.Equal(expected, result);
     }
 
-    [Fact(DisplayName = "Get OFXVersion Attribute value from Class")]
+    [Fact(DisplayName = "Get OFX version from Class")]
     public void Get_OFXVersion_FromClass() {
         // Arrange
         var actual = new DummyClassWithVersion();
@@ -85,7 +106,7 @@ public class ReflectionAttributeReaderTests {
         Assert.Equal(expected, result);
     }
 
-    [Fact(DisplayName = "Get OFXVersion Attribute value from Unversioned Class")]
+    [Fact(DisplayName = "Get OFX version from unversioned Class")]
     public void Get_UnknownOFXVersion_FromClass() {
         // Arrange
         var actual = new object();
@@ -97,9 +118,11 @@ public class ReflectionAttributeReaderTests {
         // Assert
         Assert.Equal(expected, result);
     }
+    #endregion
 
-    [Fact(DisplayName = "Get OFXTagAttibute value from Enum fields")]
-    public void Get_OFXTagAttribute_FromEnumFields() {
+    #region OFX Tag Name Tests
+    [Fact(DisplayName = "Get OFX tag name from Enum fields")]
+    public void Get_OFXTagName_FromEnumFields() {
         // Arrange
         var firstValue = DummyEnum.FirstValue;
         var secondValue = DummyEnum.SecondValue;
@@ -119,8 +142,8 @@ public class ReflectionAttributeReaderTests {
         Assert.Equal(expectedTagThirdValue, resultTagThirdValue);
     }
 
-    [Fact(DisplayName = "Get OFXTagAttribute value from Class properties")]
-    public void Get_OFXTagAttribute_FromClassProperties() {
+    [Fact(DisplayName = "Get OFX tag name from Class properties")]
+    public void Get_OFXTagName_FromClassProperties() {
         // Arrange
         var actual = new DummyClassWithVersion();
         var expectedHeaderTag = "Header Tag:";
@@ -137,9 +160,11 @@ public class ReflectionAttributeReaderTests {
         Assert.Equal(expectedTag1, resultTag1);
         Assert.Equal(expectedTag2, resultTag2);
     }
+    #endregion
 
-    [Fact(DisplayName = "Get OFXSpecification value from OFXTagAttribute of Enum field")]
-    public void Get_OFXSpecification_FromOFXTagAttributeOfEnumField() {
+    #region OFX Tag Version Tests
+    [Fact(DisplayName = "Get OFX tag version from Enum field")]
+    public void Get_OFXTagVersion_FromEnumField() {
         // Arrange
         var firstValue = DummyEnum.FirstValue;
         var secondValue = DummyEnum.SecondValue;
@@ -159,8 +184,8 @@ public class ReflectionAttributeReaderTests {
         Assert.Equal(expectedThirdValueVersion, resultThirdValueVersion);
     }
 
-    [Fact(DisplayName = "Get OFXSpecification value from OFXTagAttribute of Class property")]
-    public void Get_OFXSpecification_FromOFXTagAttributeOfClassProperty() {
+    [Fact(DisplayName = "Get OFX tag version from Class property")]
+    public void Get_OFXTagVersion_FromClassProperty() {
         // Arrange
         var actual = new DummyClassWithVersion();
         var expectedPropertyWithHeaderTagVersion = OFXSpecification.Version102;
@@ -176,6 +201,48 @@ public class ReflectionAttributeReaderTests {
         Assert.Equal(expectedPropertyWithHeaderTagVersion, resultPropertyWithHeaderTagVersion);
         Assert.Equal(expectedSomePropertyVersion, resultSomePropertyVersion);
         Assert.Equal(expectedOtherPropertyVersion, resultOtherPropertyVersion);
+    }
+    #endregion
+
+    #region OFX Tag Header Tests
+    [Fact(DisplayName = "Get OFX tag header from Enum field")]
+    public void Get_OFXTagHeader_FromEnum() {
+        // Arrange
+        var firstValue = DummyEnum.FirstValue;
+        var secondValue = DummyEnum.SecondValue;
+        var thirdValue = DummyEnum.ThirdValue;
+        var expectedFirstValueIsHeader = true;
+        var expectedSecondValueIsHeader = false;
+        var expectedThirdValueIsHeader = false;
+
+        // Act
+        var resultFirstValueIsHeader = firstValue.IsOFXTagHeader();
+        var resultSecondValueIsHeader = secondValue.IsOFXTagHeader();
+        var resultThirdValueIsHeader = thirdValue.IsOFXTagHeader();
+
+        // Assert
+        Assert.Equal(expectedFirstValueIsHeader, resultFirstValueIsHeader);
+        Assert.Equal(expectedSecondValueIsHeader, resultSecondValueIsHeader);
+        Assert.Equal(expectedThirdValueIsHeader, resultThirdValueIsHeader);
+    }
+
+    [Fact(DisplayName = "Get OFX tag header from Class property")]
+    public void Get_OFXTagHeader_FromClassProperty() {
+        // Arrange
+        var actual = new DummyClassWithVersion();
+        var expectedPropertyWithHeaderTagIsHeader = true;
+        var expectedSomePropertyIsHeader = false;
+        var expectedOtherPropertyIsHeader = false;
+
+        // Act
+        var resultPropertyWithHeaderTagIsHeader = actual.IsOFXTagHeader(nameof(actual.PropertyWithHeaderTag));
+        var resultSomePropertyIsHeader = actual.IsOFXTagHeader(nameof(actual.SomeProperty));
+        var resultOtherPropertyIsHeader = actual.IsOFXTagHeader(nameof(actual.OtherProperty));
+
+        // Assert
+        Assert.Equal(expectedPropertyWithHeaderTagIsHeader, resultPropertyWithHeaderTagIsHeader);
+        Assert.Equal(expectedSomePropertyIsHeader, resultSomePropertyIsHeader);
+        Assert.Equal(expectedOtherPropertyIsHeader, resultOtherPropertyIsHeader);
     }
     #endregion
 }
@@ -197,12 +264,15 @@ public enum DummyEnum {
 
 [OFXVersion(OFXSpecification.Version102)]
 public class DummyClassWithVersion {
+    [OFXValue("HeaderValue")]
     [OFXTag(OFXSpecification.Version102, "Header Tag:", true)]
     public string? PropertyWithHeaderTag { get; set; }
 
+    [OFXValue("SomePropertyValue")]
     [OFXTag(OFXSpecification.Version102, "SomeProperty")]
     public string? SomeProperty { get; set; }
 
+    [OFXValue("OtherPropertyValue")]
     [OFXTag(OFXSpecification.Version102, "OtherProperty")]
     public int OtherProperty { get; set; }
 }

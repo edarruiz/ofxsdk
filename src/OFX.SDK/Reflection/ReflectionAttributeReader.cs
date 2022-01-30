@@ -72,15 +72,14 @@ public static class ReflectionAttributeReader {
 
     #region OFXValueAttribute Reader
     /// <summary>
-    /// Gets the value from the <see cref="OFXValueAttribute"/> annotation applied to the object.
+    /// Gets the value from the <see cref="OFXValueAttribute"/> annotation applied to the object, field or property.
     /// </summary>
     /// <typeparam name="T">The generic type having the <see cref="OFXValueAttribute"/> annotation.</typeparam>
     /// <param name="source">Instance of the generic type having the <see cref="OFXValueAttribute"/> annotation.</param>
-    /// <returns>Returns the value assigned to the <see cref="OFXValueAttribute"/> annotation applied to the object.</returns>
-    public static string? GetOFXValue<T>(this T source) {
-        ArgumentNullException.ThrowIfNull(source, nameof(source));
-
-        var result = GetAttributeInfo<T, OFXValueAttribute>(source);
+    /// <param name="propertyName">Name of the property annotated.</param>
+    /// <returns>Returns the value assigned to the <see cref="OFXValueAttribute"/> annotation applied to the object, field or property.</returns>
+    public static string? GetOFXValue<T>(this T source, string? propertyName = null) {
+        var result = GetAttributeInfo<T, OFXValueAttribute>(source, propertyName);
 
         return (result is null) ? null : result.Value as string;
     }
@@ -128,6 +127,12 @@ public static class ReflectionAttributeReader {
         var result = GetAttributeInfo<T, OFXTagAttribute>(source, propertyName);
 
         return result?.Specification;
+    }
+
+    public static bool? IsOFXTagHeader<T>(this T source, string? propertyName = null) {
+        var result = GetAttributeInfo<T, OFXTagAttribute>(source, propertyName);
+
+        return result?.IsHeaderTag;
     }
     #endregion
 }
