@@ -63,6 +63,26 @@ namespace OFX.SDK.Specifications.Version102;
 /// </remarks>
 [OFXVersion(OFXSpecification.Version102)]
 public record struct OFXHeader {
+    #region Ctor
+    /// <summary>
+    /// Initializes a new instance of the struct <see cref="OFXHEADER"/> with the specified values.
+    /// </summary>
+    /// <param name="security"><see cref="OFXHeaderSecurity"/> defined on header.</param>
+    /// <param name="encoding"><see cref="OFXHeaderEncoding"/> defined on header.</param>
+    /// <param name="charset">Charset defined on header.</param>
+    /// <param name="oldfileuid">Old file UID defined on header.</param>
+    /// <param name="newfileuid">New file UID defined on header.</param>
+    /// <exception cref="ArgumentNullException">When <see cref="CHARSET"/>, <see cref="OLDFILEUID"/> or 
+    /// <see cref="NEWFILEUID"/> is <c>null</c>.</exception>
+    public OFXHeader(OFXHeaderSecurity security, OFXHeaderEncoding encoding, string charset, string oldfileuid, string newfileuid) {
+        SECURITY = security;
+        ENCODING = encoding;
+        CHARSET = charset ?? throw new ArgumentNullException(nameof(charset));
+        OLDFILEUID = oldfileuid ?? throw new ArgumentNullException(nameof(oldfileuid));
+        NEWFILEUID = newfileuid ?? throw new ArgumentNullException(nameof(newfileuid));
+    }
+    #endregion
+
     #region Properties
     /// <summary>
     /// Gets the version number of the OFX headers.
