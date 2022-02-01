@@ -60,6 +60,7 @@ public static class ReflectionAttributeReader {
 #pragma warning restore CS8604 // Possible null reference argument.
             attribute = fieldInfo?.GetCustomAttribute<TAttribute>(false);
         } else if ((type.IsClass) || (type.IsValueType && !type.IsPrimitive)) { // class or struct
+            ArgumentNullException.ThrowIfNull(propertyName);
 #pragma warning disable CS8604 // Possible null reference argument.
             PropertyInfo? propertyInfo = source.GetType().GetProperty(propertyName);
 #pragma warning restore CS8604 // Possible null reference argument.
