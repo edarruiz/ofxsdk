@@ -13,11 +13,7 @@ From [OFX.net](https://www.ofx.net/):
 > 
 > OFX has been the dominant direct API for banks to provide data to financial applications since 1997. It is actively deployed at over 7,000 financial institutions, and the remaining institutions have easy access to certified OFX servers via all major technology providers and systems integrators. More information can be found at: http://ofx.org.
 
-OFX SDK implements the responses defined in the open standard specifications, so the main focus of this context is the file handling and parsing the results of the received <code>.ofx</code> files from the financial institutions, as well the transformation from the source format to Xml and Json. There are abstractions that can be used to inheritance and creations of custom output formats.
-
-The complete mapping to the open standard communication requests and responses specifications are out of scope of this implementation, since the implementation won't do any task related to communication between clients and servers throught the internet.
-
-This <code>.ofx</code> files are used in bank reconciliation processes. A bank reconciliation is the process of matching the balances in an entity's accounting records for a cash account to the corresponding information on a bank statement. The goal of this process is to ascertain the differences between the two, and to book changes to the accounting records as appropriate. The information on the bank statement is the bank's record of all transactions impacting the entity's bank account during the past month or any date range defined inside the file information.
+OFX SDK implements the requests and responses defined in the open standard specifications, so the main focus of this context is the file handling and parsing the results of the received <code>.ofx</code> files from the financial institutions, as well the transformation from the source format to Xml and Json. Custom output formats are possible to extend and implement through available interfaces and abstractions.
 
 The following list shows the supported specification versions and its current implementation state:
 
