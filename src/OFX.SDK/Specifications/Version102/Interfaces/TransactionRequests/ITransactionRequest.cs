@@ -32,6 +32,9 @@
 */
 #endregion
 
+/// <summary>
+/// Represents a transaction request aggregate. A transactions is a wrapper for all the request messages.
+/// </summary>
 public interface ITransactionRequest {
 
 }

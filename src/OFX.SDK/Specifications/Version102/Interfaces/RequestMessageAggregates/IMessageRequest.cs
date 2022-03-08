@@ -35,7 +35,7 @@ namespace OFX.SDK.Specifications.Version102;
 #endregion
 
 /// <summary>
-/// Represents an Request message aggregate.
+/// Represents a Request message aggregate.
 /// </summary>
 [OFXVersion(OFXSpecification.Version102)]
 public interface IMessageRequest { }

@@ -61,9 +61,7 @@ public static class ReflectionAttributeReader {
             attribute = fieldInfo?.GetCustomAttribute<TAttribute>(false);
         } else if ((type.IsClass) || (type.IsValueType && !type.IsPrimitive)) { // class or struct
             ArgumentNullException.ThrowIfNull(propertyName);
-#pragma warning disable CS8604 // Possible null reference argument.
             PropertyInfo? propertyInfo = source.GetType().GetProperty(propertyName);
-#pragma warning restore CS8604 // Possible null reference argument.
             attribute = propertyInfo?.GetCustomAttribute<TAttribute>(false);
         }
 
@@ -77,7 +75,7 @@ public static class ReflectionAttributeReader {
     /// </summary>
     /// <typeparam name="T">The generic type having the <see cref="OFXValueAttribute"/> annotation.</typeparam>
     /// <param name="source">Instance of the generic type having the <see cref="OFXValueAttribute"/> annotation.</param>
-    /// <param name="propertyName">Name of the property annotated.</param>
+    /// <param name="propertyName">Name of the property which the attribute annotation is applied.</param>
     /// <returns>Returns the value assigned to the <see cref="OFXValueAttribute"/> annotation applied to the object, field or property.</returns>
     public static string? GetOFXValue<T>(this T source, string? propertyName = null) {
         var result = GetAttributeInfo<T, OFXValueAttribute>(source, propertyName);
@@ -109,7 +107,7 @@ public static class ReflectionAttributeReader {
     /// </summary>
     /// <typeparam name="T">The generic type having the <see cref="OFXTagAttribute"/> annotation.</typeparam>
     /// <param name="source">Instance of the generic type having the <see cref="OFXTagAttribute"/> annotation.</param>
-    /// <param name="propertyName">Name of the property annotated.</param>
+    /// <param name="propertyName">Name of the property which the attribute annotation is applied.</param>
     /// <returns>Returns the tag name of the <see cref="OFXTagAttribute"/> assigned to the object, field or property annotation.</returns>
     public static string? GetOFXTagName<T>(this T source, string? propertyName = null) {
         var result = GetAttributeInfo<T, OFXTagAttribute>(source, propertyName);
@@ -122,7 +120,7 @@ public static class ReflectionAttributeReader {
     /// </summary>
     /// <typeparam name="T">The generic type having the <see cref="OFXTagAttribute"/> annotation.</typeparam>
     /// <param name="source">Instance of the generic type having the <see cref="OFXTagAttribute"/> annotation.</param>
-    /// <param name="propertyName">Name of the property annotated.</param>
+    /// <param name="propertyName">Name of the property which the attribute annotation is applied.</param>
     /// <returns>Returns the <see cref="OFXSpecification"/> from the <see cref="OFXTagAttribute"/> assigned to the object, field or property annotation.</returns>
     public static OFXSpecification? GetOFXTagVersion<T>(this T source, string? propertyName = null) {
         var result = GetAttributeInfo<T, OFXTagAttribute>(source, propertyName);
@@ -130,6 +128,13 @@ public static class ReflectionAttributeReader {
         return result?.Specification;
     }
 
+    /// <summary>
+    /// Check if the property of an object correspond a header tag.
+    /// </summary>
+    /// <typeparam name="T">The generic type having the <see cref="OFXTagAttribute"/> annotation.</typeparam>
+    /// <param name="source">Instance of the generic type having the <see cref="OFXTagAttribute"/> annotation.</param>
+    /// <param name="propertyName">Name of the property which the attribute annotation is applied.</param>
+    /// <returns>Returns <c>true</c> if the tag</returns>
     public static bool? IsOFXTagHeader<T>(this T source, string? propertyName = null) {
         var result = GetAttributeInfo<T, OFXTagAttribute>(source, propertyName);
 
