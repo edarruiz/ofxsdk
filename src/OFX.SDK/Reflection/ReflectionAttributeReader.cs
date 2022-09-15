@@ -134,7 +134,7 @@ public static class ReflectionAttributeReader {
     /// <typeparam name="T">The generic type having the <see cref="OFXTagAttribute"/> annotation.</typeparam>
     /// <param name="source">Instance of the generic type having the <see cref="OFXTagAttribute"/> annotation.</param>
     /// <param name="propertyName">Name of the property which the attribute annotation is applied.</param>
-    /// <returns>Returns <c>true</c> if the tag</returns>
+    /// <returns>Returns <c>true</c> if the property corresponds a header tag, otherwise returns <c>false</c>.</returns>
     public static bool? IsOFXTagHeader<T>(this T source, string? propertyName = null) {
         var result = GetAttributeInfo<T, OFXTagAttribute>(source, propertyName);
 
