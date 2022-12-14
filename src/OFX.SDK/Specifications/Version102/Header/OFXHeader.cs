@@ -85,7 +85,7 @@ public record struct OFXHeader {
     /// <param name="newfileuid">New file UID defined on header.</param>
     /// <exception cref="ArgumentNullException">When <see cref="CHARSET"/>, <see cref="OLDFILEUID"/> or 
     /// <see cref="NEWFILEUID"/> is <c>null</c>.</exception>
-    public OFXHeader(OFXHeaderSecurity security, OFXHeaderEncoding encoding, string charset, string oldfileuid, string newfileuid) {
+    public OFXHeader(OFXHeaderSecurity security, OFXHeaderEncoding encoding, string? charset, string? oldfileuid, string newfileuid) {
         SECURITY = security;
         ENCODING = encoding;
         CHARSET = charset ?? throw new ArgumentNullException(nameof(charset));
