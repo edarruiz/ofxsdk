@@ -59,6 +59,3 @@ The following versions of Visual Studio are supported to build the solution:
 
 # Roadmap
 [Here](/docs/roadmap.md) you can find the OFX SDK development roadmap
-
-# TODO items
-[Here](/docs/roadmap.md) TODO reminder
