@@ -46,12 +46,12 @@ Here are some guidelines concerning contributions:
 # Development Environment
 This project has the following requirements:
 - Visual Studio 2022 
-- .NET 6.0
-- C# 10.0 ([What is new in C# 10?](https://docs.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-10))
+- .NET 8.0
+- C# 12.0 ([What is new in C# 10?](https://learn.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-12))
 
 The following versions of Visual Studio are supported to build the solution:
-- Visual Studio 2022 17.0.4 or later (stable)
-- Visual Studio 2002 Preview 17.1.0 Preview 2.0 or later (unstable)
+- Visual Studio 2022 17.8.3 or later (stable)
+- Visual Studio 2002 Preview 17.9.0 Preview 2.0 or later (unstable)
 
 
 # Documentation
