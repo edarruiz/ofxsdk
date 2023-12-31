@@ -1,6 +1,6 @@
 ﻿#region BSD-3 Copyright Information
 /*
-  Copyright (c) 2022, Eric Roberto Darruiz
+  Copyright (c) 2022-2024, Eric Roberto Darruiz
   All rights reserved.
   
   Redistribution and use in source and binary forms, with or without
