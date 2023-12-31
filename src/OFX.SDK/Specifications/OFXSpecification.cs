@@ -1,10 +1,8 @@
-﻿using OFX.SDK.Reflection;
-
-namespace OFX.SDK.Specifications;
+﻿namespace OFX.SDK.Specifications;
 
 #region BSD-3 Copyright Information
 /*
-  Copyright (c) 2022, Eric Roberto Darruiz
+  Copyright (c) 2022-2024, Eric Roberto Darruiz
   All rights reserved.
   
   Redistribution and use in source and binary forms, with or without
@@ -46,48 +44,56 @@ public enum OFXSpecification {
     /// <summary>
     /// Specification version 1.0.2, the initial version.
     /// </summary>
+    /// <remarks>Version 1.0.2 (1997)</remarks>
     [OFXValue("1.0.2")]
-    Version102 = 1, // Version 1.0.2 (1997)
+    Version102 = 1,
 
     /// <summary>
     /// Specification version 1.0.3, including MFA (multi-factor authentication)
     /// </summary>
+    /// <remarks>Version 1.0.3 (2005) + MFA</remarks>
     [OFXValue("1.0.3")]
-    Version103 = 2, // Version 1.0.3 (2005) + MFA
+    Version103 = 2,
 
     /// <summary>
     /// Specification version 1.6, last version using SGML format.
     /// </summary>
+    /// <remarks>Version 1.6 (1999)</remarks>
     [OFXValue("1.6")]
-    Version160 = 3, // Version 1.6 (1999)
+    Version160 = 3,
 
     /// <summary>
     /// Specification version 2.0.3, first version using XML.
     /// </summary>
+    /// <remarks>Version 2.0.3 (2006) = 2.0.2 + MFA</remarks>
     [OFXValue("2.0.3")]
-    Version203 = 4, // Version 2.0.3 (2006) = 2.0.2 + MFA
+    Version203 = 4,
 
     /// <summary>
     /// Specification version 2.1.1, equivalent to 2.1 including MFA (multi-factor authentication)
     /// </summary>
+    /// <remarks>Version 2.1.1 (2006) = 2.1 + MFA</remarks>
     [OFXValue("2.1.1")]
-    Version211 = 5, // Version 2.1.1 (2006) = 2.1 + MFA
+    Version211 = 5,
 
     /// <summary>
     /// Specification version 2.2, including OAuth.
     /// </summary>
+    /// <remarks>Version 2.2 (2017) + OAuth</remarks>
     [OFXValue("2.2")]
-    Version220 = 6, // Version 2.2 (2017) + OAuth
+    Version220 = 6,
 
     /// <summary>
     /// Specification version 2.2.1, including Tax information 2.0
     /// </summary>
+    /// <remarks>Version 2.2.1 (2019) + Tax 2.0</remarks>
     [OFXValue("2.2.1")]
-    Version221 = 7, // Version 2.2.1 (2019) + Tax 2.0
+    Version221 = 7,
 
     /// <summary>
     /// Specification version 2.3
     /// </summary>
+    /// <remarks>Version 2.3 (2020)</remarks>
     [OFXValue("2.3")]
-    Version230 = 8 // Version 2.3 (2020)
+    Version230 = 8
 }

@@ -1,10 +1,8 @@
-﻿using OFX.SDK.Specifications;
-
-namespace OFX.SDK.Reflection;
+﻿namespace OFX.SDK.Attributes;
 
 #region BSD-3 Copyright Information
 /*
-  Copyright (c) 2022, Eric Roberto Darruiz
+  Copyright (c) 2022-2024, Eric Roberto Darruiz
   All rights reserved.
   
   Redistribution and use in source and binary forms, with or without
@@ -35,24 +33,25 @@ namespace OFX.SDK.Reflection;
 #endregion
 
 /// <summary>
-/// Represents an OFX specification version for any OFX structure declarations.
+/// Represents an OFX description for any OFX structure declarations.
 /// </summary>
 [AttributeUsage(AttributeTargets.All, Inherited = false, AllowMultiple = true)]
-public sealed class OFXVersionAttribute : Attribute {
+public sealed class OFXDescriptionAttribute : Attribute {
     #region Ctor
     /// <summary>
-    /// Initializes a new instance of the <see cref="OFXVersionAttribute"/> class.
+    /// Initializes a new instance of the <see cref="OFXDescriptionAttribute"/> class.
     /// </summary>
-    /// <param name="specification">The <see cref="OFXSpecification"/> representing the specification version.</param>
-    public OFXVersionAttribute(OFXSpecification specification) {
-        Specification = specification;
+    /// <param name="text">The attribute description text.</param>
+    public OFXDescriptionAttribute(string text) {
+        Text = text;
     }
     #endregion
 
     #region Properties
     /// <summary>
-    /// Gets or sets the OFX specification of the version
+    /// Gets the attribute description text.
     /// </summary>
-    public OFXSpecification Specification { get; private set; }
+    public string Text { get; private set; }
     #endregion
 }
+
