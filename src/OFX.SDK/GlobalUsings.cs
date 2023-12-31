@@ -1,1 +1,2 @@
-﻿global using static OFX.SDK.Specifications.Version102.Constants;
+﻿global using OFX.SDK.Attributes;
+global using OFX.SDK.Specifications;

@@ -1,5 +1,4 @@
 ﻿using System.Reflection;
-using OFX.SDK.Specifications;
 
 namespace OFX.SDK.Reflection;
 

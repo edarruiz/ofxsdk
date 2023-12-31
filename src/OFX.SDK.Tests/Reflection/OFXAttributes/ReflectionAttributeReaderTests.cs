@@ -1,4 +1,5 @@
-﻿using OFX.SDK.Reflection;
+﻿using OFX.SDK.Attributes;
+using OFX.SDK.Reflection;
 using OFX.SDK.Specifications;
 using Xunit;
 

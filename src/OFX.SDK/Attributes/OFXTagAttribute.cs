@@ -1,6 +1,4 @@
-﻿using OFX.SDK.Specifications;
-
-namespace OFX.SDK.Reflection;
+﻿namespace OFX.SDK.Attributes;
 
 #region BSD-3 Copyright Information
 /*
@@ -35,24 +33,52 @@ namespace OFX.SDK.Reflection;
 #endregion
 
 /// <summary>
-/// Represents an OFX specification version for any OFX structure declarations.
+/// Represents an OFX tag for any OFX structure declarations.
 /// </summary>
-[AttributeUsage(AttributeTargets.All, Inherited = false, AllowMultiple = true)]
-public sealed class OFXVersionAttribute : Attribute {
+[AttributeUsage(AttributeTargets.Class | AttributeTargets.Property | AttributeTargets.Struct | AttributeTargets.Enum | AttributeTargets.Field,
+    Inherited = false, AllowMultiple = true)]
+public sealed class OFXTagAttribute : Attribute {
     #region Ctor
     /// <summary>
-    /// Initializes a new instance of the <see cref="OFXVersionAttribute"/> class.
+    /// Initializes a new instace of the <see cref="OFXTagAttribute"/> class.
     /// </summary>
-    /// <param name="specification">The <see cref="OFXSpecification"/> representing the specification version.</param>
-    public OFXVersionAttribute(OFXSpecification specification) {
+    /// <param name="specification">The <see cref="OFXSpecification"/> representing the specification version for the tag.</param>
+    /// <param name="name">The tag name.</param>
+    /// <param name="isHeaderTag">Define if the tag is a header tag. Defaults to <c>false</c>.</param>
+    public OFXTagAttribute(OFXSpecification specification, string name, bool isHeaderTag = false) {
+        if (string.IsNullOrWhiteSpace(name)) {
+            throw new ArgumentNullException(nameof(name));
+        }
+
         Specification = specification;
+        Name = name;
+        IsHeaderTag = isHeaderTag;
+
+        if (!IsHeaderTag) {
+            if (!Name.StartsWith('<')) {
+                Name = $"<{Name}";
+            }
+            if (!Name.EndsWith('>')) {
+                Name = $"{Name}>";
+            }
+        }
     }
     #endregion
 
     #region Properties
     /// <summary>
-    /// Gets or sets the OFX specification of the version
+    /// Gets the specification version for the tag.
     /// </summary>
     public OFXSpecification Specification { get; private set; }
+
+    /// <summary>
+    /// Gets the tag name.
+    /// </summary>
+    public string Name { get; private set; }
+
+    /// <summary>
+    /// Gets or sets if the tag is a header tag.
+    /// </summary>
+    public bool IsHeaderTag { get; private set; }
     #endregion
 }

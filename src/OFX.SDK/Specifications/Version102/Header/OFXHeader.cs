@@ -1,4 +1,4 @@
-﻿using OFX.SDK.Reflection;
+﻿global using static OFX.SDK.Specifications.Version102.Constants;
 
 namespace OFX.SDK.Specifications.Version102;
 

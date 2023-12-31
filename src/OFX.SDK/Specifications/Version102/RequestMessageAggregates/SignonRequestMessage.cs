@@ -1,6 +1,4 @@
-﻿using OFX.SDK.Reflection;
-
-namespace OFX.SDK.Specifications.Version102;
+﻿namespace OFX.SDK.Specifications.Version102;
 
 #region BSD-3 Copyright Information
 /*

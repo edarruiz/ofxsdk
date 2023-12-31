@@ -1,4 +1,4 @@
-﻿namespace OFX.SDK.Reflection;
+﻿namespace OFX.SDK.Attributes;
 
 #region BSD-3 Copyright Information
 /*
@@ -33,24 +33,24 @@
 #endregion
 
 /// <summary>
-/// Represents an OFX value for any OFX structure declarations.
+/// Represents an OFX specification version for any OFX structure declarations.
 /// </summary>
 [AttributeUsage(AttributeTargets.All, Inherited = false, AllowMultiple = true)]
-public sealed class OFXValueAttribute : Attribute {
+public sealed class OFXVersionAttribute : Attribute {
     #region Ctor
     /// <summary>
-    /// Initializes a new instance of the <see cref="OFXValueAttribute"/> class.
+    /// Initializes a new instance of the <see cref="OFXVersionAttribute"/> class.
     /// </summary>
-    /// <param name="value">The attribute value.</param>
-    public OFXValueAttribute(object value) {
-        Value = value;
+    /// <param name="specification">The <see cref="OFXSpecification"/> representing the specification version.</param>
+    public OFXVersionAttribute(OFXSpecification specification) {
+        Specification = specification;
     }
     #endregion
 
     #region Properties
     /// <summary>
-    /// Gets the attribute value.
+    /// Gets or sets the OFX specification of the version
     /// </summary>
-    public object Value { get; private set; }
+    public OFXSpecification Specification { get; private set; }
     #endregion
 }

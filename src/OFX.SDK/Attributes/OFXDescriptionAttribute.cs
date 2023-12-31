@@ -1,4 +1,4 @@
-﻿namespace OFX.SDK.Reflection;
+﻿namespace OFX.SDK.Attributes;
 
 #region BSD-3 Copyright Information
 /*
