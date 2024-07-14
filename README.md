@@ -1,5 +1,5 @@
 # OFX SDK
-OFX SDK is a .NET 6.0 implementation of OFX (Open Financial Exchange) file management, such as read, write, parse, import and export to another serializable formats.
+OFX SDK is a .NET 8.0 implementation of OFX (Open Financial Exchange) file management, such as read, write, parse, import and export to another serializable formats.
 
 # Objective
 The goal of the OFX SDK is to create a level of abstraction to deal with OFX files, offering structured tools to hide some of the complexity needed by the defined standard.
