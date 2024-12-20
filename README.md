@@ -1,5 +1,5 @@
 # OFX SDK
-OFX SDK is a .NET 6.0 implementation of OFX (Open Financial Exchange) file management, such as read, write, parse, import and export to another serializable formats.
+OFX SDK is a .NET 8.0/9.0 implementation of OFX (Open Financial Exchange) file management, such as read, write, parse, import and export to another serializable formats.
 
 # Objective
 The goal of the OFX SDK is to create a level of abstraction to deal with OFX files, offering structured tools to hide some of the complexity needed by the defined standard.
@@ -44,15 +44,11 @@ Here are some guidelines concerning contributions:
 
 
 # Development Environment
-This project has the following requirements:
-- Visual Studio 2022 
-- .NET 8.0
-- C# 12.0 ([What is new in C# 10?](https://learn.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-12))
-
-The following versions of Visual Studio are supported to build the solution:
-- Visual Studio 2022 17.8.3 or later (stable)
-- Visual Studio 2002 Preview 17.9.0 Preview 2.0 or later (unstable)
-
+This project has the following minimal requirements to build:
+- Visual Studio 2022 Community or higher 
+- .NET 8.0 and 9.0
+- C# 12.0 for .NET 8.0 - [What is new in C# 12?](https://learn.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-12)
+- C# 13.0 for .NET 9.0 - [What is new in C# 13?](https://learn.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-13)
 
 # Documentation
 [Here](/docs/documentation.md) you can find the OFX SDK Documentation.
