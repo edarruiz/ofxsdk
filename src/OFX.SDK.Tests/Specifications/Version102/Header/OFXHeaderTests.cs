@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using OFX.SDK.Reflection;
 using OFX.SDK.Specifications;
 using OFX.SDK.Specifications.Version102;
@@ -72,7 +72,7 @@ public class OFXHeaderTests {
     [Trait("OFXHeader Ctor", "NEWFILEUID exception")]
     public void Ctor_ThrowArgumentNullException_WhenParameterNEWFILEUIDIsNull() {
         // Arrange
-        Action action = () => _ = new OFXHeader(OFXHeaderSecurity.None, OFXHeaderEncoding.UNICODE, string.Empty, String.Empty, null);
+        Action action = () => _ = new OFXHeader(OFXHeaderSecurity.None, OFXHeaderEncoding.UNICODE, string.Empty, String.Empty, null!);
         var expected = "Value cannot be null. (Parameter 'newfileuid')";
 
         // Act
