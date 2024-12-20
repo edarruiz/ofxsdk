@@ -1,22 +1,30 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFramework>net8.0</TargetFramework>
+		<TargetFrameworks>net8.0;net9.0</TargetFrameworks>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 		<PackageLicenseExpression>BSD-3-Clause</PackageLicenseExpression>
 		<PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 		<Authors>Eric Roberto Darruiz</Authors>
-		<Description>.NET 6 Implementation for OFX - Open Financial Exchange File Management</Description>
-		<Copyright>Copyright (c) 2022-2024, Eric Roberto Darruiz, All rights reserved.</Copyright>
+		<Description>.NET 8.0 and 9.0 Implementation for OFX - Open Financial Exchange File Management</Description>
+		<Copyright>Copyright (c) 2022-2025, Eric Roberto Darruiz, All rights reserved.</Copyright>
 		<PackageProjectUrl>https://github.com/edarruiz/ofxsdk</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/edarruiz/ofxsdk</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
-		<PackageTags>ofx;csharp;net6</PackageTags>
+		<PackageTags>c-sharp;csharp;parser;sdk;dotnet;reader;dotnet-core;ofx;ofx-parser;open-financial-exchange;net80;net90;net8;net9</PackageTags>
 		<GenerateDocumentationFile>True</GenerateDocumentationFile>
 		<EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
+		<Title>OFX SDK for .NET</Title>
+		<VersionPrefix>1.0.0</VersionPrefix>
+		<VersionSuffix>-Alpha-1</VersionSuffix>
+		<Version>$(VersionPrefix)$(VersionSuffix)</Version>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
 	</PropertyGroup>
+	<ItemGroup>
+		<None Include="README.md" Pack="True" PackagePath="\"/>
+    </ItemGroup>
 
 	<ItemGroup>
 	  <Folder Include="Reflection\ValidationAttributes\" />

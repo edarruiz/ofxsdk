@@ -28,30 +28,9 @@ The following list shows the supported specification versions and its current im
 | ![ver221](https://img.shields.io/badge/version-2.2.1-inactive) | ![state221](https://img.shields.io/badge/state-not%20yet%20supported-inactive) | ![impl221](https://img.shields.io/badge/development-not%20yet%20implemented-inactive) |
 | ![ver23](https://img.shields.io/badge/version-2.3-inactive) | ![state23](https://img.shields.io/badge/state-not%20yet%20supported-inactive) | ![impl23](https://img.shields.io/badge/development-not%20yet%20implemented-inactive) |
 
-# Contributions
-**Author**: Eric Roberto Darruiz <code>(GitHub [@edarruiz](https://github.com/edarruiz))</code>
+# Version History
 
-There are no dedicated developers for this project, so development is entirely based on voluntary effort. I am working on this project in my spare time, whenever my work schedule and business projects allow me to do so.
-
-If you are interested on this project, you can contribute as well. 
-
-Here are some guidelines concerning contributions:
-- All contributions should be done on <code>contrib</code>.
-- <code>main</code> is only for **PR** and stable code roadmap.
-- Every pull request should preferably be linked to a GitHub issue.
-- Write unit tests, if applicable.
-- Don't be afraid to suggest any changes that can help the goal of this SDK. New ideas are always welcome!
+- 1.0.0-Alpha-1
+  - Add support to .NET 9.0
 
 
-# Development Environment
-This project has the following minimal requirements to build:
-- Visual Studio 2022 Community or higher 
-- .NET 8.0 and 9.0
-- C# 12.0 for .NET 8.0 - [What is new in C# 12?](https://learn.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-12)
-- C# 13.0 for .NET 9.0 - [What is new in C# 13?](https://learn.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-13)
-
-# Documentation
-[Here](/docs/documentation.md) you can find the OFX SDK Documentation.
-
-# Roadmap
-[Here](/docs/roadmap.md) you can find the OFX SDK development roadmap
