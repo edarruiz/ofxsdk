@@ -28,6 +28,9 @@ The following list shows the supported specification versions and its current im
 | ![ver221](https://img.shields.io/badge/version-2.2.1-inactive) | ![state221](https://img.shields.io/badge/state-not%20yet%20supported-inactive) | ![impl221](https://img.shields.io/badge/development-not%20yet%20implemented-inactive) |
 | ![ver23](https://img.shields.io/badge/version-2.3-inactive) | ![state23](https://img.shields.io/badge/state-not%20yet%20supported-inactive) | ![impl23](https://img.shields.io/badge/development-not%20yet%20implemented-inactive) |
 
-# Roadmap
+# Version History
+
+- 1.0.0-Alpha-1
+  - Add support to .NET 9.0
 
 
