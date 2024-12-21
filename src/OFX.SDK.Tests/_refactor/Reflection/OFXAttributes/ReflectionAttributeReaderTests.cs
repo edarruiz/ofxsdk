@@ -1,6 +1,6 @@
+using OFX.SDK._refactor.Attributes;
 using OFX.SDK._refactor.Reflection;
 using OFX.SDK._refactor.Specifications;
-using OFX.SDK.Attributes;
 using Xunit;
 
 namespace OFX.SDK.Tests._refactor.Reflection.OFXAttributes;

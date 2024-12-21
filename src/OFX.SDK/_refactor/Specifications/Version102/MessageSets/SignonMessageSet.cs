@@ -1,7 +1,8 @@
-using OFX.SDK._refactor.Specifications;
 using OFX.SDK._refactor.Specifications.Version102.Interfaces.MessageSets;
 using OFX.SDK._refactor.Specifications.Version102.Interfaces.RequestMessageAggregates;
 using OFX.SDK._refactor.Specifications.Version102.Interfaces.ResponseMessageAggregates;
+using OFX.SDK._refactor.Specifications.Version102.RequestMessageAggregates;
+using OFX.SDK._refactor.Specifications.Version102.ResponseMessageAggregates;
 
 namespace OFX.SDK._refactor.Specifications.Version102.MessageSets;
 

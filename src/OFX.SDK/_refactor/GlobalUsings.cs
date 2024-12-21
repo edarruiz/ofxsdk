@@ -1,2 +1,2 @@
-﻿global using OFX.SDK.Attributes;
-global using OFX.SDK.Specifications;
+global using OFX.SDK._refactor.Attributes;
+global using OFX.SDK._refactor.Specifications;
