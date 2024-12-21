@@ -23,13 +23,13 @@
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 	</PropertyGroup>
 	<ItemGroup>
-		<None Include="README.md" Pack="True" PackagePath="\"/>
+		<None Include="README.md" Pack="True" PackagePath="\" />
     </ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Reflection\ValidationAttributes\" />
-	  <Folder Include="Specifications\Version102\TransactionResponses\" />
-	  <Folder Include="Specifications\Version102\TransactionRequests\" />
+	  <Folder Include="_refactor\Reflection\ValidationAttributes\" />
+	  <Folder Include="_refactor\Specifications\Version102\TransactionResponses\" />
+	  <Folder Include="_refactor\Specifications\Version102\TransactionRequests\" />
 	</ItemGroup>
 
 </Project>
