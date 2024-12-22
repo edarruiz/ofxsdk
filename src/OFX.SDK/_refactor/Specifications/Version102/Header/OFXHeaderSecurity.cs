@@ -1,6 +1,3 @@
-using OFX.SDK._refactor.Specifications;
-using OFX.SDK._refactor.Specifications.Version102;
-
 namespace OFX.SDK._refactor.Specifications.Version102.Header;
 
 #region BSD-3 Copyright Information

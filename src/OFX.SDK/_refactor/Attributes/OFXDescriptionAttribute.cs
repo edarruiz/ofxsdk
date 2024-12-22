@@ -1,4 +1,4 @@
-namespace OFX.SDK._refactor.Attributes;
+namespace OFX.SDK._refactor;
 
 #region BSD-3 Copyright Information
 /*

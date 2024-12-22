@@ -1,5 +1,3 @@
-using OFX.SDK._refactor.Specifications;
-
 namespace OFX.SDK._refactor.Specifications.Version102.Interfaces.ResponseMessageAggregates;
 
 #region BSD-3 Copyright Information

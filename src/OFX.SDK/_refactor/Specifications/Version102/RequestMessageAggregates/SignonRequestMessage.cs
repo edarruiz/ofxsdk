@@ -1,4 +1,3 @@
-using OFX.SDK._refactor.Specifications;
 using OFX.SDK._refactor.Specifications.Version102.Interfaces.RequestMessageAggregates;
 
 namespace OFX.SDK._refactor.Specifications.Version102.RequestMessageAggregates;

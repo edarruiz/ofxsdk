@@ -1,5 +1,4 @@
 global using static OFX.SDK._refactor.Specifications.Version102.Constants;
-using OFX.SDK._refactor.Specifications;
 
 namespace OFX.SDK._refactor.Specifications.Version102.Header;
 
