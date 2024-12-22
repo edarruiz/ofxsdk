@@ -39,14 +39,12 @@ internal sealed class OFXTagAttribute : Attribute, IOFXDataAnnotation {
     /// Initializes a new instance of the <see cref="OFXTagAttribute"/> class.
     /// </summary>
     /// <param name="name">The name of the OFX tag.</param>
-    /// <param name="block">The block where the tag is defined.</param>
     /// <exception cref="ArgumentException">When the <paramref name="name"/> is <see langword="null"/>, empty, 
     /// or consists only of white-space characters.</exception>
-    public OFXTagAttribute(string name, OFXStructureBlock block) {
+    public OFXTagAttribute(string name) {
         ArgumentException.ThrowIfNullOrWhiteSpace(name, nameof(name));
 
         Name = name;
-        Block = block;
     }
     #endregion
 
@@ -55,10 +53,5 @@ internal sealed class OFXTagAttribute : Attribute, IOFXDataAnnotation {
     /// Gets the tag name.
     /// </summary>
     public string Name { get; init; }
-
-    /// <summary>
-    /// Gets the block where the tag is defined.
-    /// </summary>
-    public OFXStructureBlock Block { get; private set; }
     #endregion
 }

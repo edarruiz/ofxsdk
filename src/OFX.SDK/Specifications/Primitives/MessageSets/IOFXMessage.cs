@@ -34,9 +34,4 @@ namespace OFX.SDK;
 /// <remarks>A message is the unit of work in Open Financial Exchange. It refers to a request and response pair, and the
 /// status codes associated with that response.</remarks>
 internal interface IOFXMessage {
-
-    /// <summary>
-    /// Gets the structure block where the message is defined.
-    /// </summary>
-    OFXStructureBlock StructureBlock { get; }
 }
