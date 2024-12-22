@@ -32,7 +32,7 @@ namespace OFX.SDK;
 /// Represents a value of any OFX structure declarations.
 /// </summary>
 [AttributeUsage(AttributeTargets.All, Inherited = false, AllowMultiple = true)]
-public sealed class OFXValueAttribute<T> : Attribute {
+internal sealed class OFXValueAttribute<T> : Attribute, IOFXDataAnnotation {
     #region Ctor
     /// <summary>
     /// Initializes a new instance of the <see cref="OFXValueAttribute{T}"/> class with the specified value.

@@ -32,13 +32,13 @@ namespace OFX.SDK;
 /// Represents a description of any OFX structure declarations.
 /// </summary>
 [AttributeUsage(AttributeTargets.All, Inherited = false, AllowMultiple = true)]
-public sealed class OFXDescriptionAttribute : Attribute {
+internal sealed class OFXDescriptionAttribute : Attribute, IOFXDataAnnotation {
     #region Ctor
     /// <summary>
     /// Initializes a new instance of the <see cref="OFXDescriptionAttribute"/> class with the specified description.
     /// </summary>
     /// <param name="description">The OFX description.</param>
-    /// <exception cref="ArgumentException">Thrown when the description is <see langword="null"/>, empty, 
+    /// <exception cref="ArgumentException">When the <paramref name="description"/> is <see langword="null"/>, empty, 
     /// or consists only of white-space characters.</exception>
     public OFXDescriptionAttribute(string description) {
         ArgumentException.ThrowIfNullOrWhiteSpace(description, nameof(description));
