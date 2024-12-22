@@ -42,7 +42,7 @@ namespace OFX.SDK;
 /// </code>
 /// <para>Each value of this <see langword="enum"/> represents a block in this structure</para>
 /// </remarks>
-public enum OFXStructureBlock {
+internal enum OFXStructureBlock {
     /// <summary>
     /// Undefined or unknown block.
     /// </summary>
