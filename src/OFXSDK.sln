@@ -16,8 +16,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Misc", "Misc", "{BACD69CE-6
 		..\README.md = ..\README.md
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OFX.SDK.Tests", "OFX.SDK.Tests\OFX.SDK.Tests.csproj", "{EB0DB030-9ABB-4831-AFF9-6541459AF025}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -28,17 +26,12 @@ Global
 		{E0BD3391-FE5E-46F8-A0D0-A9DAE27FCAE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E0BD3391-FE5E-46F8-A0D0-A9DAE27FCAE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E0BD3391-FE5E-46F8-A0D0-A9DAE27FCAE8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EB0DB030-9ABB-4831-AFF9-6541459AF025}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EB0DB030-9ABB-4831-AFF9-6541459AF025}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EB0DB030-9ABB-4831-AFF9-6541459AF025}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EB0DB030-9ABB-4831-AFF9-6541459AF025}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{E0BD3391-FE5E-46F8-A0D0-A9DAE27FCAE8} = {436322DA-864B-46B3-BC4D-336BD2E34429}
-		{EB0DB030-9ABB-4831-AFF9-6541459AF025} = {C8932B55-E3B4-4480-AF9B-D6309298F800}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B1B7C17C-DE78-4DCD-873C-8D5F3392601D}
