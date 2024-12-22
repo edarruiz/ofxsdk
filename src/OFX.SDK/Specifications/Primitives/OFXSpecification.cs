@@ -31,7 +31,7 @@ namespace OFX.SDK;
 /// <summary>
 /// Represents an OFX specification version.
 /// </summary>
-public enum OFXSpecification {
+internal enum OFXSpecification {
     /// <summary>
     /// Unknown specification version.
     /// </summary>
