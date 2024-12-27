@@ -35,9 +35,10 @@ namespace OFX.SDK.DataAnnotations;
 public sealed class OFXHeaderTagAttribute<TValue> : OFXAbstractTagAttribute {
     #region Ctor
     /// <summary>
-    /// Initializes a new instance of the <see cref="OFXHeaderTagAttribute"/> class with the specified tag name.
+    /// Initializes a new instance of the <see cref="OFXHeaderTagAttribute{TValue}"/> class with the specified tag name.
     /// </summary>
     /// <param name="name">The name of the OFX header tag.</param>
+    /// <param name="value">The value of the OFX header tag.</param>
     /// <exception cref="ArgumentException">When the <paramref name="name"/> is <see langword="null"/>, empty, 
     /// or consists only of white-space characters.</exception>
     public OFXHeaderTagAttribute(string name, TValue value) : base(name) {
