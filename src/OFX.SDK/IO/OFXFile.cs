@@ -33,7 +33,7 @@ namespace OFX.SDK;
 /// <summary>
 /// Represents a reader for OFX files.
 /// </summary>
-public sealed class OFXFileReader {
+public sealed class OFXFile {
     #region Fields
     /// <summary>
     /// Represents the known headers of an OFX file.
@@ -63,13 +63,13 @@ public sealed class OFXFileReader {
 
     #region Ctor
     /// <summary>
-    /// Initializes a new instance of the <see cref="OFXFileReader"/> class with the specified source file path.
+    /// Initializes a new instance of the <see cref="OFXFile"/> class with the specified source file path.
     /// </summary>
     /// <param name="sourceFilePath">The path to the OFX file to be read.</param>
     /// <exception cref="ArgumentException">When the <paramref name="sourceFilePath"/> is <see langword="null"/>, empty, 
     /// or consists only of white-space characters.</exception>
     /// <exception cref="FileNotFoundException">When the file specified by <paramref name="sourceFilePath"/> does not exist.</exception>
-    public OFXFileReader(string sourceFilePath) {
+    public OFXFile(string sourceFilePath) {
         ArgumentException.ThrowIfNullOrWhiteSpace(sourceFilePath, nameof(sourceFilePath));
 
         if (!File.Exists(sourceFilePath)) {
