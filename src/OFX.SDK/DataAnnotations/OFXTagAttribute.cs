@@ -32,26 +32,16 @@ namespace OFX.SDK.DataAnnotations;
 /// Represents an OFX tag for any OFX structure declarations.
 /// </summary>
 [AttributeUsage(AttributeTargets.Class | AttributeTargets.Property | AttributeTargets.Struct | AttributeTargets.Enum | AttributeTargets.Field, Inherited = false, AllowMultiple = true)]
-public sealed class OFXTagAttribute : Attribute, IOFXDataAnnotation {
+public sealed class OFXTagAttribute : OFXAbstractTagAttribute {
     #region Ctor
-
     /// <summary>
-    /// Initializes a new instance of the <see cref="OFXTagAttribute"/> class.
+    /// Initializes a new instance of the <see cref="OFXTagAttribute"/> class with the specified tag name.
     /// </summary>
     /// <param name="name">The name of the OFX tag.</param>
     /// <exception cref="ArgumentException">When the <paramref name="name"/> is <see langword="null"/>, empty, 
     /// or consists only of white-space characters.</exception>
-    public OFXTagAttribute(string name) {
-        ArgumentException.ThrowIfNullOrWhiteSpace(name, nameof(name));
-
-        Name = name;
+    public OFXTagAttribute(string name) : base(name) {
+        Scope = OFXTagScope.Any;
     }
-    #endregion
-
-    #region Properties
-    /// <summary>
-    /// Gets the tag name.
-    /// </summary>
-    public string Name { get; init; }
     #endregion
 }
