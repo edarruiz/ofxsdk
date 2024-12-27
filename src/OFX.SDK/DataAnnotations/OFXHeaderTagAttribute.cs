@@ -32,7 +32,7 @@ namespace OFX.SDK.DataAnnotations;
 /// Represents an OFX tag for any OFX header structure declarations.
 /// </summary>
 [AttributeUsage(AttributeTargets.Class | AttributeTargets.Property | AttributeTargets.Struct | AttributeTargets.Enum | AttributeTargets.Field, Inherited = false, AllowMultiple = true)]
-public sealed class OFXHeaderTagAttribute : OFXAbstractTagAttribute {
+public sealed class OFXHeaderTagAttribute<TValue> : OFXAbstractTagAttribute {
     #region Ctor
     /// <summary>
     /// Initializes a new instance of the <see cref="OFXHeaderTagAttribute"/> class with the specified tag name.
@@ -40,8 +40,18 @@ public sealed class OFXHeaderTagAttribute : OFXAbstractTagAttribute {
     /// <param name="name">The name of the OFX header tag.</param>
     /// <exception cref="ArgumentException">When the <paramref name="name"/> is <see langword="null"/>, empty, 
     /// or consists only of white-space characters.</exception>
-    public OFXHeaderTagAttribute(string name) : base(name) {
+    public OFXHeaderTagAttribute(string name, TValue value) : base(name) {
+        ArgumentNullException.ThrowIfNull(value, nameof(value));
+
         Scope = OFXTagScope.Header;
+        Value = value;
     }
+    #endregion
+
+    #region Properties
+    /// <summary>
+    /// Gets the value of the OFX header tag.
+    /// </summary>
+    public TValue Value { get; init; }
     #endregion
 }
