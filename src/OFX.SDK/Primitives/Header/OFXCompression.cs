@@ -35,5 +35,6 @@ public enum OFXCompression {
     /// <summary>
     /// Represents no compression.
     /// </summary>
+    [OFXValue<string>("NONE")]
     None = 0
 }

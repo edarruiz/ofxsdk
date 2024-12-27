@@ -104,48 +104,90 @@ public sealed partial class OFXConstants {
             /// The OFX header <c>SECURITY</c> tag value.
             /// </summary>
             /// <remarks>Represents no application-level security.</remarks>
+            [OFXSpecification(OFXSpecification.Version102)]
+            [OFXSpecification(OFXSpecification.Version103)]
+            [OFXSpecification(OFXSpecification.Version151)]
+            [OFXSpecification(OFXSpecification.Version160)]
+            [OFXSpecification(OFXSpecification.Version203)]
+            [OFXSpecification(OFXSpecification.Version211)]
+            [OFXSpecification(OFXSpecification.Version220)]
+            [OFXSpecification(OFXSpecification.Version221)]
+            [OFXSpecification(OFXSpecification.Version230)]
             public const OFXSecurity SECURITY_NONE = OFXSecurity.None;
 
             /// <summary>
             /// The OFX header <c>SECURITY</c> tag value.
             /// </summary>
             /// <remarks>Represents Type 1 application-level security.</remarks>
+            [OFXSpecification(OFXSpecification.Version102)]
+            [OFXSpecification(OFXSpecification.Version103)]
+            [OFXSpecification(OFXSpecification.Version151)]
+            [OFXSpecification(OFXSpecification.Version160)]
+            [OFXSpecification(OFXSpecification.Version203)]
+            [OFXSpecification(OFXSpecification.Version211)]
+            [OFXSpecification(OFXSpecification.Version220)]
+            [OFXSpecification(OFXSpecification.Version221)]
+            [OFXSpecification(OFXSpecification.Version230)]
             public const OFXSecurity SECURITY_TYPE1 = OFXSecurity.Type1;
 
             /// <summary>
             /// The OFX header <c>ENCODING</c> tag value.
             /// </summary>
             /// <remarks>Represents the Unicode text encoding.</remarks>
+            [OFXSpecification(OFXSpecification.Version102)]
+            [OFXSpecification(OFXSpecification.Version103)]
+            [OFXSpecification(OFXSpecification.Version151)]
+            [OFXSpecification(OFXSpecification.Version160)]
             public const OFXEncoding ENCODING_UTF8 = OFXEncoding.UTF8;
 
             /// <summary>
             /// The OFX header <c>ENCODING</c> tag value.
             /// </summary>
             /// <remarks>Represents the US ASCII text encoding.</remarks>
+            [OFXSpecification(OFXSpecification.Version102)]
+            [OFXSpecification(OFXSpecification.Version103)]
+            [OFXSpecification(OFXSpecification.Version151)]
+            [OFXSpecification(OFXSpecification.Version160)]
             public const OFXEncoding ENCODING_USASCII = OFXEncoding.USASCII;
 
             /// <summary>
             /// The OFX header <c>CHARSET</c> tag value.
             /// </summary>
             /// <remarks>Represents the ISO 8859-1 character set.</remarks>
+            [OFXSpecification(OFXSpecification.Version102)]
+            [OFXSpecification(OFXSpecification.Version103)]
+            [OFXSpecification(OFXSpecification.Version151)]
+            [OFXSpecification(OFXSpecification.Version160)]
             public const OFXCharset CHARSET_ISO_8859_1 = OFXCharset.ISO_8859_1;
 
             /// <summary>
             /// The OFX header <c>CHARSET</c> tag value.
             /// </summary>
             /// <remarks>Represents the Windows-1252 character set.</remarks>
+            [OFXSpecification(OFXSpecification.Version102)]
+            [OFXSpecification(OFXSpecification.Version103)]
+            [OFXSpecification(OFXSpecification.Version151)]
+            [OFXSpecification(OFXSpecification.Version160)]
             public const OFXCharset CHARSET_WIN1252 = OFXCharset.WIN_1252;
 
             /// <summary>
             /// The OFX header <c>CHARSET</c> tag value.
             /// </summary>
             /// <remarks>No character set is specified.</remarks>
+            [OFXSpecification(OFXSpecification.Version102)]
+            [OFXSpecification(OFXSpecification.Version103)]
+            [OFXSpecification(OFXSpecification.Version151)]
+            [OFXSpecification(OFXSpecification.Version160)]
             public const OFXCharset CHARSET_NONE = OFXCharset.None;
 
             /// <summary>
             /// The OFX header <c>COMPRESSION</c> tag value.
             /// </summary>
             /// <remarks>A future version of the specification will define compression (was never defined).</remarks>
+            [OFXSpecification(OFXSpecification.Version102)]
+            [OFXSpecification(OFXSpecification.Version103)]
+            [OFXSpecification(OFXSpecification.Version151)]
+            [OFXSpecification(OFXSpecification.Version160)]
             public const OFXCompression COMPRESSION_NONE = OFXCompression.None;
 
             /// <summary>
@@ -153,12 +195,30 @@ public sealed partial class OFXConstants {
             /// </summary>
             /// <remarks>OLDFILEUID identifies the last request and response that was received
             /// and processed by the client.</remarks>
+            [OFXSpecification(OFXSpecification.Version102)]
+            [OFXSpecification(OFXSpecification.Version103)]
+            [OFXSpecification(OFXSpecification.Version151)]
+            [OFXSpecification(OFXSpecification.Version160)]
+            [OFXSpecification(OFXSpecification.Version203)]
+            [OFXSpecification(OFXSpecification.Version211)]
+            [OFXSpecification(OFXSpecification.Version220)]
+            [OFXSpecification(OFXSpecification.Version221)]
+            [OFXSpecification(OFXSpecification.Version230)]
             public const string OLDFILEUID_NONE = "NONE";
 
             /// <summary>
             /// The OFX header <c>NEWFILEUID</c> tag value.
             /// </summary>
             /// <remarks>NEWFILEUID uniquely identifies this request file.</remarks>
+            [OFXSpecification(OFXSpecification.Version102)]
+            [OFXSpecification(OFXSpecification.Version103)]
+            [OFXSpecification(OFXSpecification.Version151)]
+            [OFXSpecification(OFXSpecification.Version160)]
+            [OFXSpecification(OFXSpecification.Version203)]
+            [OFXSpecification(OFXSpecification.Version211)]
+            [OFXSpecification(OFXSpecification.Version220)]
+            [OFXSpecification(OFXSpecification.Version221)]
+            [OFXSpecification(OFXSpecification.Version230)]
             public const string NEWFILEUID_NONE = "NONE";
         }
     }
