@@ -1,4 +1,4 @@
-namespace OFX.SDK;
+namespace OFX.SDK.DataAnnotations;
 
 #region MIT License Information
 /*
@@ -29,27 +29,29 @@ namespace OFX.SDK;
 #endregion
 
 /// <summary>
-/// Represents a value of any OFX structure declarations.
+/// Represents an OFX tag for any OFX structure declarations.
 /// </summary>
-[AttributeUsage(AttributeTargets.All, Inherited = false, AllowMultiple = true)]
-internal sealed class OFXValueAttribute<T> : Attribute, IOFXDataAnnotation {
+[AttributeUsage(AttributeTargets.Class | AttributeTargets.Property | AttributeTargets.Struct | AttributeTargets.Enum | AttributeTargets.Field, Inherited = false, AllowMultiple = true)]
+public sealed class OFXTagAttribute : Attribute, IOFXDataAnnotation {
     #region Ctor
-    /// <summary>
-    /// Initializes a new instance of the <see cref="OFXValueAttribute{T}"/> class with the specified value.
-    /// </summary>
-    /// <param name="value">The OFX value.</param>
-    /// <exception cref="ArgumentNullException">When <paramref name="value"/> is <see langword="null"/>.</exception>
-    public OFXValueAttribute(T value) {
-        ArgumentNullException.ThrowIfNull(value, nameof(value));
 
-        Value = value;
+    /// <summary>
+    /// Initializes a new instance of the <see cref="OFXTagAttribute"/> class.
+    /// </summary>
+    /// <param name="name">The name of the OFX tag.</param>
+    /// <exception cref="ArgumentException">When the <paramref name="name"/> is <see langword="null"/>, empty, 
+    /// or consists only of white-space characters.</exception>
+    public OFXTagAttribute(string name) {
+        ArgumentException.ThrowIfNullOrWhiteSpace(name, nameof(name));
+
+        Name = name;
     }
     #endregion
 
     #region Properties
     /// <summary>
-    /// Gets the OFX value.
+    /// Gets the tag name.
     /// </summary>
-    public T? Value { get; init; }
+    public string Name { get; init; }
     #endregion
 }

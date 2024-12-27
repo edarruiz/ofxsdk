@@ -27,7 +27,7 @@
     </ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Specifications\Version23\" />
+	  <Folder Include="Primitives\Header\" />
 	  <Folder Include="Specifications\Version221\" />
 	  <Folder Include="Specifications\Version22\" />
 	  <Folder Include="Specifications\Version211\" />

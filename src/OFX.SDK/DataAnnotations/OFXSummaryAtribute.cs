@@ -1,4 +1,4 @@
-namespace OFX.SDK;
+namespace OFX.SDK.DataAnnotations;
 
 #region MIT License Information
 /*
@@ -29,7 +29,29 @@ namespace OFX.SDK;
 #endregion
 
 /// <summary>
-/// Represents the implementation interface for OFX data annotations.
+/// Represents the summary attribute for OFX data annotations.
 /// </summary>
-internal interface IOFXDataAnnotation {
+[AttributeUsage(AttributeTargets.All, Inherited = false, AllowMultiple = true)]
+public sealed class OFXSummaryAtribute : Attribute, IOFXDataAnnotation {
+    #region Ctor
+    /// <summary>
+    /// Initializes a new instance of the <see cref="OFXSummaryAtribute"/> class.
+    /// </summary>
+    /// <param name="text">The summary text of the OFX data annotation.</param>
+    /// <exception cref="ArgumentException">When the <paramref name="text"/> is <see langword="null"/>, empty, 
+    /// or consists only of white-space characters.</exception>
+    public OFXSummaryAtribute(string text) {
+        ArgumentException.ThrowIfNullOrEmpty(text, nameof(text));
+
+        Text = text;
+    }
+
+    #endregion
+
+    #region Properties
+    /// <summary>
+    /// Gets the summary text of the OFX data annotation.
+    /// </summary>
+    public string Text { get; init; }
+    #endregion
 }

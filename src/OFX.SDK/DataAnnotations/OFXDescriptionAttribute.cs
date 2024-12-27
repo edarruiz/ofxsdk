@@ -1,4 +1,4 @@
-namespace OFX.SDK;
+namespace OFX.SDK.DataAnnotations;
 
 #region MIT License Information
 /*
@@ -29,29 +29,28 @@ namespace OFX.SDK;
 #endregion
 
 /// <summary>
-/// Represents an OFX tag for any OFX structure declarations.
+/// Represents a description of any OFX structure declarations.
 /// </summary>
-[AttributeUsage(AttributeTargets.Class | AttributeTargets.Property | AttributeTargets.Struct | AttributeTargets.Enum | AttributeTargets.Field, Inherited = false, AllowMultiple = true)]
-internal sealed class OFXTagAttribute : Attribute, IOFXDataAnnotation {
+[AttributeUsage(AttributeTargets.All, Inherited = false, AllowMultiple = true)]
+public sealed class OFXDescriptionAttribute : Attribute, IOFXDataAnnotation {
     #region Ctor
-
     /// <summary>
-    /// Initializes a new instance of the <see cref="OFXTagAttribute"/> class.
+    /// Initializes a new instance of the <see cref="OFXDescriptionAttribute"/> class with the specified description.
     /// </summary>
-    /// <param name="name">The name of the OFX tag.</param>
-    /// <exception cref="ArgumentException">When the <paramref name="name"/> is <see langword="null"/>, empty, 
+    /// <param name="description">The OFX description.</param>
+    /// <exception cref="ArgumentException">When the <paramref name="description"/> is <see langword="null"/>, empty, 
     /// or consists only of white-space characters.</exception>
-    public OFXTagAttribute(string name) {
-        ArgumentException.ThrowIfNullOrWhiteSpace(name, nameof(name));
+    public OFXDescriptionAttribute(string description) {
+        ArgumentException.ThrowIfNullOrWhiteSpace(description, nameof(description));
 
-        Name = name;
+        Description = description;
     }
     #endregion
 
     #region Properties
     /// <summary>
-    /// Gets the tag name.
+    /// Gets the OFX description
     /// </summary>
-    public string Name { get; init; }
+    public string Description { get; init; }
     #endregion
 }

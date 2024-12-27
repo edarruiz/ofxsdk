@@ -1,4 +1,4 @@
-namespace OFX.SDK;
+namespace OFX.SDK.DataAnnotations;
 
 #region MIT License Information
 /*
@@ -29,23 +29,27 @@ namespace OFX.SDK;
 #endregion
 
 /// <summary>
-/// Represents the OFX header data format.
+/// Represents a value of any OFX structure declarations.
 /// </summary>
-internal enum OFXHeaderDataFormat {
-
+[AttributeUsage(AttributeTargets.All, Inherited = false, AllowMultiple = true)]
+public sealed class OFXValueAttribute<T> : Attribute, IOFXDataAnnotation {
+    #region Ctor
     /// <summary>
-    /// The header is in SGML format (Versions 1.0, 1.0.2, 1.0.3, 1.5.1 and 1.6).
+    /// Initializes a new instance of the <see cref="OFXValueAttribute{T}"/> class with the specified value.
     /// </summary>
-    /// <remarks></remarks>
-    [OFXValue<string>("OFXSGML")]
-    SGML = 0,
+    /// <param name="value">The OFX value.</param>
+    /// <exception cref="ArgumentNullException">When <paramref name="value"/> is <see langword="null"/>.</exception>
+    public OFXValueAttribute(T value) {
+        ArgumentNullException.ThrowIfNull(value, nameof(value));
 
+        Value = value;
+    }
+    #endregion
+
+    #region Properties
     /// <summary>
-    /// The header is in XML format (Versions 2.0+).
+    /// Gets the OFX value.
     /// </summary>
-    /// <remarks>When the specification version of the OFX file is not SGML, the tag &lt;DATA&gt; 
-    /// is ommited, because XML is assumed.</remarks>
-    [OFXValue<string>("")]
-    [OFXDescription("The header is in XML format, the tag &lt;DATA&gt; is ommited in the XML file.")]
-    XML = 1
+    public T? Value { get; init; }
+    #endregion
 }

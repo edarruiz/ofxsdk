@@ -1,4 +1,4 @@
-namespace OFX.SDK;
+namespace OFX.SDK.DataAnnotations;
 
 #region MIT License Information
 /*
@@ -32,13 +32,13 @@ namespace OFX.SDK;
 /// Represents an OFX specification version of any OFX structure declarations.
 /// </summary>
 [AttributeUsage(AttributeTargets.All, Inherited = false, AllowMultiple = true)]
-internal sealed class OFXVersionAttribute : Attribute, IOFXDataAnnotation {
+public sealed class OFXSpecificationAttribute : Attribute, IOFXDataAnnotation {
     #region Ctor
     /// <summary>
-    /// Initializes a new instance of the <see cref="OFXVersionAttribute"/> class with the specified OFX specification version.
+    /// Initializes a new instance of the <see cref="OFXSpecificationAttribute"/> class with the specified OFX specification version.
     /// </summary>
     /// <param name="specification">The OFX specification version.</param>
-    public OFXVersionAttribute(OFXSpecification specification) {
+    public OFXSpecificationAttribute(OFXSpecification specification) {
         Specification = specification;
     }
     #endregion
