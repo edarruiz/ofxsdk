@@ -32,7 +32,6 @@
 	  <Folder Include="Specifications\Version211\" />
 	  <Folder Include="Specifications\Version203\" />
 	  <Folder Include="Specifications\Version103\" />
-	  <Folder Include="Specifications\Version102\" />
 	  <Folder Include="Specifications\Version16\" />
 	</ItemGroup>
 
