@@ -49,7 +49,7 @@ public sealed partial class OFXConstants {
             [OFXSpecification(OFXSpecification.Version103)]
             [OFXSpecification(OFXSpecification.Version151)]
             [OFXSpecification(OFXSpecification.Version160)]
-            public const string OFXHEADER_100 = "100";
+            public const OFXHeaderVersion OFXHEADER_100 = OFXHeaderVersion.OFX100;
 
             /// <summary>
             /// The OFX header <c>HEADER</c> tag value.
@@ -60,7 +60,7 @@ public sealed partial class OFXConstants {
             [OFXSpecification(OFXSpecification.Version220)]
             [OFXSpecification(OFXSpecification.Version221)]
             [OFXSpecification(OFXSpecification.Version230)]
-            public const string OFXHEADER_200 = "200";
+            public const OFXHeaderVersion OFXHEADER_200 = OFXHeaderVersion.OFX200;
 
             /// <summary>
             /// The OFX header <c>DATA</c> tag value.

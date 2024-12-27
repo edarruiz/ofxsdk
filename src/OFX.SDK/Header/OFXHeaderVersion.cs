@@ -1,4 +1,4 @@
-namespace OFX.SDK.Header;
+namespace OFX.SDK;
 
 #region MIT License Information
 /*
