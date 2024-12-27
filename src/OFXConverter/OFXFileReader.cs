@@ -1,7 +1,5 @@
 using System.Diagnostics;
 using System.Text;
-using System.Text.Json;
-using System.Xml;
 
 #region MIT License Information
 /*
@@ -46,9 +44,6 @@ internal class OFXFileReader {
         "OLDFILEUID",
         "NEWFILEUID"
     ];
-    private static readonly JsonSerializerOptions jsonSerializerOptions = new() {
-        WriteIndented = true
-    };
     #endregion
 
     #region Ctor
@@ -88,58 +83,6 @@ internal class OFXFileReader {
     }
 
     public void ToXmlFile(string filePath) => File.WriteAllText(filePath, ToXml());
-
-    public void ToJsonFile(string filePath) => File.WriteAllText(filePath, JsonSerializer.Serialize(SGMLMap, jsonSerializerOptions));
-
-
-
-    public string ToJson() {
-        var xmlDocument = new XmlDocument();
-        xmlDocument.LoadXml(ToXml());
-
-        var jsonString = ConvertXmlNodeToJson(xmlDocument!);
-        return jsonString;
-    }
-
-    private static string ConvertXmlNodeToJson(XmlNode node) {
-        using var stream = new MemoryStream();
-        using var writer = new Utf8JsonWriter(stream, new JsonWriterOptions { Indented = true });
-
-        WriteJson(writer, node);
-        writer.Flush();
-
-        return Encoding.UTF8.GetString(stream.ToArray());
-    }
-
-    private static void WriteJson(Utf8JsonWriter writer, XmlNode node) {
-        if (node is XmlElement element) {
-            writer.WriteStartObject();
-
-            foreach (XmlAttribute attribute in element.Attributes) {
-                writer.WriteString($"@{attribute.Name}", attribute.Value);
-            }
-
-            foreach (XmlNode child in element.ChildNodes) {
-                if (child is XmlText text) {
-                    writer.WriteString("value", text.Value);
-                } else {
-                    writer.WritePropertyName(child.Name);
-                    WriteJson(writer, child);
-                }
-            }
-
-            writer.WriteEndObject();
-        } else if (node is XmlText textNode) {
-            writer.WriteStringValue(textNode.Value);
-        } else if (node is XmlDocument doc) {
-            foreach (XmlNode child in doc.ChildNodes) {
-                WriteJson(writer, child);
-            }
-        }
-    }
-
-
-
 
     public void ReadFile() {
         ReadOnlySpan<char> line = [];
