@@ -47,7 +47,6 @@ if (!Path.GetExtension(ofxFilePath).Equals(".ofx", StringComparison.CurrentCultu
 
 try {
     OFXFileReader reader = new(ofxFilePath);
-    reader.ReadFile();
     Console.WriteLine(reader.ToXml());
     reader.ToXmlFile(Path.ChangeExtension(ofxFilePath, ".xml"));
 

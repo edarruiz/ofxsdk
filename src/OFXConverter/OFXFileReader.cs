@@ -54,6 +54,7 @@ internal class OFXFileReader {
         }
 
         FilePath = filePath;
+        ReadFile();
     }
     #endregion
 
