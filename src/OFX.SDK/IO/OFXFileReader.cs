@@ -76,6 +76,8 @@ public sealed class OFXFileReader {
             throw new FileNotFoundException($"The file '{sourceFilePath}' does not exist.");
         }
 
+        // TODO check if the OFX file is valid, checking for required headers and body tags
+
         FilePath = sourceFilePath;
         ReadFile();
     }
@@ -154,17 +156,21 @@ public sealed class OFXFileReader {
     public ReadOnlySpan<char> ToXml() {
         StringBuilder xml = new();
 
-        xml.Append("<?xml version=\"1.0\" encoding=\"utf-8\"?>\n");
+        xml.AppendLine("<?xml version=\"1.0\" encoding=\"utf-8\"?>");
         int level = 0;
         foreach (var tag in SGMLMap) {
-            if (tag.Value == "OPEN_TAG") {
-                xml.Append($"{new string(' ', level * 2)}<{tag.Name}>\n");
-                level++;
-            } else if (tag.Value == "CLOSE_TAG") {
-                level--;
-                xml.Append($"{new string(' ', level * 2)}</{tag.Name}>\n");
-            } else {
-                xml.Append($"{new string(' ', level * 2)}<{tag.Name}>{tag.Value}</{tag.Name}>\n");
+            switch (tag.Value) {
+                case OPEN_TAG:
+                    xml.AppendLine($"{new string(' ', level * 2)}<{tag.Name}>");
+                    level++;
+                    break;
+                case CLOSE_TAG:
+                    level--;
+                    xml.AppendLine($"{new string(' ', level * 2)}</{tag.Name}>");
+                    break;
+                default:
+                    xml.AppendLine($"{new string(' ', level * 2)}<{tag.Name}>{tag.Value}</{tag.Name}>");
+                    break;
             }
         }
 
