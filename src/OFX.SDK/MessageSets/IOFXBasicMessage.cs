@@ -29,11 +29,11 @@ namespace OFX.SDK;
 #endregion
 
 /// <summary>
-/// Represents the implementation interface for a delete OFX message.
-/// <para>The delete OFX message has a name structure of &lt;xxxDELRQ&gt; and &lt;xxxDELRS&gt;. It is used to delete an
-/// existing instance of object xxx and it is encapsulated in a transaction wrapper.</para>
+/// Represents the implementation interface for a basic OFX message.
+/// <para>The basic OFX message has a name structure of &lt;xxxRQ&gt; and &lt;xxxRS&gt;. It is used for read actions of a
+/// specific object and it is encapsulated in a transaction wrapper &lt;xxxTRNRQ&gt; or &lt;xxxTRNRS&gt;</para>
 /// </summary>
 /// <remarks>A message is the unit of work in Open Financial Exchange. It refers to a request and response pair, and the
 /// status codes associated with that response.</remarks>
-internal interface IOFXDeleteMessage : IOFXMessage {
+public interface IOFXBasicMessage : IOFXMessage {
 }

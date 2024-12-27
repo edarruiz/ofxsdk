@@ -1,4 +1,4 @@
-namespace OFX.SDK.DataAnnotations;
+namespace OFX.SDK;
 
 #region MIT License Information
 /*

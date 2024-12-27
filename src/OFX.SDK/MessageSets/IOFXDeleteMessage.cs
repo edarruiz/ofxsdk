@@ -1,4 +1,4 @@
-namespace OFX.SDK.DataAnnotations;
+namespace OFX.SDK;
 
 #region MIT License Information
 /*
@@ -29,7 +29,11 @@ namespace OFX.SDK.DataAnnotations;
 #endregion
 
 /// <summary>
-/// Represents the implementation interface for OFX data annotations.
+/// Represents the implementation interface for a delete OFX message.
+/// <para>The delete OFX message has a name structure of &lt;xxxDELRQ&gt; and &lt;xxxDELRS&gt;. It is used to delete an
+/// existing instance of object xxx and it is encapsulated in a transaction wrapper.</para>
 /// </summary>
-public interface IOFXDataAnnotation {
+/// <remarks>A message is the unit of work in Open Financial Exchange. It refers to a request and response pair, and the
+/// status codes associated with that response.</remarks>
+public interface IOFXDeleteMessage : IOFXMessage {
 }

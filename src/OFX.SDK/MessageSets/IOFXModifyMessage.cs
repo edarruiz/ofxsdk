@@ -1,4 +1,4 @@
-namespace OFX.SDK.DataAnnotations;
+namespace OFX.SDK;
 
 #region MIT License Information
 /*
@@ -29,23 +29,13 @@ namespace OFX.SDK.DataAnnotations;
 #endregion
 
 /// <summary>
-/// Represents the scope an OFX tag for any OFX structure declarations.
+/// Represents the implementation interface for a modify OFX message.
+/// <para>The modify OFX message has a name structure of &lt;xxxMODRQ&gt; and &lt;xxxMODRS&gt;. It is used to modify an
+/// existing instance of object xxx and it is encapsulated in a transaction wrapper.</para>
+/// <para>The &lt;xxxMODRQ&gt; request contains the complete replacement data for an existing object xxx. Therefore,
+/// both changed and unchanged elements must be included in the request.</para>
 /// </summary>
-public enum OFXTagScope {
-    /// <summary>
-    /// Represents a tag that can be used in any OFX structure.
-    /// </summary>
-    Any = 0,
-    /// <summary>
-    /// Represents a tag that can be used only in the header of an OFX structure.
-    /// </summary>
-    Header,
-    /// <summary>
-    /// Represents a tag that can be used only in the body of an OFX structure.
-    /// </summary>
-    Body,
-    /// <summary>
-    /// Represents a tag that can be used only in the footer of an OFX structure.
-    /// </summary>
-    Footer
+/// <remarks>A message is the unit of work in Open Financial Exchange. It refers to a request and response pair, and the
+/// status codes associated with that response.</remarks>
+public interface IOFXModifyMessage : IOFXMessage {
 }

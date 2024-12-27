@@ -29,9 +29,23 @@ namespace OFX.SDK;
 #endregion
 
 /// <summary>
-/// Represents the implementation interface for an OFX message.
+/// Represents the scope an OFX tag for any OFX structure declarations.
 /// </summary>
-/// <remarks>A message is the unit of work in Open Financial Exchange. It refers to a request and response pair, and the
-/// status codes associated with that response.</remarks>
-internal interface IOFXMessage {
+public enum OFXTagScope {
+    /// <summary>
+    /// Represents a tag that can be used in any OFX structure.
+    /// </summary>
+    Any = 0,
+    /// <summary>
+    /// Represents a tag that can be used only in the header of an OFX structure.
+    /// </summary>
+    Header,
+    /// <summary>
+    /// Represents a tag that can be used only in the body of an OFX structure.
+    /// </summary>
+    Body,
+    /// <summary>
+    /// Represents a tag that can be used only in the footer of an OFX structure.
+    /// </summary>
+    Footer
 }

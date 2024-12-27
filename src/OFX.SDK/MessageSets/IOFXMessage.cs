@@ -1,4 +1,4 @@
-namespace OFX.SDK.Primitives.Header;
+namespace OFX.SDK;
 
 #region MIT License Information
 /*
@@ -29,12 +29,9 @@ namespace OFX.SDK.Primitives.Header;
 #endregion
 
 /// <summary>
-/// Represents the OFX compression.
+/// Represents the implementation interface for an OFX message.
 /// </summary>
-public enum OFXCompression {
-    /// <summary>
-    /// Represents no compression.
-    /// </summary>
-    [OFXValue<string>("NONE")]
-    None = 0
+/// <remarks>A message is the unit of work in Open Financial Exchange. It refers to a request and response pair, and the
+/// status codes associated with that response.</remarks>
+public interface IOFXMessage {
 }

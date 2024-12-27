@@ -29,28 +29,17 @@ namespace OFX.SDK;
 #endregion
 
 /// <summary>
-/// Represents a description of any OFX structure declarations.
+/// Represents the implementation interface for an OFX inquiry message.
+/// <para>The inquiry OFX message has a name structure of &lt;xxxINQRQ&gt; and &lt;xxxINQRS&gt;. It is used to search for 
+/// and/or gain information about about an existing instance of object xxx and it is encapsulated in a transaction wrapper.</para>
+/// <para>Inquiry messages limit the response set to records matching the selection criteria used in the request.
+/// Selection criterion elements in the request are generally repeating elements. Where more than one value is
+/// given for a particular element, the query ORs those values. Where multiple different elements (matches for
+/// different fields of the objects) are provided, the query ANDs those values. Where an element is absent
+/// from the request, the query is not filtering on that element. If an element has a history associated with it,
+/// only the most recent value is intended by the inquiry.</para>
 /// </summary>
-[AttributeUsage(AttributeTargets.All, Inherited = false, AllowMultiple = true)]
-public sealed class OFXDescriptionAttribute : Attribute, IOFXDataAnnotation {
-    #region Ctor
-    /// <summary>
-    /// Initializes a new instance of the <see cref="OFXDescriptionAttribute"/> class with the specified description.
-    /// </summary>
-    /// <param name="description">The OFX description.</param>
-    /// <exception cref="ArgumentException">When the <paramref name="description"/> is <see langword="null"/>, empty, 
-    /// or consists only of white-space characters.</exception>
-    public OFXDescriptionAttribute(string description) {
-        ArgumentException.ThrowIfNullOrWhiteSpace(description, nameof(description));
-
-        Description = description;
-    }
-    #endregion
-
-    #region Properties
-    /// <summary>
-    /// Gets the OFX description
-    /// </summary>
-    public string Description { get; init; }
-    #endregion
+/// <remarks>A message is the unit of work in Open Financial Exchange. It refers to a request and response pair, and the
+/// status codes associated with that response.</remarks>
+public interface IOFXInquiryMessage : IOFXMessage {
 }

@@ -29,28 +29,22 @@ namespace OFX.SDK;
 #endregion
 
 /// <summary>
-/// Represents a description of any OFX structure declarations.
+/// Represents the OFX character set used for character data.
 /// </summary>
-[AttributeUsage(AttributeTargets.All, Inherited = false, AllowMultiple = true)]
-public sealed class OFXDescriptionAttribute : Attribute, IOFXDataAnnotation {
-    #region Ctor
+public enum OFXCharset {
     /// <summary>
-    /// Initializes a new instance of the <see cref="OFXDescriptionAttribute"/> class with the specified description.
+    /// Represents the ISO 8859-1 character set.
     /// </summary>
-    /// <param name="description">The OFX description.</param>
-    /// <exception cref="ArgumentException">When the <paramref name="description"/> is <see langword="null"/>, empty, 
-    /// or consists only of white-space characters.</exception>
-    public OFXDescriptionAttribute(string description) {
-        ArgumentException.ThrowIfNullOrWhiteSpace(description, nameof(description));
-
-        Description = description;
-    }
-    #endregion
-
-    #region Properties
+    [OFXValue<string>("ISO-8859-1")]
+    ISO_8859_1 = 0,
     /// <summary>
-    /// Gets the OFX description
+    /// Represents the Windows-1252 character set.
     /// </summary>
-    public string Description { get; init; }
-    #endregion
+    [OFXValue<string>("1252")]
+    WIN_1252,
+    /// <summary>
+    /// No character set is specified.
+    /// </summary>
+    [OFXValue<string>("NONE")]
+    None
 }

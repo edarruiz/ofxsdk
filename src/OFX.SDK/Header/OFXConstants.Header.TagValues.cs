@@ -1,4 +1,4 @@
-namespace OFX.SDK.Primitives.Header;
+namespace OFX.SDK;
 
 #region MIT License Information
 /*
@@ -40,7 +40,7 @@ public sealed partial class OFXConstants {
         /// <summary>
         /// Represents the OFX header tag values.
         /// </summary>
-        public sealed partial class TagValues {
+        public sealed class TagValues {
             /// <summary>
             /// The OFX header <c>HEADER</c> tag value.
             /// </summary>
