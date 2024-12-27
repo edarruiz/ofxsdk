@@ -34,9 +34,6 @@
 	  <Folder Include="Specifications\Version103\" />
 	  <Folder Include="Specifications\Version102\" />
 	  <Folder Include="Specifications\Version16\" />
-	  <Folder Include="_refactor\Reflection\ValidationAttributes\" />
-	  <Folder Include="_refactor\Specifications\Version102\TransactionResponses\" />
-	  <Folder Include="_refactor\Specifications\Version102\TransactionRequests\" />
 	</ItemGroup>
 
 </Project>
