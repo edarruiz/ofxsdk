@@ -35,12 +35,10 @@ public enum OFXHeaderVersion {
     /// <summary>
     /// Represents the OFX 1.*.* header version.
     /// </summary>
-    [OFXValue<string>("100")]
     OFX100 = 0,
 
     /// <summary>
     /// Represents the OFX 2.0.* header version.
     /// </summary>
-    [OFXValue<string>("200")]
     OFX200
 }

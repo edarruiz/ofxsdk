@@ -18,7 +18,6 @@ public enum OFXSpecification {
     /// <summary>
     /// Represents an unknown specification version.
     /// </summary>
-    [OFXDescription("Represents an unknown specification version.")]
     Unknown = 0,
 
     /// <summary>
@@ -29,16 +28,12 @@ public enum OFXSpecification {
     /// defined by the OFX 1.0.2 Document Type Definition (DTD), which is used for parsing. Applications that
     /// conform to this version are referred to as 1.0.2 clients and 1.0.2 servers.</para>
     /// </remarks>
-    [OFXDescription("Represents the specification version 1.0.2 (1997), the initial version.")]
-    [OFXValue<string>("102")]
     Version102,
 
     /// <summary>
     /// Specification version 1.0.3 (2005), including MFA (multi-factor authentication).
     /// </summary>
     /// <remarks>Version 1.0.3 extends 1.0.2 by adding support for Muli-Factor Authentication.</remarks>
-    [OFXDescription("Specification version 1.0.3 (2005), including MFA (multi-factor authentication).")]
-    [OFXValue<string>("103")]
     Version103,
 
     /// <summary>
@@ -49,8 +44,6 @@ public enum OFXSpecification {
     /// Because it supports all message sets, the OFX 1.5.1 DTD can be used to create and support OFX 1.0.2 and/
     /// or OFX 1.5.1 clients and servers.
     /// </remarks>
-    [OFXDescription("Specification version 1.5.1 (1998), including Bill Presentment.")]
-    [OFXValue<string>("151")]
     Version151,
 
     /// <summary>
@@ -63,8 +56,6 @@ public enum OFXSpecification {
     /// clients and 1.6 servers. The OFX 1.6 DTD fully incorporates the OFX 1.0.2 and 1.5.1 message sets, so it
     /// can be used to support both 1.0.2 and 1.5.1 applications.
     /// </remarks>
-    [OFXDescription("Specification version 1.6 (1999), last version using SGML format.")]
-    [OFXValue<string>("160")]
     Version160,
 
     /// <summary>
@@ -82,8 +73,6 @@ public enum OFXSpecification {
     /// <para>Version 2.0.3, an extension of 2.0.2, adds Multi-Factor Authentication (MFA) to the Signon Message Set
     /// and changes to the Profile Message Set to support MFA.</para>
     /// </remarks>
-    [OFXDescription("Specification version 2.0.3 (2006), first version using XML including MFA (multi-factor authentication).")]
-    [OFXValue<string>("203")]
     Version203,
 
     /// <summary>
@@ -96,8 +85,6 @@ public enum OFXSpecification {
     /// Profile Message Set to support MFA. These are virtually the same MFA changes that are added to versions
     /// 1.0.3 and 2.0.3.</para>
     /// </remarks>
-    [OFXDescription("Specification version 2.1.1 (2006), equivalent to 2.1 including MFA (multi-factor authentication)")]
-    [OFXValue<string>("211")]
     Version211,
 
     /// <summary>
@@ -110,8 +97,6 @@ public enum OFXSpecification {
     /// the main OFX Schema and the OFX Tax Schema, which have diverged since the 2.1.1 release, were
     /// reconciled in the 2.2 release (up to the 2015 tax year).
     /// </remarks>
-    [OFXDescription("Specification version 2.2 (2017), including OAuth.")]
-    [OFXValue<string>("220")]
     Version220,
 
     /// <summary>
@@ -119,8 +104,6 @@ public enum OFXSpecification {
     /// </summary>
     /// <remarks>Includes the reconciliation of the main OFX Schema and the OFX Tax Schema, which have diverged since the 2.1.1 
     /// release, up to the 2017 tax year.</remarks>
-    [OFXDescription("Specification version 2.2.1 (2019), including Tax information 2.0")]
-    [OFXValue<string>("221")]
     Version221,
 
     /// <summary>
@@ -128,7 +111,5 @@ public enum OFXSpecification {
     /// </summary>
     /// <remarks>In Version 2.3 Tax was removed so it is no longer necessary to update the main OFX spec with tax changes
     /// every year.</remarks>
-    [OFXDescription("Specification version 2.3 (2020), latest version.")]
-    [OFXValue<string>("230")]
     Version230
 }

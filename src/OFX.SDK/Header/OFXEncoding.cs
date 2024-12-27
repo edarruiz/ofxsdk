@@ -35,11 +35,9 @@ public enum OFXEncoding {
     /// <summary>
     /// Represents the Unicode text encoding.
     /// </summary>
-    [OFXValue<string>("UTF-8")]
     UTF8 = 0,
     /// <summary>
     /// Represents the US ASCII text encoding.
     /// </summary>
-    [OFXValue<string>("USASCII")]
     USASCII
 }
