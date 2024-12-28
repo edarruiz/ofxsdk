@@ -51,16 +51,16 @@ public abstract record AbstractHeader {
     /// <summary>
     /// Gets the value of the <c>SECURITY</c> header tag, which specifies the security level of the OFX data block.
     /// </summary>
-    public virtual HeaderSecurity Security { get; init; } = HeaderSecurity.None;
+    public abstract HeaderSecurity Security { get; init; }
 
     /// <summary>
     /// Gets the value of the <c>OLDFILEUID</c> header tag, which specifies the unique identifier of the previous file.
     /// </summary>
-    public virtual string OldFileUID { get; init; } = Constants.Header.TagValues.NEWFILEUID_NONE;
+    public abstract string OldFileUID { get; init; }
 
     /// <summary>
     /// Gets the value of the <c>NEWFILEUID</c> header tag, which specifies the unique identifier of the current file.
     /// </summary>
-    public virtual string NewFileUID { get; init; } = Constants.Header.TagValues.NEWFILEUID_NONE;
+    public abstract string NewFileUID { get; init; }
     #endregion
 }

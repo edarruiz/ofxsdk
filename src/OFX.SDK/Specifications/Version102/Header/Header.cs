@@ -63,5 +63,14 @@ public sealed record Header : AbstractHeader {
 
     /// <inheritdoc/>
     public override SpecificationVersion Version => SpecificationVersion.Version102;
+
+    /// <inheritdoc/>
+    public override HeaderSecurity Security { get; init; } = HeaderSecurity.None;
+
+    /// <inheritdoc/>
+    public override string OldFileUID { get; init; } = Constants.Header.TagValues.OLDFILEUID_NONE;
+
+    /// <inheritdoc/>
+    public override string NewFileUID { get; init; } = Constants.Header.TagValues.NEWFILEUID_NONE;
     #endregion
 }
