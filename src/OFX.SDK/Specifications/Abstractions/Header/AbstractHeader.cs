@@ -31,6 +31,7 @@ namespace OFX.SDK;
 /// <summary>
 /// Represents the OFX file header.
 /// </summary>
+[ExcludeFromCodeCoverage]
 public abstract record AbstractHeader : IRequiredHeaderTags {
     #region IRequiredHeaderTags
     /// <inheritdoc/>
