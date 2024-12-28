@@ -31,36 +31,21 @@ namespace OFX.SDK;
 /// <summary>
 /// Represents the OFX file header.
 /// </summary>
-public abstract record AbstractHeader {
-    #region Properties
-    /// <summary>
-    /// Gets the value of the <c>OFXHEADER</c> header tag, which specifies the version number of the 
-    /// Open Financial Exchange headers.
-    /// </summary>
-    /// <remarks>The OFXHEADER value should change its major number only if an existing client is unable to process the
-    /// new header. This can occur because of a complete syntax change in a header, or a significant change in the
-    /// semantics of an existing tag - not the entire response. A server can add new tags as long as clients can
-    /// function without understanding them.</remarks>
+public abstract record AbstractHeader : IRequiredHeaderTags {
+    #region IRequiredHeaderTags
+    /// <inheritdoc/>
     public abstract HeaderVersion OFXHeader { get; }
 
-    /// <summary>
-    /// Gets the value of the <c>VERSION</c> header tag, which specifies the version number of the OFX data block.
-    /// </summary>
+    /// <inheritdoc/>
     public abstract SpecificationVersion Version { get; }
 
-    /// <summary>
-    /// Gets the value of the <c>SECURITY</c> header tag, which specifies the security level of the OFX data block.
-    /// </summary>
+    /// <inheritdoc/>
     public abstract HeaderSecurity Security { get; init; }
 
-    /// <summary>
-    /// Gets the value of the <c>OLDFILEUID</c> header tag, which specifies the unique identifier of the previous file.
-    /// </summary>
+    /// <inheritdoc/>
     public abstract string OldFileUID { get; init; }
 
-    /// <summary>
-    /// Gets the value of the <c>NEWFILEUID</c> header tag, which specifies the unique identifier of the current file.
-    /// </summary>
+    /// <inheritdoc/>
     public abstract string NewFileUID { get; init; }
     #endregion
 }
