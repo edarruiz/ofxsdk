@@ -31,11 +31,11 @@
 	  <Folder Include="Specifications\Primitives\MessageSet\" />
 	  <Folder Include="Specifications\Primitives\MessageSetAggregate\" />
 	  <Folder Include="Specifications\Version221\" />
-	  <Folder Include="Specifications\Version22\" />
+	  <Folder Include="Specifications\Version220\" />
 	  <Folder Include="Specifications\Version211\" />
 	  <Folder Include="Specifications\Version203\" />
 	  <Folder Include="Specifications\Version103\" />
-	  <Folder Include="Specifications\Version16\" />
+	  <Folder Include="Specifications\Version160\" />
 	</ItemGroup>
 
 </Project>
