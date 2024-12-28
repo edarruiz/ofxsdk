@@ -16,6 +16,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Misc", "Misc", "{BACD69CE-6
 		..\README.md = ..\README.md
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OFX.SDK.Tests", "OFX.SDK.Tests\OFX.SDK.Tests.csproj", "{7BD2D67F-950E-4D8E-8FEB-5DD920C51DAE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -26,12 +28,17 @@ Global
 		{E0BD3391-FE5E-46F8-A0D0-A9DAE27FCAE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E0BD3391-FE5E-46F8-A0D0-A9DAE27FCAE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E0BD3391-FE5E-46F8-A0D0-A9DAE27FCAE8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7BD2D67F-950E-4D8E-8FEB-5DD920C51DAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BD2D67F-950E-4D8E-8FEB-5DD920C51DAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BD2D67F-950E-4D8E-8FEB-5DD920C51DAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BD2D67F-950E-4D8E-8FEB-5DD920C51DAE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{E0BD3391-FE5E-46F8-A0D0-A9DAE27FCAE8} = {436322DA-864B-46B3-BC4D-336BD2E34429}
+		{7BD2D67F-950E-4D8E-8FEB-5DD920C51DAE} = {C8932B55-E3B4-4480-AF9B-D6309298F800}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B1B7C17C-DE78-4DCD-873C-8D5F3392601D}
