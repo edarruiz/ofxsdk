@@ -29,11 +29,17 @@ namespace OFX.SDK;
 #endregion
 
 /// <summary>
-/// Represents the implementation interface for a basic OFX message.
-/// <para>The basic OFX message has a name structure of &lt;xxxRQ&gt; and &lt;xxxRS&gt;. It is used for read actions of a
-/// specific object and it is encapsulated in a transaction wrapper &lt;xxxTRNRQ&gt; or &lt;xxxTRNRS&gt;</para>
+/// Represents the implementation interface for an OFX inquiry message.
+/// <para>The inquiry OFX message has a name structure of &lt;xxxINQRQ&gt;/&lt;xxxINQRS&gt;. It is used to search for 
+/// and/or gain information about about an existing instance of object xxx and it is encapsulated in a transaction wrapper.</para>
+/// <para>Inquiry messages limit the response set to records matching the selection criteria used in the request.
+/// Selection criterion elements in the request are generally repeating elements. Where more than one value is
+/// given for a particular element, the query ORs those values. Where multiple different elements (matches for
+/// different fields of the objects) are provided, the query ANDs those values. Where an element is absent
+/// from the request, the query is not filtering on that element. If an element has a history associated with it,
+/// only the most recent value is intended by the inquiry.</para>
 /// </summary>
 /// <remarks>A message is the unit of work in Open Financial Exchange. It refers to a request and response pair, and the
 /// status codes associated with that response.</remarks>
-public interface IOFXBasicMessage : IOFXMessage {
+public interface IOFXInquiryMessage : IOFXMessage {
 }
