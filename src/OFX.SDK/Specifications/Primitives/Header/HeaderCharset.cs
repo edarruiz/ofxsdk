@@ -29,11 +29,19 @@ namespace OFX.SDK;
 #endregion
 
 /// <summary>
-/// Represents the implementation interface for a basic OFX message.
-/// <para>The basic OFX message has a name structure of &lt;xxxRQ&gt;/&lt;xxxRS&gt;. It is used for read actions of a
-/// specific object and it is encapsulated in a transaction wrapper &lt;xxxTRNRQ&gt; or &lt;xxxTRNRS&gt;</para>
+/// Represents the OFX character set used for character data.
 /// </summary>
-/// <remarks>A message is the unit of work in Open Financial Exchange. It refers to a request and response pair, and the
-/// status codes associated with that response.</remarks>
-public interface IOFXBasicMessage : IOFXMessage {
+public enum HeaderCharset {
+    /// <summary>
+    /// Represents the ISO 8859-1 character set.
+    /// </summary>
+    ISO_8859_1 = 0,
+    /// <summary>
+    /// Represents the Windows-1252 character set.
+    /// </summary>
+    WIN_1252,
+    /// <summary>
+    /// No character set is specified.
+    /// </summary>
+    None
 }

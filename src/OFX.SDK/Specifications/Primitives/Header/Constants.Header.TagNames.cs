@@ -31,58 +31,61 @@ namespace OFX.SDK;
 /// <summary>
 /// Represents the OFX constants.
 /// </summary>
-public sealed partial class OFXConstants {
+public sealed partial class Constants {
+
     /// <summary>
     /// Represents the OFX header constants.
     /// </summary>
     public sealed partial class Header {
 
         /// <summary>
-        /// Represents the OFX header tag values.
+        /// Represents the OFX header tag names.
         /// </summary>
-        public sealed class TagValues {
+        public sealed class TagNames {
             /// <summary>
-            /// The OFX header <c>DATA</c> tag value.
+            /// The OFX header <c>HEADER</c> tag.
             /// </summary>
-            /// <remarks>This value applies to all 1.* specification versions.</remarks>
-            public const string DATA_OFXSGML = "OFXSGML";
+            public const string OFXHEADER = "OFXHEADER";
 
             /// <summary>
-            /// The OFX header <c>DATA</c> tag value.
+            /// The OFX header <c>DATA</c> tag.
             /// </summary>
-            /// <remarks>This represents the specification version 1.0.2</remarks>
-            public const string VERSION_102 = "102";
+            public const string DATA = "DATA";
 
             /// <summary>
-            /// The OFX header <c>DATA</c> tag value.
+            /// The OFX header <c>VERSION</c> tag.
             /// </summary>
-            /// <remarks>This represents the specification version 1.0.3</remarks>
-            public const string VERSION_103 = "103";
+            public const string VERSION = "VERSION";
 
             /// <summary>
-            /// The OFX header <c>DATA</c> tag value.
+            /// The OFX header <c>SECURITY</c> tag.
             /// </summary>
-            /// <remarks>This represents the specification version 1.5.1</remarks>
-            public const string VERSION_151 = "151";
+            public const string SECURITY = "SECURITY";
 
             /// <summary>
-            /// The OFX header <c>DATA</c> tag value.
+            /// The OFX header <c>ENCODING</c> tag.
             /// </summary>
-            /// <remarks>This represents the specification version 1.6</remarks>
-            public const string VERSION_160 = "160";
+            public const string ENCODING = "ENCODING";
 
             /// <summary>
-            /// The OFX header <c>OLDFILEUID</c> tag value.
+            /// The OFX header <c>CHARSET</c> tag.
             /// </summary>
-            /// <remarks>OLDFILEUID identifies the last request and response that was received
-            /// and processed by the client.</remarks>
-            public const string OLDFILEUID_NONE = "NONE";
+            public const string CHARSET = "CHARSET";
 
             /// <summary>
-            /// The OFX header <c>NEWFILEUID</c> tag value.
+            /// The OFX header <c>COMPRESSION</c> tag.
             /// </summary>
-            /// <remarks>NEWFILEUID uniquely identifies this request file.</remarks>
-            public const string NEWFILEUID_NONE = "NONE";
+            public const string COMPRESSION = "COMPRESSION";
+
+            /// <summary>
+            /// The OFX header <c>OLDFILEUID</c> tag.
+            /// </summary>
+            public const string OLDFILEUID = "OLDFILEUID";
+
+            /// <summary>
+            /// The OFX header <c>NEWFILEUID</c> tag.
+            /// </summary>
+            public const string NEWFILEUID = "NEWFILEUID";
         }
     }
 }

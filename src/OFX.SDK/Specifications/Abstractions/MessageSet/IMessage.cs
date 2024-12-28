@@ -29,16 +29,9 @@ namespace OFX.SDK;
 #endregion
 
 /// <summary>
-/// Represents the OFX file header version.
+/// Represents the implementation interface for an OFX message.
 /// </summary>
-public enum OFXHeaderVersion {
-    /// <summary>
-    /// Represents the OFX 1.*.* header version.
-    /// </summary>
-    OFX100 = 0,
-
-    /// <summary>
-    /// Represents the OFX 2.0.* header version.
-    /// </summary>
-    OFX200
+/// <remarks>A message is the unit of work in Open Financial Exchange. It refers to a request and response pair, and the
+/// status codes associated with that response.</remarks>
+public interface IMessage {
 }

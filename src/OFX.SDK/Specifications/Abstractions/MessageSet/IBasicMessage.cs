@@ -29,15 +29,11 @@ namespace OFX.SDK;
 #endregion
 
 /// <summary>
-/// Represents the OFX application-level security.
+/// Represents the implementation interface for a basic OFX message.
+/// <para>The basic OFX message has a name structure of &lt;xxxRQ&gt;/&lt;xxxRS&gt;. It is used for read actions of a
+/// specific object and it is encapsulated in a transaction wrapper &lt;xxxTRNRQ&gt; or &lt;xxxTRNRS&gt;</para>
 /// </summary>
-public enum OFXSecurity {
-    /// <summary>
-    /// Represents no application-level security.
-    /// </summary>
-    None = 0,
-    /// <summary>
-    /// Represents Type 1 application-level security.
-    /// </summary>
-    Type1
+/// <remarks>A message is the unit of work in Open Financial Exchange. It refers to a request and response pair, and the
+/// status codes associated with that response.</remarks>
+public interface IBasicMessage : IMessage {
 }

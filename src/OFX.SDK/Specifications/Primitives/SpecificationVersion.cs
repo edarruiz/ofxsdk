@@ -42,7 +42,7 @@ namespace OFX.SDK;
 /// <para>Version 2.2.1 (2019): Includes Tax information 2.0.</para>
 /// <para>Version 2.3 (2020): Latest version.</para>
 /// </remarks>
-public enum OFXSpecification {
+public enum SpecificationVersion {
     /// <summary>
     /// Represents an unknown specification version.
     /// </summary>

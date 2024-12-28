@@ -39,15 +39,15 @@ public sealed class OFXFile {
     /// Represents the known headers of an OFX file.
     /// </summary>
     private IDictionary<string, string> Headers = new Dictionary<string, string> {
-        { OFXConstants.Header.TagNames.OFXHEADER, string.Empty },
-        { OFXConstants.Header.TagNames.DATA, string.Empty },
-        { OFXConstants.Header.TagNames.VERSION, string.Empty },
-        { OFXConstants.Header.TagNames.SECURITY, string.Empty },
-        { OFXConstants.Header.TagNames.ENCODING, string.Empty },
-        { OFXConstants.Header.TagNames.CHARSET, string.Empty },
-        { OFXConstants.Header.TagNames.COMPRESSION, string.Empty },
-        { OFXConstants.Header.TagNames.OLDFILEUID, string.Empty },
-        { OFXConstants.Header.TagNames.NEWFILEUID, string.Empty }
+        { Constants.Header.TagNames.OFXHEADER, string.Empty },
+        { Constants.Header.TagNames.DATA, string.Empty },
+        { Constants.Header.TagNames.VERSION, string.Empty },
+        { Constants.Header.TagNames.SECURITY, string.Empty },
+        { Constants.Header.TagNames.ENCODING, string.Empty },
+        { Constants.Header.TagNames.CHARSET, string.Empty },
+        { Constants.Header.TagNames.COMPRESSION, string.Empty },
+        { Constants.Header.TagNames.OLDFILEUID, string.Empty },
+        { Constants.Header.TagNames.NEWFILEUID, string.Empty }
     };
 
     /// <summary>
