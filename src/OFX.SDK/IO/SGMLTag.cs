@@ -1,5 +1,3 @@
-using System.Diagnostics;
-
 namespace OFX.SDK;
 
 #region MIT License Information
@@ -34,6 +32,7 @@ namespace OFX.SDK;
 /// Represents a tag in a SGML file.
 /// </summary>
 [DebuggerDisplay("Name = {Name}, Value = {Value}, Level = {Level}")]
+[ExcludeFromCodeCoverage]
 internal struct SGMLTag {
     /// <summary>
     /// The name of the tag.
