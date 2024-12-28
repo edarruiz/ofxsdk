@@ -29,15 +29,11 @@ namespace OFX.SDK;
 #endregion
 
 /// <summary>
-/// Represents the OFX text encoding used for character data.
+/// Represents the implementation interface for a cancel OFX message.
+/// <para>The cancel OFX message has a name structure of &lt;xxxCANRQ&gt;/&lt;xxxCANRS&gt;. It is used to cancel an
+/// existing scheduled object xxx and it is encapsulated in a transaction wrapper.</para>
 /// </summary>
-public enum OFXEncoding {
-    /// <summary>
-    /// Represents the Unicode text encoding.
-    /// </summary>
-    UTF8 = 0,
-    /// <summary>
-    /// Represents the US ASCII text encoding.
-    /// </summary>
-    USASCII
+/// <remarks>A message is the unit of work in Open Financial Exchange. It refers to a request and response pair, and the
+/// status codes associated with that response.</remarks>
+public interface ICancelMessage : IMessage {
 }

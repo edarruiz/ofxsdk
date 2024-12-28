@@ -31,7 +31,7 @@ namespace OFX.SDK;
 /// <summary>
 /// Represents the OFX file header.
 /// </summary>
-public abstract record OFXHeaderBlock {
+public abstract record AbstractHeader {
     #region Properties
     /// <summary>
     /// Gets the value of the <c>OFXHEADER</c> header tag, which specifies the version number of the 
@@ -41,26 +41,26 @@ public abstract record OFXHeaderBlock {
     /// new header. This can occur because of a complete syntax change in a header, or a significant change in the
     /// semantics of an existing tag - not the entire response. A server can add new tags as long as clients can
     /// function without understanding them.</remarks>
-    public virtual OFXHeaderVersion OFXHeader { get; init; } = OFXHeaderVersion.OFX100;
+    public abstract HeaderVersion OFXHeader { get; }
 
     /// <summary>
     /// Gets the value of the <c>VERSION</c> header tag, which specifies the version number of the OFX data block.
     /// </summary>
-    public abstract OFXSpecification Version { get; }
+    public abstract SpecificationVersion Version { get; }
 
     /// <summary>
     /// Gets the value of the <c>SECURITY</c> header tag, which specifies the security level of the OFX data block.
     /// </summary>
-    public virtual OFXSecurity Security { get; init; } = OFXSecurity.None;
+    public virtual HeaderSecurity Security { get; init; } = HeaderSecurity.None;
 
     /// <summary>
     /// Gets the value of the <c>OLDFILEUID</c> header tag, which specifies the unique identifier of the previous file.
     /// </summary>
-    public virtual string OldFileUID { get; init; } = OFXConstants.Header.TagValues.NEWFILEUID_NONE;
+    public virtual string OldFileUID { get; init; } = Constants.Header.TagValues.NEWFILEUID_NONE;
 
     /// <summary>
     /// Gets the value of the <c>NEWFILEUID</c> header tag, which specifies the unique identifier of the current file.
     /// </summary>
-    public virtual string NewFileUID { get; init; } = OFXConstants.Header.TagValues.NEWFILEUID_NONE;
+    public virtual string NewFileUID { get; init; } = Constants.Header.TagValues.NEWFILEUID_NONE;
     #endregion
 }

@@ -29,9 +29,13 @@ namespace OFX.SDK;
 #endregion
 
 /// <summary>
-/// Represents the implementation interface for an OFX message.
+/// Represents the implementation interface for a modify OFX message.
+/// <para>The modify OFX message has a name structure of &lt;xxxMODRQ&gt;/&lt;xxxMODRS&gt;. It is used to modify an
+/// existing instance of object xxx and it is encapsulated in a transaction wrapper.</para>
+/// <para>The &lt;xxxMODRQ&gt; request contains the complete replacement data for an existing object xxx. Therefore,
+/// both changed and unchanged elements must be included in the request.</para>
 /// </summary>
 /// <remarks>A message is the unit of work in Open Financial Exchange. It refers to a request and response pair, and the
 /// status codes associated with that response.</remarks>
-public interface IOFXMessage {
+public interface IModifyMessage : IMessage {
 }

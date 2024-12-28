@@ -29,11 +29,15 @@ namespace OFX.SDK;
 #endregion
 
 /// <summary>
-/// Represents the OFX compression.
+/// Represents the OFX application-level security.
 /// </summary>
-public enum OFXCompression {
+public enum HeaderSecurity {
     /// <summary>
-    /// Represents no compression.
+    /// Represents no application-level security.
     /// </summary>
-    None = 0
+    None = 0,
+    /// <summary>
+    /// Represents Type 1 application-level security.
+    /// </summary>
+    Type1
 }
