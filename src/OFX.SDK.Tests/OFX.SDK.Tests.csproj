@@ -8,9 +8,13 @@
 
     <ItemGroup>
         <PackageReference Include="coverlet.collector" Version="6.0.2" />
+        <PackageReference Include="FluentAssertions" Version="7.0.0" />
         <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.12.0" />
         <PackageReference Include="xunit" Version="2.9.2" />
-        <PackageReference Include="xunit.runner.visualstudio" Version="2.8.2" />
+        <PackageReference Include="xunit.runner.visualstudio" Version="3.0.0">
+          <PrivateAssets>all</PrivateAssets>
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
     </ItemGroup>
     
     <ItemGroup>
@@ -18,7 +22,6 @@
     </ItemGroup>
     
     <ItemGroup>
-      <Folder Include="Primitives\Header\" />
       <Folder Include="Primitives\MessageSet\" />
       <Folder Include="Primitives\MessageSetAggregate\" />
       <Folder Include="Specifications\Version102\Header\" />
@@ -29,5 +32,9 @@
       <Folder Include="Specifications\Version203\" />
       <Folder Include="Specifications\Version160\" />
       <Folder Include="Specifications\Version103\" />
+    </ItemGroup>
+    
+    <ItemGroup>
+      <ProjectReference Include="..\OFX.SDK\OFX.SDK.csproj" />
     </ItemGroup>
 </Project>
