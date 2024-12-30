@@ -28,7 +28,8 @@ namespace OFX.SDK.Tests.Primitives.Header;
  */
 #endregion
 
-[ExcludeFromCodeCoverage]
+[ExcludeFromCodeCoverage]
+
 public class HeaderEncodingTests {
     [Fact(DisplayName = "HeaderEncoding should have UTF8 value as 0")]
     [Trait("Header", "Encoding")]

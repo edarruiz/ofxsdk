@@ -28,7 +28,8 @@ namespace OFX.SDK.Tests.Primitives.Header;
  */
 #endregion
 
-[ExcludeFromCodeCoverage]public class HeaderCompressionTests : IDisposable {
+[ExcludeFromCodeCoverage]
+public class HeaderCompressionTests : IDisposable {
     #region Ctor and Dtor
     public HeaderCompressionTests() { }
 
