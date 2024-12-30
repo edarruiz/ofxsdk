@@ -33,7 +33,7 @@ namespace OFX.SDK;
 /// </summary>
 [DebuggerDisplay("Name = {Name}, Value = {Value}, Level = {Level}")]
 [ExcludeFromCodeCoverage]
-internal struct SGMLTag {
+public struct SGMLTag {
     /// <summary>
     /// The name of the tag.
     /// </summary>
