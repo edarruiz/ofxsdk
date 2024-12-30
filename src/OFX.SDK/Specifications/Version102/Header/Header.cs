@@ -1,4 +1,4 @@
-namespace OFX.SDK.Specifications.Version102;
+namespace OFX.SDK;
 
 #region MIT License Information
 /*
@@ -31,7 +31,7 @@ namespace OFX.SDK.Specifications.Version102;
 /// <summary>
 /// Represents the OFX file header for version 1.0.2.
 /// </summary>
-public sealed record Header : AbstractHeader, IRequiredSGMLHeaderTags {
+public sealed record Header102() : AbstractHeader, IRequiredSGMLHeaderTags {
     #region Overrides
     /// <inheritdoc/>
     public override HeaderVersion OFXHeader => HeaderVersion.OFX100;
