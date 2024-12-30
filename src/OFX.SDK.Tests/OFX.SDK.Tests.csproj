@@ -24,7 +24,6 @@
     <ItemGroup>
       <Folder Include="Primitives\MessageSet\" />
       <Folder Include="Primitives\MessageSetAggregate\" />
-      <Folder Include="Specifications\Version102\Header\" />
       <Folder Include="Specifications\Version230\" />
       <Folder Include="Specifications\Version221\" />
       <Folder Include="Specifications\Version220\" />
