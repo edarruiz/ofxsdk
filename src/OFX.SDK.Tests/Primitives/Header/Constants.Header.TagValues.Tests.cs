@@ -38,7 +38,7 @@ public class ConstantsHeaderTagValuesTests : IDisposable {
 
     #region Tests
     [Fact(DisplayName = "DATA_OFXSGML tag value should be 'OFXSGML'")]
-    [Trait("Header", "Tag Values")]
+    [Trait("Constants", "Header tag values")]
     internal void DATA_OFXSGML_tag_value_should_be_OFXSGML() {
         // Arrange
         var expected = "OFXSGML";
@@ -53,7 +53,7 @@ public class ConstantsHeaderTagValuesTests : IDisposable {
     }
 
     [Fact(DisplayName = "VERSION_102 tag value should be '102'")]
-    [Trait("Header", "Tag Values")]
+    [Trait("Constants", "Header tag values")]
     internal void VERSION_102_tag_value_should_be_102() {
         // Arrange
         var expected = "102";
@@ -68,7 +68,7 @@ public class ConstantsHeaderTagValuesTests : IDisposable {
     }
 
     [Fact(DisplayName = "VERSION_103 tag value should be '103'")]
-    [Trait("Header", "Tag Values")]
+    [Trait("Constants", "Header tag values")]
     internal void VERSION_103_tag_value_should_be_103() {
         // Arrange
         var expected = "103";
@@ -83,7 +83,7 @@ public class ConstantsHeaderTagValuesTests : IDisposable {
     }
 
     [Fact(DisplayName = "VERSION_151 tag value should be '151'")]
-    [Trait("Header", "Tag Values")]
+    [Trait("Constants", "Header tag values")]
     internal void VERSION_151_tag_value_should_be_151() {
         // Arrange
         var expected = "151";
@@ -98,7 +98,7 @@ public class ConstantsHeaderTagValuesTests : IDisposable {
     }
 
     [Fact(DisplayName = "VERSION_160 tag value should be '160'")]
-    [Trait("Header", "Tag Values")]
+    [Trait("Constants", "Header tag values")]
     internal void VERSION_160_tag_value_should_be_160() {
         // Arrange
         var expected = "160";
@@ -113,7 +113,7 @@ public class ConstantsHeaderTagValuesTests : IDisposable {
     }
 
     [Fact(DisplayName = "OLDFILEUID_NONE tag value should be 'NONE'")]
-    [Trait("Header", "Tag Values")]
+    [Trait("Constants", "Header tag values")]
     internal void OLDFILEUID_NONE_tag_value_should_be_NONE() {
         // Arrange
         var expected = "NONE";
@@ -128,7 +128,7 @@ public class ConstantsHeaderTagValuesTests : IDisposable {
     }
 
     [Fact(DisplayName = "NEWFILEUID_NONE tag value should be 'NONE'")]
-    [Trait("Header", "Tag Values")]
+    [Trait("Constants", "Header tag values")]
     internal void NEWFILEUID_NONE_tag_value_should_be_NONE() {
         // Arrange
         var expected = "NONE";

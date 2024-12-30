@@ -38,7 +38,7 @@ public class HeaderCharsetTests : IDisposable {
 
     #region Tests
     [Fact(DisplayName = "HeaderCharset should have ISO_8859_1 value as 0")]
-    [Trait("Header", "Charset")]
+    [Trait("Primitives", "Charset enum")]
     internal void HeaderCharset_should_have_ISO_8859_1_value_as_0() {
         // Arrange
         var expected = 0;
@@ -53,7 +53,7 @@ public class HeaderCharsetTests : IDisposable {
     }
 
     [Fact(DisplayName = "HeaderCharset should have WIN_1252 value as 1")]
-    [Trait("Header", "Charset")]
+    [Trait("Primitives", "Charset enum")]
     internal void HeaderCharset_should_have_WIN_1252_value_as_1() {
         // Arrange
         var expected = 1;
@@ -68,7 +68,7 @@ public class HeaderCharsetTests : IDisposable {
     }
 
     [Fact(DisplayName = "HeaderCharset should have None value as 2")]
-    [Trait("Header", "Charset")]
+    [Trait("Primitives", "Charset enum")]
     internal void HeaderCharset_should_have_None_value_as_2() {
         // Arrange
         var expected = 2;

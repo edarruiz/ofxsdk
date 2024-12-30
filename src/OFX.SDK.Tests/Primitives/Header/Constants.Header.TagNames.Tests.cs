@@ -38,7 +38,7 @@ public class ConstantsHeaderTagNamesTests : IDisposable {
 
     #region Tests
     [Fact(DisplayName = "OFXHEADER tag name should be 'OFXHEADER'")]
-    [Trait("Header", "Tag Names")]
+    [Trait("Constants", "Header tag names")]
     internal void OFXHEADER_tag_name_should_be_OFXHEADER() {
         // Arrange
         var expected = "OFXHEADER";
@@ -53,7 +53,7 @@ public class ConstantsHeaderTagNamesTests : IDisposable {
     }
 
     [Fact(DisplayName = "DATA tag name should be 'DATA'")]
-    [Trait("Header", "Tag Names")]
+    [Trait("Constants", "Header tag names")]
     internal void DATA_tag_name_should_be_DATA() {
         // Arrange
         var expected = "DATA";
@@ -68,7 +68,7 @@ public class ConstantsHeaderTagNamesTests : IDisposable {
     }
 
     [Fact(DisplayName = "VERSION tag name should be 'VERSION'")]
-    [Trait("Header", "Tag Names")]
+    [Trait("Constants", "Header tag names")]
     internal void VERSION_tag_name_should_be_VERSION() {
         // Arrange
         var expected = "VERSION";
@@ -83,7 +83,7 @@ public class ConstantsHeaderTagNamesTests : IDisposable {
     }
 
     [Fact(DisplayName = "SECURITY tag name should be 'SECURITY'")]
-    [Trait("Header", "Tag Names")]
+    [Trait("Constants", "Header tag names")]
     internal void SECURITY_tag_name_should_be_SECURITY() {
         // Arrange
         var expected = "SECURITY";
@@ -98,7 +98,7 @@ public class ConstantsHeaderTagNamesTests : IDisposable {
     }
 
     [Fact(DisplayName = "ENCODING tag name should be 'ENCODING'")]
-    [Trait("Header", "Tag Names")]
+    [Trait("Constants", "Header tag names")]
     internal void ENCODING_tag_name_should_be_ENCODING() {
         // Arrange
         var expected = "ENCODING";
@@ -113,7 +113,7 @@ public class ConstantsHeaderTagNamesTests : IDisposable {
     }
 
     [Fact(DisplayName = "CHARSET tag name should be 'CHARSET'")]
-    [Trait("Header", "Tag Names")]
+    [Trait("Constants", "Header tag names")]
     internal void CHARSET_tag_name_should_be_CHARSET() {
         // Arrange
         var expected = "CHARSET";
@@ -128,7 +128,7 @@ public class ConstantsHeaderTagNamesTests : IDisposable {
     }
 
     [Fact(DisplayName = "COMPRESSION tag name should be 'COMPRESSION'")]
-    [Trait("Header", "Tag Names")]
+    [Trait("Constants", "Header tag names")]
     internal void COMPRESSION_tag_name_should_be_COMPRESSION() {
         // Arrange
         var expected = "COMPRESSION";
@@ -143,7 +143,7 @@ public class ConstantsHeaderTagNamesTests : IDisposable {
     }
 
     [Fact(DisplayName = "OLDFILEUID tag name should be 'OLDFILEUID'")]
-    [Trait("Header", "Tag Names")]
+    [Trait("Constants", "Header tag names")]
     internal void OLDFILEUID_tag_name_should_be_OLDFILEUID() {
         // Arrange
         var expected = "OLDFILEUID";
@@ -158,7 +158,7 @@ public class ConstantsHeaderTagNamesTests : IDisposable {
     }
 
     [Fact(DisplayName = "NEWFILEUID tag name should be 'NEWFILEUID'")]
-    [Trait("Header", "Tag Names")]
+    [Trait("Constants", "Header tag names")]
     internal void NEWFILEUID_tag_name_should_be_NEWFILEUID() {
         // Arrange
         var expected = "NEWFILEUID";

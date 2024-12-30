@@ -38,7 +38,7 @@ public class HeaderCompressionTests : IDisposable {
 
     #region Tests
     [Fact(DisplayName = "HeaderCompression should have None value as 0")]
-    [Trait("Header", "Compression")]
+    [Trait("Primitives", "Compression enum")]
     internal void HeaderCompression_should_have_None_value_as_0() {
         // Arrange
         var expected = 0;

@@ -32,7 +32,7 @@ namespace OFX.SDK.Tests.Primitives.Header;
 
 public class HeaderEncodingTests {
     [Fact(DisplayName = "HeaderEncoding should have UTF8 value as 0")]
-    [Trait("Header", "Encoding")]
+    [Trait("Primitives", "Encoding enum")]
     public void HeaderEncoding_UTF8_Should_Be_0() {
         // Arrange
         var expected = 0;
@@ -47,7 +47,7 @@ public class HeaderEncodingTests {
     }
 
     [Fact(DisplayName = "HeaderEncoding should have USASCII value as 1")]
-    [Trait("Header", "Encoding")]
+    [Trait("Primitives", "Encoding enum")]
     public void HeaderEncoding_USASCII_Should_Be_1() {
         // Arrange
         var expected = 1;

@@ -32,7 +32,7 @@ namespace OFX.SDK.Tests.Primitives.Header;
 
 public class HeaderVersionTests {
     [Fact(DisplayName = "HeaderVersion should have OFX100 value as 0")]
-    [Trait("Category", "HeaderVersion")]
+    [Trait("Primitives", "HeaderVersion enum")]
     public void HeaderVersion_Should_Have_OFX100_Value_As_0() {
         // Arrange
         var expected = 0;
@@ -47,7 +47,7 @@ public class HeaderVersionTests {
     }
 
     [Fact(DisplayName = "HeaderVersion should have OFX200 value as 1")]
-    [Trait("Category", "HeaderVersion")]
+    [Trait("Primitives", "HeaderVersion enum")]
     public void HeaderVersion_Should_Have_OFX200_Value_As_1() {
         // Arrange
         var expected = 1;

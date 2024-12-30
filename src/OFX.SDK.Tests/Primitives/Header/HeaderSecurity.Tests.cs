@@ -38,7 +38,7 @@ public class HeaderSecurityTests : IDisposable {
 
     #region Tests
     [Fact(DisplayName = "HeaderSecurity should have None value as 0")]
-    [Trait("Header", "Security")]
+    [Trait("Primitives", "Security enum")]
     internal void HeaderSecurity_should_have_None_value_as_0() {
         // Arrange
         var expected = 0;
@@ -53,7 +53,7 @@ public class HeaderSecurityTests : IDisposable {
     }
 
     [Fact(DisplayName = "HeaderSecurity should have Type1 value as 1")]
-    [Trait("Header", "Security")]
+    [Trait("Primitives", "Security enum")]
     internal void HeaderSecurity_should_have_Type1_value_as_1() {
         // Arrange
         var expected = 1;
