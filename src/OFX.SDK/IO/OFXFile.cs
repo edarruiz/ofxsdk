@@ -36,21 +36,6 @@ namespace OFX.SDK;
 public sealed class OFXFile {
     #region Fields
     /// <summary>
-    /// Represents the known headers of an OFX file.
-    /// </summary>
-    private IDictionary<string, string> Headers = new Dictionary<string, string> {
-        { Constants.Header.TagNames.OFXHEADER, string.Empty },
-        { Constants.Header.TagNames.DATA, string.Empty },
-        { Constants.Header.TagNames.VERSION, string.Empty },
-        { Constants.Header.TagNames.SECURITY, string.Empty },
-        { Constants.Header.TagNames.ENCODING, string.Empty },
-        { Constants.Header.TagNames.CHARSET, string.Empty },
-        { Constants.Header.TagNames.COMPRESSION, string.Empty },
-        { Constants.Header.TagNames.OLDFILEUID, string.Empty },
-        { Constants.Header.TagNames.NEWFILEUID, string.Empty }
-    };
-
-    /// <summary>
     /// Represents an open SGML tag indicator for the SGML map.
     /// </summary>
     private const string OPEN_TAG = "OPEN_TAG";
@@ -90,9 +75,24 @@ public sealed class OFXFile {
     public string FilePath { get; init; } = string.Empty;
 
     /// <summary>
+    /// Gets the known headers of an OFX file.
+    /// </summary>
+    public Dictionary<string, string> Headers { get; init; } = new() {
+        { Constants.Header.TagNames.OFXHEADER, string.Empty },
+        { Constants.Header.TagNames.DATA, string.Empty },
+        { Constants.Header.TagNames.VERSION, string.Empty },
+        { Constants.Header.TagNames.SECURITY, string.Empty },
+        { Constants.Header.TagNames.ENCODING, string.Empty },
+        { Constants.Header.TagNames.CHARSET, string.Empty },
+        { Constants.Header.TagNames.COMPRESSION, string.Empty },
+        { Constants.Header.TagNames.OLDFILEUID, string.Empty },
+        { Constants.Header.TagNames.NEWFILEUID, string.Empty }
+    };
+
+    /// <summary>
     /// Gets the SGML tag map of the OFX file.
     /// </summary>
-    private IList<SGMLTag> SGMLMap { get; } = [];
+    public IList<SGMLTag> SGMLMap { get; } = [];
     #endregion
 
     #region Methods
@@ -157,19 +157,16 @@ public sealed class OFXFile {
         StringBuilder xml = new();
 
         xml.AppendLine("<?xml version=\"1.0\" encoding=\"utf-8\"?>");
-        int level = 0;
         foreach (var tag in SGMLMap) {
             switch (tag.Value) {
                 case OPEN_TAG:
-                    xml.AppendLine($"{new string(' ', level * 2)}<{tag.Name}>");
-                    level++;
+                    xml.AppendLine($"{new string(' ', (tag.Level - 1) * 2)}<{tag.Name}>");
                     break;
                 case CLOSE_TAG:
-                    level--;
-                    xml.AppendLine($"{new string(' ', level * 2)}</{tag.Name}>");
+                    xml.AppendLine($"{new string(' ', (tag.Level - 1) * 2)}</{tag.Name}>");
                     break;
                 default:
-                    xml.AppendLine($"{new string(' ', level * 2)}<{tag.Name}>{tag.Value}</{tag.Name}>");
+                    xml.AppendLine($"{new string(' ', (tag.Level - 1) * 2)}<{tag.Name}>{tag.Value}</{tag.Name}>");
                     break;
             }
         }
