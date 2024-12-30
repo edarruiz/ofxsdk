@@ -1,4 +1,4 @@
-namespace OFX.SDK.Specifications.Version102;
+namespace OFX.SDK;
 
 #region MIT License Information
 /*
@@ -31,37 +31,35 @@ namespace OFX.SDK.Specifications.Version102;
 /// <summary>
 /// Represents the OFX file header for version 1.0.2.
 /// </summary>
-public sealed record Header : AbstractHeader {
-    #region Properties
-    /// <summary>
-    /// Gets the value of the <c>DATA</c> header tag, which specifies the content type, in this case <c>OFXSGML</c>.
-    /// </summary>
-    /// <remarks>You should add new values for a DATA tag only when you introduce an entirely new syntax. In the case of
-    /// OFXSGML, a new syntax would have to be non-SGML compliant to warrant a new DATA value.It is
-    /// possible that there will be more than one syntax in use at the same time to meet different needs.</remarks>
-    public string Data { get; init; } = Constants.Header.TagValues.DATA_OFXSGML;
-
-    /// <summary>
-    /// Gets the value of the <c>ENCODING</c> header tag, which defines the character encoding of the OFX data block.
-    /// </summary>
-    public HeaderEncoding Encoding { get; init; } = HeaderEncoding.USASCII;
-
-    /// <summary>
-    /// Gets the value of the <c>CHARSET</c> header tag, which defines the character set used for character data.
-    /// </summary>
-    public HeaderCharset Charset { get; init; } = HeaderCharset.WIN_1252;
-
-    /// <summary>
-    /// Gets the value of the <c>COMPRESSION</c> header tag, which specifies the compression type used for the OFX data block.
-    /// </summary>
-    public HeaderCompression Compression { get; init; } = HeaderCompression.None;
-    #endregion
-
+public sealed record Header102() : AbstractHeader, IRequiredSGMLHeaderTags {
     #region Overrides
     /// <inheritdoc/>
     public override HeaderVersion OFXHeader => HeaderVersion.OFX100;
 
     /// <inheritdoc/>
     public override SpecificationVersion Version => SpecificationVersion.Version102;
+
+    /// <inheritdoc/>
+    public override HeaderSecurity Security { get; init; } = HeaderSecurity.None;
+
+    /// <inheritdoc/>
+    public override string OldFileUID { get; init; } = Constants.Header.TagValues.OLDFILEUID_NONE;
+
+    /// <inheritdoc/>
+    public override string NewFileUID { get; init; } = Constants.Header.TagValues.NEWFILEUID_NONE;
+    #endregion
+
+    #region IRequiredSGMLHeaderTags
+    /// <inheritdoc/>
+    public string Data { get; init; } = Constants.Header.TagValues.DATA_OFXSGML;
+
+    /// <inheritdoc/>
+    public HeaderEncoding Encoding { get; init; } = HeaderEncoding.USASCII;
+
+    /// <inheritdoc/>
+    public HeaderCharset Charset { get; init; } = HeaderCharset.WIN_1252;
+
+    /// <inheritdoc/>
+    public HeaderCompression Compression { get; init; } = HeaderCompression.None;
     #endregion
 }

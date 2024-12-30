@@ -29,24 +29,31 @@ namespace OFX.SDK;
 #endregion
 
 /// <summary>
-/// Represents the OFX file header.
+/// Represents the OFX file required SGML header tags.
 /// </summary>
-[ExcludeFromCodeCoverage]
-public abstract record AbstractHeader : IRequiredHeaderTags {
-    #region IRequiredHeaderTags
-    /// <inheritdoc/>
-    public abstract HeaderVersion OFXHeader { get; }
+public interface IRequiredSGMLHeaderTags {
+    #region Properties
+    /// <summary>
+    /// Gets the value of the <c>DATA</c> header tag, which specifies the content type, in this case <c>OFXSGML</c>.
+    /// </summary>
+    /// <remarks>You should add new values for a DATA tag only when you introduce an entirely new syntax. In the case of
+    /// OFXSGML, a new syntax would have to be non-SGML compliant to warrant a new DATA value.It is
+    /// possible that there will be more than one syntax in use at the same time to meet different needs.</remarks>
+    string Data { get; init; }
 
-    /// <inheritdoc/>
-    public abstract SpecificationVersion Version { get; }
+    /// <summary>
+    /// Gets the value of the <c>ENCODING</c> header tag, which defines the character encoding of the OFX data block.
+    /// </summary>
+    HeaderEncoding Encoding { get; init; }
 
-    /// <inheritdoc/>
-    public abstract HeaderSecurity Security { get; init; }
+    /// <summary>
+    /// Gets the value of the <c>CHARSET</c> header tag, which defines the character set used for character data.
+    /// </summary>
+    HeaderCharset Charset { get; init; }
 
-    /// <inheritdoc/>
-    public abstract string OldFileUID { get; init; }
-
-    /// <inheritdoc/>
-    public abstract string NewFileUID { get; init; }
+    /// <summary>
+    /// Gets the value of the <c>COMPRESSION</c> header tag, which specifies the compression type used for the OFX data block.
+    /// </summary>
+    HeaderCompression Compression { get; init; }
     #endregion
 }

@@ -30,7 +30,17 @@ The following list shows the supported specification versions and its current im
 
 # Version History
 
-- 1.0.0-Alpha-1
-  - Add support to .NET 9.0
+## 1.0.0-Alpha-1
+- Add support to .NET 9.0
+- Removed old project structure
+- Created Parser to read and convert SGML to XML
+- Generate classes from OFX 2.3 XSD specification file (optimized for .NET)
+- Refactored OFX Header abstractions and primitives
+- Removed OFX prefix from all classes
 
+## 1.0.0-Alpha-2
+- Fix package license and description
+- Add unit tests for OFX headers
+- Add unit tests for OFX SGML parser
+- Refactor OFX Header abstractions and primitives
 

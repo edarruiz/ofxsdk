@@ -1,4 +1,4 @@
-namespace OFX.SDK;
+namespace OFX.SDK.Tests.Primitives.Header;
 
 #region MIT License Information
 /*
@@ -28,25 +28,36 @@ namespace OFX.SDK;
  */
 #endregion
 
-/// <summary>
-/// Represents the OFX file header.
-/// </summary>
 [ExcludeFromCodeCoverage]
-public abstract record AbstractHeader : IRequiredHeaderTags {
-    #region IRequiredHeaderTags
-    /// <inheritdoc/>
-    public abstract HeaderVersion OFXHeader { get; }
 
-    /// <inheritdoc/>
-    public abstract SpecificationVersion Version { get; }
+public class HeaderEncodingTests {
+    [Fact(DisplayName = "HeaderEncoding should have UTF8 value as 0")]
+    [Trait("Primitives", "Encoding enum")]
+    public void HeaderEncoding_UTF8_Should_Be_0() {
+        // Arrange
+        var expected = 0;
 
-    /// <inheritdoc/>
-    public abstract HeaderSecurity Security { get; init; }
+        // Act
+        var actual = (int)HeaderEncoding.UTF8;
 
-    /// <inheritdoc/>
-    public abstract string OldFileUID { get; init; }
+        // Assert
+        actual
+            .Should()
+            .Be(expected);
+    }
 
-    /// <inheritdoc/>
-    public abstract string NewFileUID { get; init; }
-    #endregion
+    [Fact(DisplayName = "HeaderEncoding should have USASCII value as 1")]
+    [Trait("Primitives", "Encoding enum")]
+    public void HeaderEncoding_USASCII_Should_Be_1() {
+        // Arrange
+        var expected = 1;
+
+        // Act
+        var actual = (int)HeaderEncoding.USASCII;
+
+        // Assert
+        actual
+            .Should()
+            .Be(expected);
+    }
 }

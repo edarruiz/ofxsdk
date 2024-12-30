@@ -1,4 +1,4 @@
-namespace OFX.SDK;
+namespace OFX.SDK.Tests.Primitives.Header;
 
 #region MIT License Information
 /*
@@ -28,25 +28,36 @@ namespace OFX.SDK;
  */
 #endregion
 
-/// <summary>
-/// Represents the OFX file header.
-/// </summary>
 [ExcludeFromCodeCoverage]
-public abstract record AbstractHeader : IRequiredHeaderTags {
-    #region IRequiredHeaderTags
-    /// <inheritdoc/>
-    public abstract HeaderVersion OFXHeader { get; }
 
-    /// <inheritdoc/>
-    public abstract SpecificationVersion Version { get; }
+public class HeaderVersionTests {
+    [Fact(DisplayName = "HeaderVersion should have OFX100 value as 0")]
+    [Trait("Primitives", "HeaderVersion enum")]
+    public void HeaderVersion_Should_Have_OFX100_Value_As_0() {
+        // Arrange
+        var expected = 0;
 
-    /// <inheritdoc/>
-    public abstract HeaderSecurity Security { get; init; }
+        // Act
+        var actual = (int)HeaderVersion.OFX100;
 
-    /// <inheritdoc/>
-    public abstract string OldFileUID { get; init; }
+        // Assert
+        actual
+            .Should()
+            .Be(expected);
+    }
 
-    /// <inheritdoc/>
-    public abstract string NewFileUID { get; init; }
-    #endregion
+    [Fact(DisplayName = "HeaderVersion should have OFX200 value as 1")]
+    [Trait("Primitives", "HeaderVersion enum")]
+    public void HeaderVersion_Should_Have_OFX200_Value_As_1() {
+        // Arrange
+        var expected = 1;
+
+        // Act
+        var actual = (int)HeaderVersion.OFX200;
+
+        // Assert
+        actual
+            .Should()
+            .Be(expected);
+    }
 }

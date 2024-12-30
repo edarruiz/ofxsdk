@@ -1,4 +1,4 @@
-namespace OFX.SDK;
+namespace OFX.SDK.Tests.Primitives.Header;
 
 #region MIT License Information
 /*
@@ -28,25 +28,43 @@ namespace OFX.SDK;
  */
 #endregion
 
-/// <summary>
-/// Represents the OFX file header.
-/// </summary>
 [ExcludeFromCodeCoverage]
-public abstract record AbstractHeader : IRequiredHeaderTags {
-    #region IRequiredHeaderTags
-    /// <inheritdoc/>
-    public abstract HeaderVersion OFXHeader { get; }
+public class HeaderSecurityTests : IDisposable {
+    #region Ctor and Dtor
+    public HeaderSecurityTests() { }
 
-    /// <inheritdoc/>
-    public abstract SpecificationVersion Version { get; }
+    public void Dispose() => GC.SuppressFinalize(this);
+    #endregion
 
-    /// <inheritdoc/>
-    public abstract HeaderSecurity Security { get; init; }
+    #region Tests
+    [Fact(DisplayName = "HeaderSecurity should have None value as 0")]
+    [Trait("Primitives", "Security enum")]
+    internal void HeaderSecurity_should_have_None_value_as_0() {
+        // Arrange
+        var expected = 0;
 
-    /// <inheritdoc/>
-    public abstract string OldFileUID { get; init; }
+        // Act
+        var actual = (int)HeaderSecurity.None;
 
-    /// <inheritdoc/>
-    public abstract string NewFileUID { get; init; }
+        // Assert
+        actual
+            .Should()
+            .Be(expected);
+    }
+
+    [Fact(DisplayName = "HeaderSecurity should have Type1 value as 1")]
+    [Trait("Primitives", "Security enum")]
+    internal void HeaderSecurity_should_have_Type1_value_as_1() {
+        // Arrange
+        var expected = 1;
+
+        // Act
+        var actual = (int)HeaderSecurity.Type1;
+
+        // Assert
+        actual
+            .Should()
+            .Be(expected);
+    }
     #endregion
 }
