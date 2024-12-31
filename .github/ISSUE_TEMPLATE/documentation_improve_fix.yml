@@ -1,0 +1,60 @@
+name: Documentation Report
+description: Suggest an improvement or correction to the project documentation
+labels: ["documentation", "contributing"]
+assignees: edarruiz
+body:
+  - type: markdown
+    attributes:
+      value: |
+        We welcome bug reports! Please see our [Contribution Guidelines](https://github.com/edarruiz/ofxsdk/blob/main/CONTRIBUTING.md) for more information on writing a good bug report. This template will help us gather the information we need to evaluate the bug report.
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: This project has a Code of Conduct that all participants are expected to understand and follow.
+      options:
+        - label: I have read and agree to the OFX SDK project's [Code of Conduct](https://github.com/edarruiz/ofxsdk/blob/main/CODE_OF_CONDUCT.md)
+          required: true
+  - type: checkboxes
+    id: reason
+    attributes:
+      label: What is the reason you are opening this documentation issue?
+      description: Check the reasons why we should look further about the documentation topic.
+      options:
+        - label: Typo
+        - label: Incorrect information was provided
+        - label: Incorrect grammar
+        - label: Information was not clear. Need revision
+        - label: Other (I'll add more details)
+  - type: textarea
+    id: affected-files
+    attributes:
+      label: Affected documentation files
+      description: Please list all the affected documentation files repository URLs.
+      placeholder: List all the affected documentation file paths here
+    validations:
+      required: true
+  - type: textarea
+    id: detais
+    attributes:
+      label: Details about the files or topics
+      description: Please describe in details the improvement or the correction needed in the mentioned files or topics.
+      placeholder: Tell us what you think we need to do in this files about the topics
+    validations:
+      required: true
+  - type: textarea
+    id: suggestions
+    attributes:
+      label: Suggestions and corrections changes
+      description: Please tell us your suggestions or make your corrections needed in the mentioned files or topics
+      placeholder: Write here the changes or corrections you suggest us do apply in the documentation files or topics
+    validations:
+      required: true
+  - type: textarea
+    id: other-info
+    attributes:
+      label: Other information
+      description: If you have more details to add or ideas to share, let us know that here.
+      placeholder: Other information
+    validations:
+      required: false
