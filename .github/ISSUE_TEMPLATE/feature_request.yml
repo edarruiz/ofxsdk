@@ -1,0 +1,57 @@
+name: New Feature Request
+description: Suggest an idea for this project
+labels: [new-feature, contributing]
+assignees: edarruiz
+body: 
+  - type: markdown
+    attributes:
+      value: | 
+        We welcome new feature requests! Please see our [Contribution Guidelines](https://github.com/edarruiz/ofxsdk/blob/main/CONTRIBUTING.md) for more information on writing a good bug report. This template will help us gather the information we need to evaluate the bug report.
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: This project has a Code of Conduct that all participants are expected to understand and follow.
+      options:
+        - label: I have read and agree to the OFX SDK project's [Code of Conduct](https://github.com/edarruiz/ofxsdk/blob/main/CODE_OF_CONDUCT.md)
+          required: true
+  - type: textarea
+    id: feature-problem
+    attributes:
+      label: Problem
+      description: Is your feature request related to a problem? If Yes, please describe in details.
+      placeholder: A clear and concise description of what the problem is. Ex. I'm always frustrated when [...].
+    validations:
+      required: true
+  - type: textarea
+    id: feature-solution
+    attributes:
+      label: Solution
+      description: Describe the solution you'd like to see for this feature.
+      placeholder: A clear and concise description of what you want to happen.
+    validations:
+      required: true
+  - type: textarea
+    id: feature-alternatives
+    attributes:
+      label: Alternatives
+      description: Describe alternatives you've considered, discovered, created or tested.
+      placeholder: A clear and concise description of any alternative solutions or features you've considered, discovered, created or tested.
+    validations:
+      required: true
+  - type: textarea
+    id: example
+    attributes:
+      label: Examples
+      description: If there was any alternatives, provide some examples of how the alternative has been applied.
+      placeholder: Code, links, snippets showing examples how to replicate the alternative described.
+    validations:
+      required: true
+  - type: textarea
+    id: other-info
+    attributes:
+      label: Other information
+      description: If you have more details to add or ideas to share, let us know that here.
+      placeholder: Other information
+    validations:
+      required: false
