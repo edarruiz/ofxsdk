@@ -66,6 +66,7 @@ jobs:
         path: ./src/OFX.SDK/bin/Release/
         if-no-files-found: error
         retention-days: 7
+        overwrite: true
 
 #----- PUBLISH-GITHUB-PACKAGES-STAGE -----
   publish-github-packages:
@@ -97,7 +98,7 @@ jobs:
 
     # PUBLISH STEP - dotnet nuget push GitHub Package Repository for OFX.SDK binaries
     - name: Push OFX.SDK to GitHub Package Repository
-      run: dotnet nuget push ./ofx-artifacts/*.nupkg --api-key ${{ secrets.GITHUB_TOKEN }} --source "https://nuget.pkg.github.com/edarruiz/index.json" --skip-duplicate
+      run: dotnet nuget push ./ofxsdk-artifacts/*.nupkg --api-key ${{ secrets.GITHUB_TOKEN }} --source "https://nuget.pkg.github.com/edarruiz/index.json" --skip-duplicate
 
 #----- PUBLISH-NUGET.ORG-PACKAGES-STAGE -----
   publish-nugetorg:
