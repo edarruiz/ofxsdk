@@ -60,7 +60,7 @@ jobs:
 
     # PUBLISH ARTIFACTS STEP - OFX.SDK Binaries Artifacts
     - name: Publish Artifacts OFX.SDK
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: ofxsdk-artifacts
         path: ./src/OFX.SDK/bin/Release/
