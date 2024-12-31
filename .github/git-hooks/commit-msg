@@ -1,0 +1,9 @@
+#!/bin/sh 
+
+commit_msg=$(cat "${1:?Missing commit message file}") 
+
+if ! echo "$commit_msg" | grep -Eq "^(build|chore|ci|docs|feat|feat!|fix|perf|refactor|revert|style|test|nuget)(\(.+\))?: .*$" ; then 
+  echo "Invalid commit message" 
+    exit 1 
+fi 
+echo "Commit message is valid!"
