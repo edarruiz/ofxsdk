@@ -18,7 +18,7 @@
 		<EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
 		<Title>OFX SDK for .NET</Title>
 		<VersionPrefix>1.0.0</VersionPrefix>
-		<VersionSuffix>-Alpha-2</VersionSuffix>
+		<VersionSuffix>-Alpha-3</VersionSuffix>
 		<Version>$(VersionPrefix)$(VersionSuffix)</Version>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 	</PropertyGroup>
