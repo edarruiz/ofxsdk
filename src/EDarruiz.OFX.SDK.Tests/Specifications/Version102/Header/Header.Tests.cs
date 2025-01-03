@@ -1,4 +1,4 @@
-namespace OFX.SDK.Tests.Specifications.Version102.Header;
+namespace EDarruiz.OFX.SDK.Tests.Specifications.Version102.Header;
 
 #region MIT License Information
 /*
