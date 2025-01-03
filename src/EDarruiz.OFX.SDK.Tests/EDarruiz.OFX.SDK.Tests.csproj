@@ -34,6 +34,6 @@
     </ItemGroup>
     
     <ItemGroup>
-      <ProjectReference Include="..\OFX.SDK\OFX.SDK.csproj" />
+      <ProjectReference Include="..\EDarruiz.OFX.SDK\EDarruiz.OFX.SDK.csproj" />
     </ItemGroup>
 </Project>

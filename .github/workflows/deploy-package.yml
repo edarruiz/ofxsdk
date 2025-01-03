@@ -42,28 +42,28 @@ jobs:
 
     # RESTORE STEP - dotnet restore **/*.csproj
     - name: dotnet restore OFX.SDK
-      run: dotnet restore ./src/OFX.SDK/OFX.SDK.csproj --verbosity detailed
+      run: dotnet restore ./src/EDarruiz.OFX.SDK/EDarruiz.OFX.SDK.csproj --verbosity detailed
 
     - name: dotnet restore OFX.SDK Tests
-      run: dotnet restore ./src/OFX.SDK.Tests/OFX.SDK.Tests.csproj --verbosity detailed
+      run: dotnet restore ./src/EDarruiz.OFX.SDK.Tests/EDarruiz.OFX.SDK.Tests.csproj --verbosity detailed
 
     # BUILD STEP - dotnet build **/*.csproj
     - name: dotnet build OFX.SDK
-      run: dotnet build ./src/OFX.SDK/OFX.SDK.csproj --configuration $BUILD_CONFIG --no-restore --verbosity detailed
+      run: dotnet build ./src/EDarruiz.OFX.SDK/EDarruiz.OFX.SDK.csproj --configuration $BUILD_CONFIG --no-restore --verbosity detailed
 
     - name: dotnet build OFX.SDK Tests
-      run: dotnet build ./src/OFX.SDK.Tests/OFX.SDK.Tests.csproj --configuration $BUILD_CONFIG --no-restore --verbosity detailed
+      run: dotnet build ./src/EDarruiz.OFX.SDK.Tests/EDarruiz.OFX.SDK.Tests.csproj --configuration $BUILD_CONFIG --no-restore --verbosity detailed
 
     # TEST STEP - dotnet test **/*.Tests.csproj
     - name: dotnet test OFX.SDK Tests
-      run: dotnet test ./src/OFX.SDK.Tests/OFX.SDK.Tests.csproj --configuration $BUILD_CONFIG --no-restore --no-build --verbosity detailed
+      run: dotnet test ./src/EDarruiz.OFX.SDK.Tests/EDarruiz.OFX.SDK.Tests.csproj --configuration $BUILD_CONFIG --no-restore --no-build --verbosity detailed
 
     # PUBLISH ARTIFACTS STEP - OFX.SDK Binaries Artifacts
     - name: Publish Artifacts OFX.SDK
       uses: actions/upload-artifact@v4
       with:
         name: ofxsdk-artifacts
-        path: ./src/OFX.SDK/bin/Release/
+        path: ./src/EDarruiz.OFX.SDK/bin/Release/
         if-no-files-found: error
         retention-days: 7
         overwrite: true
@@ -101,36 +101,36 @@ jobs:
       run: dotnet nuget push ./ofxsdk-artifacts/*.nupkg --api-key ${{ secrets.GITHUB_TOKEN }} --source "https://nuget.pkg.github.com/edarruiz/index.json" --skip-duplicate
 
 #----- PUBLISH-NUGET.ORG-PACKAGES-STAGE -----
-#  publish-nugetorg:
-#    name: CD Stage - Deploy to NuGet.org
-#    runs-on: ubuntu-latest
-#    strategy:
-#      fail-fast: true
-#      matrix:
-#        dotnet-version:
-#          - '9.0.x' # Already produces net8.0 and net9.0 binaries due the <TargetFrameworks> MSBuild property
-#    timeout-minutes: 5
-#    needs: build-stage
-#    steps:
-#    # SETUP STEP - dotnet versions install
-#    - name: Setup .NET SDK ${{ matrix.dotnet-version }}
-#      uses: actions/setup-dotnet@v4
-#      with:
-#        dotnet-version: ${{ matrix.dotnet-version }}      
-#    
-#    # DOWNLOAD ARTIFACTS STEP - OFX.SDK binaries
-#    - name: Download ofxsdk-artifacts
-#      uses: actions/download-artifact@v4
-#      with:
-#        name: ofxsdk-artifacts
-#        path: ./ofxsdk-artifacts
-#    - name: Display structure of downloaded ofxsdk-artifacts files
-#      run: ls -R
-#      working-directory: ./ofxsdk-artifacts
-#
-#    # PUBLISH STEP - dotnet nuget push NuGet.org Package Repository for OFX.SDK binaries
-#    - name: Push OFX.SDK to NuGet.org Package Repository
-#      run: dotnet nuget push ./ofxsdk-artifacts/*.nupkg --api-key ${{ secrets.OFXSDK_NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate    
+  publish-nugetorg:
+    name: CD Stage - Deploy to NuGet.org
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: true
+      matrix:
+        dotnet-version:
+          - '9.0.x' # Already produces net8.0 and net9.0 binaries due the <TargetFrameworks> MSBuild property
+    timeout-minutes: 5
+    needs: build-stage
+    steps:
+    # SETUP STEP - dotnet versions install
+    - name: Setup .NET SDK ${{ matrix.dotnet-version }}
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: ${{ matrix.dotnet-version }}      
+    
+    # DOWNLOAD ARTIFACTS STEP - OFX.SDK binaries
+    - name: Download ofxsdk-artifacts
+      uses: actions/download-artifact@v4
+      with:
+        name: ofxsdk-artifacts
+        path: ./ofxsdk-artifacts
+    - name: Display structure of downloaded ofxsdk-artifacts files
+      run: ls -R
+      working-directory: ./ofxsdk-artifacts
+
+    # PUBLISH STEP - dotnet nuget push NuGet.org Package Repository for OFX.SDK binaries
+    - name: Push OFX.SDK to NuGet.org Package Repository
+      run: dotnet nuget push ./ofxsdk-artifacts/*.nupkg --api-key ${{ secrets.OFXSDK_NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate    
 
 
 #----- CREATE-GITHUB-RELEASE-STAGE -----  
@@ -140,7 +140,7 @@ jobs:
     timeout-minutes: 5
     needs:
       - publish-github-packages
-#      - publish-nugetorg
+      - publish-nugetorg
     steps:
     # GIT CHECKOUT STEP - Get latest sources from git
     - name: Checkout source
@@ -158,9 +158,9 @@ jobs:
     
     # COMPRESS ofxsdk-artifacts STAGE - OFX.SDK binaries
     - name: Zip ofxsdk-artifacts files
-      run: zip -r ./OFXSDK.$TAG_NAME-binaries.zip ./ofxsdk-artifacts/
+      run: zip -r ./EDarruiz.OFXSDK.$TAG_NAME-binaries.zip ./ofxsdk-artifacts/
     - name: Tar/GZip ofxsdk-artifact files
-      run: tar -czvf ./OFX.SDK.$TAG_NAME-binaries.tar.gz ./ofxsdk-artifacts/
+      run: tar -czvf ./EDarruiz.OFX.SDK.$TAG_NAME-binaries.tar.gz ./ofxsdk-artifacts/
     - name: List compressed ofxsdk-artifacts files
       run: ls -lA *.{zip,tar.gz}
 
@@ -176,14 +176,14 @@ jobs:
         prerelease: true # <--- PRE-RELEASE
         generate_release_notes: true
         files: |
-          OFX.SDK.${{ github.ref_name }}-binaries.zip
-          OFX.SDK.${{ github.ref_name }}-binaries.tar.gz
+          EDarruiz.OFX.SDK.${{ github.ref_name }}-binaries.zip
+          EDarruiz.OFX.SDK.${{ github.ref_name }}-binaries.tar.gz
 
     # CREATE GITHUB RELEASE STEP - When we do not have '-alpha', '-beta' or '-rc' in the branch name, we mark the github release as 'release'.
     - name: Create GitHub Release
       id: create-github-release 
       uses: softprops/action-gh-release@v2
-      if: ${{ !contains(github.ref_name, 'alpha') && !contains(github.ref_name, 'ALPHA') && !contains(github.ref_name, '-beta') && !contains(github.ref_name, '-BETA') && !contains(github.ref_name, '-rc') && !contains(github.ref_name, '-RC') }}
+      if: ${{ !contains(github.ref_name, '-alpha') && !contains(github.ref_name, '-ALPHA') && !contains(github.ref_name, '-beta') && !contains(github.ref_name, '-BETA') && !contains(github.ref_name, '-rc') && !contains(github.ref_name, '-RC') }}
       with:
         tag_name: ${{ github.ref_name }}
         name: Release ${{ github.ref_name }}
@@ -191,7 +191,7 @@ jobs:
         prerelease: false # <-- RELEASE
         generate_release_notes: true
         files: |
-          OFX.SDK.${{ github.ref_name }}-binaries.zip
-          OFX.SDK.${{ github.ref_name }}-binaries.tar.gz
+          EDarruiz.OFX.SDK.${{ github.ref_name }}-binaries.zip
+          EDarruiz.OFX.SDK.${{ github.ref_name }}-binaries.tar.gz
           
 
