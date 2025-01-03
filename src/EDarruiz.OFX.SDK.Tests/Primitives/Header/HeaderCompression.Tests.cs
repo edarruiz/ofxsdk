@@ -1,4 +1,4 @@
-namespace OFX.SDK.Tests.Primitives.Header;
+namespace EDarruiz.OFX.SDK.Tests.Primitives.Header;
 
 #region MIT License Information
 /*

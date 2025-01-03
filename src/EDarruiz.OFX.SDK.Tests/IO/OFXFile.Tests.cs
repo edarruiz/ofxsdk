@@ -1,4 +1,4 @@
-namespace OFX.SDK.Tests.IO;
+namespace EDarruiz.OFX.SDK.Tests.IO;
 
 #region MIT License Information
 /*

@@ -1,4 +1,4 @@
-namespace OFX.SDK;
+namespace EDarruiz.OFX.SDK;
 
 #region MIT License Information
 /*
