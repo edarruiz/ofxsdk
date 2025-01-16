@@ -30,14 +30,15 @@ The following list shows the supported specification versions and its current im
 
 # Version History
 
-## 1.0.0-Alpha-1
+## 1.0.0-Alpha-4
 
-- Add support to .NET 9.0
-- Removed old project structure (from 2022, .NET 5.0, .NET 6.0)
-- Created Parser to read and convert SGML to XML
-- Generate classes from OFX 2.3 XSD specification file (optimized for .NET)
-- Refactored OFX Header abstractions and primitives
-- Removed OFX prefix from all classes
+- Add support for package source mapping
+
+
+## 1.0.0-Alpha-3
+
+- Change namespaces to EDarruiz.OFX.SDK
+- Change namespaces to EDarruiz.OFX.SDK.Tests
 
 ## 1.0.0-Alpha-2
 
@@ -47,7 +48,11 @@ The following list shows the supported specification versions and its current im
 - Refactor OFX Header abstractions and primitives
 - Add EDarruiz prefix to package names to be able to publish to NuGet
 
-## 1.0.0-Alpha-3
+## 1.0.0-Alpha-1
 
-- Change namespaces to EDarruiz.OFX.SDK
-- Change namespaces to EDarruiz.OFX.SDK.Tests
+- Add support to .NET 9.0
+- Removed old project structure (from 2022, .NET 5.0, .NET 6.0)
+- Created Parser to read and convert SGML to XML
+- Generate classes from OFX 2.3 XSD specification file (optimized for .NET)
+- Refactored OFX Header abstractions and primitives
+- Removed OFX prefix from all classes
