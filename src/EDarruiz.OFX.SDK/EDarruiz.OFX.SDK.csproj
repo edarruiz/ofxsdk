@@ -4,7 +4,6 @@
 		<TargetFrameworks>net8.0;net9.0</TargetFrameworks>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
-		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 		<Authors>Eric Roberto Darruiz</Authors>
@@ -21,10 +20,37 @@
 		<VersionSuffix>-Alpha-3</VersionSuffix>
 		<Version>$(VersionPrefix)$(VersionSuffix)</Version>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<PublishRepositoryUrl>true</PublishRepositoryUrl>
+		<EmbedUntrackedSources>true</EmbedUntrackedSources>
+		<IncludeSymbols>True</IncludeSymbols>
+		<AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
+		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+		<PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+		<PackageLicenseFile>LICENSE</PackageLicenseFile>
 	</PropertyGroup>
 	<ItemGroup>
-		<None Include="README.md" Pack="True" PackagePath="\" />
+		<None Remove="LICENSE" />
+		<None Remove="README.md" />
+	</ItemGroup>
+	<ItemGroup>
+		<None Include="README.md" Pack="True" PackagePath="\" CopyToOutputDirectory="Always" />
+		<None Include="LICENSE" Pack="True" PackagePath="\" CopyToOutputDirectory="Always" />
     </ItemGroup>
+	<PropertyGroup>
+		<BuildInGitHubActions Condition=" '$(BuildInGitHubActions)' == '' ">false</BuildInGitHubActions>
+		<BuildInAzurePipelines Condition=" '$(BuildInAzurePipelines)' == '' ">false</BuildInAzurePipelines>
+    </PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All" />
+	</ItemGroup>
+	<PropertyGroup Condition=" '$(GITHUB_ACTIONS)' == 'true'">
+		<ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+		<BuildInGitHubActions>true</BuildInGitHubActions>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(TF_BUILD)' == 'true' ">
+		<ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+		<BuildInAzurePipelines>true</BuildInAzurePipelines>
+    </PropertyGroup>
 
 	<ItemGroup>
 	  <Folder Include="Specifications\Abstractions\MessageSetAggregate\" />
