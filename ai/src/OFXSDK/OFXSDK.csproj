@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\OFXSDK.Core\OFXSDK.Core.csproj" />
+    <ProjectReference Include="..\OFXSDK.Parsing\OFXSDK.Parsing.csproj" />
+    <ProjectReference Include="..\OFXSDK.Validation\OFXSDK.Validation.csproj" />
+  </ItemGroup>
+
+</Project>
